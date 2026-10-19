@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Log in to CareCircle to manage your help requests, connect with volunteers, and access your community."
+    >
+
+    <title>Login | CareCircle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Shared and page-specific styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+
+    <!-- Shared and page-specific scripts -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/login.js" defer></script>
+</head>
+
+<body class="login-page">
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span>Care<span class="logo-highlight">Circle</span></span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="services.html">Services</a>
+                <a href="special-care.html">Special Care</a>
+                <a href="about.html">About Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline active" aria-current="page">
+                    Log In
+                </a>
+                <a href="register.html" class="btn btn-primary">
+                    Join CareCircle
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ================= MAIN LOGIN SECTION ================= -->
+    <main class="login-main">
+
+        <section class="login-section">
+            <div class="login-container">
+
+                <!-- Left information panel -->
+                <aside class="login-welcome-panel">
+
+                    <div class="welcome-decoration welcome-decoration-one"></div>
+                    <div class="welcome-decoration welcome-decoration-two"></div>
+
+                    <div class="welcome-content">
+
+                        <span class="welcome-label">
+                            <i class="fa-solid fa-heart"></i>
+                            YOUR COMMUNITY AWAITS
+                        </span>
+
+                        <h1>
+                            Welcome back to
+                            <span>CareCircle.</span>
+                        </h1>
+
+                        <p class="welcome-description">
+                            Every login brings you closer to a community where
+                            helping hands, caring hearts, and meaningful
+                            connections make everyday life better.
+                        </p>
+
+                        <div class="welcome-benefits">
+
+                            <div class="welcome-benefit">
+                                <span class="benefit-icon">
+                                    <i class="fa-solid fa-people-group"></i>
+                                </span>
+                                <div>
+                                    <h3>Stay connected</h3>
+                                    <p>Reconnect with your caring community.</p>
+                                </div>
+                            </div>
+
+                            <div class="welcome-benefit">
+                                <span class="benefit-icon">
+                                    <i class="fa-solid fa-hand-holding-heart"></i>
+                                </span>
+                                <div>
+                                    <h3>Give or receive help</h3>
+                                    <p>Manage your community assistance.</p>
+                                </div>
+                            </div>
+
+                            <div class="welcome-benefit">
+                                <span class="benefit-icon">
+                                    <i class="fa-solid fa-coins"></i>
+                                </span>
+                                <div>
+                                    <h3>Track SocialCredits</h3>
+                                    <p>Keep track of your community contributions.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="welcome-quote">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>
+                                Help Today. Be Helped Tomorrow.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="welcome-bottom">
+                        <span>
+                            <i class="fa-solid fa-shield-heart"></i>
+                            Built around care, dignity, and trust
+                        </span>
+                    </div>
+
+                </aside>
+
+
+                <!-- Right login form -->
+                <div class="login-form-panel">
+
+                    <div class="login-form-header">
+                        <a href="../index.html" class="mobile-login-logo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            Care<span>Circle</span>
+                        </a>
+
+                        <div class="login-icon">
+                            <i class="fa-solid fa-user-lock"></i>
+                        </div>
+
+                        <p class="form-eyebrow">GOOD TO SEE YOU AGAIN</p>
+
+                        <h2>Log in to your account</h2>
+
+                        <p class="form-subtitle">
+                            Enter your details to continue to CareCircle.
+                        </p>
+                    </div>
+
+
+                    <!-- Authentication message -->
+                    <div
+                        class="login-message"
+                        id="loginMessage"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    ></div>
+
+
+                    <form id="loginForm" novalidate>
+
+                        <!-- Email -->
+                        <div class="login-field">
+                            <label for="loginEmail">Email address</label>
+
+                            <div class="login-input-wrapper">
+                                <i class="fa-regular fa-envelope input-icon"></i>
+
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                    maxlength="254"
+                                    required
+                                    aria-describedby="emailError"
+                                >
+                            </div>
+
+                            <small
+                                class="field-error"
+                                id="emailError"
+                                aria-live="polite"
+                            ></small>
+                        </div>
+
+
+                        <!-- Password -->
+                        <div class="login-field">
+                            <div class="password-label-row">
+                                <label for="loginPassword">Password</label>
+
+                                <a href="forgot-password.html" class="forgot-link">
+                                    Forgot password?
+                                </a>
+                            </div>
+
+                            <div class="login-input-wrapper">
+                                <i class="fa-solid fa-lock input-icon"></i>
+
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required
+                                    aria-describedby="passwordError"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="togglePassword"
+                                    aria-label="Show password"
+                                    aria-pressed="false"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+
+                            <small
+                                class="field-error"
+                                id="passwordError"
+                                aria-live="polite"
+                            ></small>
+                        </div>
+
+
+                        <!-- Remember me -->
+                        <div class="login-options">
+                            <label class="remember-option" for="rememberMe">
+                                <input
+                                    type="checkbox"
+                                    id="rememberMe"
+                                    name="rememberMe"
+                                >
+                                <span class="custom-checkbox"></span>
+                                <span>Remember me</span>
+                            </label>
+                        </div>
+
+
+                        <!-- Submit -->
+                        <button
+                            type="submit"
+                            class="btn btn-primary login-submit"
+                            id="loginSubmitButton"
+                        >
+                            <span class="submit-text">Log In</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <p class="login-security-note">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Your account details should always remain private.
+                        </p>
+
+                    </form>
+
+
+                    <div class="login-divider">
+                        <span>NEW TO CARECIRCLE?</span>
+                    </div>
+
+                    <p class="register-prompt">
+                        Create an account and become part of a caring community.
+                    </p>
+
+                    <a href="register.html" class="btn btn-outline register-button">
+                        Create an Account
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <p class="login-help">
+                        Need assistance?
+                        <a href="contact.html">Contact our team</a>
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= TRUST STRIP ================= -->
+        <section class="login-trust-strip" aria-label="CareCircle values">
+            <div class="login-trust-item">
+                <i class="fa-solid fa-heart"></i>
+                <span>Community First</span>
+            </div>
+
+            <div class="login-trust-item">
+                <i class="fa-solid fa-handshake"></i>
+                <span>Mutual Support</span>
+            </div>
+
+            <div class="login-trust-item">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Respect and Dignity</span>
+            </div>
+
+            <div class="login-trust-item">
+                <i class="fa-solid fa-seedling"></i>
+                <span>Stronger Together</span>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    Help Today. Be Helped Tomorrow.
+                </p>
+
+                <div class="footer-bottom-links">
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

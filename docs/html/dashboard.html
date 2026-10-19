@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Your CareCircle dashboard for managing help requests, community contributions, SocialCredits, and account activity."
+    >
+
+    <title>My Dashboard | CareCircle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Shared and dashboard styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <!-- Shared and dashboard scripts -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/dashboard.js" defer></script>
+</head>
+
+<body class="dashboard-page">
+
+    <!-- ================= MOBILE OVERLAY ================= -->
+    <div class="dashboard-overlay" id="dashboardOverlay"></div>
+
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+
+        <a href="../index.html" class="dashboard-brand">
+            <span class="dashboard-brand-icon">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </span>
+
+            <span class="dashboard-brand-name">
+                Care<span>Circle</span>
+            </span>
+        </a>
+
+
+        <div class="sidebar-profile">
+            <div class="sidebar-avatar" id="sidebarAvatar">M</div>
+
+            <div class="sidebar-profile-info">
+                <h2 id="sidebarUserName">Community Member</h2>
+                <p id="sidebarUserRole">Community Member</p>
+            </div>
+
+            <span class="sidebar-profile-status" title="Account status is not verified yet">
+                <i class="fa-solid fa-circle"></i>
+            </span>
+        </div>
+
+
+        <nav class="dashboard-navigation" aria-label="Dashboard navigation">
+
+            <p class="sidebar-section-label">WORKSPACE</p>
+
+            <a
+                href="dashboard.html"
+                class="dashboard-nav-link active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="my-requests.html" class="dashboard-nav-link">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <span>My Help Requests</span>
+                <span class="nav-count" id="sidebarRequestCount">2</span>
+            </a>
+
+            <a href="browse-requests.html" class="dashboard-nav-link" id="browseRequestsLink">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Browse Requests</span>
+            </a>
+
+            <a href="wallet.html" class="dashboard-nav-link">
+                <i class="fa-solid fa-wallet"></i>
+                <span>SocialCredits Wallet</span>
+            </a>
+
+
+            <p class="sidebar-section-label sidebar-section-spaced">
+                COMMUNICATION
+            </p>
+
+            <a href="messages.html" class="dashboard-nav-link">
+                <i class="fa-regular fa-message"></i>
+                <span>Messages</span>
+                <span class="nav-count nav-count-muted">0</span>
+            </a>
+
+            <a href="notifications.html" class="dashboard-nav-link">
+                <i class="fa-regular fa-bell"></i>
+                <span>Notifications</span>
+            </a>
+
+
+            <p class="sidebar-section-label sidebar-section-spaced">
+                MY ACCOUNT
+            </p>
+
+            <a href="profile.html" class="dashboard-nav-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="verification.html" class="dashboard-nav-link">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Verification</span>
+            </a>
+
+            <a href="settings.html" class="dashboard-nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar support card -->
+        <div class="sidebar-support-card">
+            <div class="sidebar-support-icon">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+            <h3>Need a little help?</h3>
+
+            <p>
+                Our community is here to help you take the next step.
+            </p>
+
+            <a href="contact.html">
+                Contact support
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+
+        <div class="sidebar-bottom">
+            <a href="../index.html" class="sidebar-home-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to website</span>
+            </a>
+
+            <button type="button" class="sidebar-logout-button" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN DASHBOARD ================= -->
+    <main class="dashboard-main">
+
+        <!-- Topbar -->
+        <header class="dashboard-topbar">
+
+            <div class="dashboard-topbar-left">
+                <button
+                    type="button"
+                    class="sidebar-toggle"
+                    id="sidebarToggle"
+                    aria-label="Open dashboard navigation"
+                    aria-controls="dashboardSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="dashboard-breadcrumb">
+                    <span>Workspace</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong>Dashboard</strong>
+                </div>
+            </div>
+
+
+            <div class="dashboard-topbar-actions">
+
+                <a
+                    href="notifications.html"
+                    class="topbar-icon-button"
+                    aria-label="View notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot" id="notificationDot"></span>
+                </a>
+
+                <a
+                    href="messages.html"
+                    class="topbar-icon-button"
+                    aria-label="View messages"
+                >
+                    <i class="fa-regular fa-message"></i>
+                </a>
+
+                <a href="profile.html" class="topbar-user">
+                    <span class="topbar-avatar" id="topbarAvatar">M</span>
+
+                    <span class="topbar-user-info">
+                        <strong id="topbarUserName">Member</strong>
+                        <small>My account</small>
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down topbar-chevron"></i>
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard content -->
+        <div class="dashboard-content">
+
+
+            <!-- ================= WELCOME ================= -->
+            <section class="dashboard-welcome">
+
+                <div class="welcome-text">
+                    <p class="dashboard-eyebrow">
+                        <i class="fa-regular fa-sun"></i>
+                        YOUR COMMUNITY SPACE
+                    </p>
+
+                    <h1>
+                        Welcome back,
+                        <span id="welcomeUserName">Community Member</span>
+                    </h1>
+
+                    <p>
+                        Every small act of kindness makes a difference.
+                        Here's what's happening in your CareCircle.
+                    </p>
+
+                    <div class="welcome-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span id="dashboardDate">Your community dashboard</span>
+                    </div>
+
+                </div>
+
+
+                <div class="welcome-illustration">
+                    <div class="welcome-circle welcome-circle-one"></div>
+                    <div class="welcome-circle welcome-circle-two"></div>
+
+                    <div class="welcome-illustration-icon">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+
+                    <div class="welcome-floating-card welcome-floating-card-one">
+                        <i class="fa-solid fa-heart"></i>
+                        Kindness matters
+                    </div>
+
+                    <div class="welcome-floating-card welcome-floating-card-two">
+                        <i class="fa-solid fa-people-group"></i>
+                        Stronger together
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================= DEMO NOTICE ================= -->
+            <div class="dashboard-demo-notice" id="dashboardDemoNotice">
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    <strong>Preview dashboard:</strong>
+                    The figures and activity below are sample information.
+                    Your personal account data will appear after backend
+                    integration and authentication.
+                </p>
+
+                <button
+                    type="button"
+                    id="dismissDemoNotice"
+                    aria-label="Dismiss preview notice"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+
+            <!-- ================= QUICK ACTIONS ================= -->
+            <section class="dashboard-quick-actions">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="dashboard-eyebrow">GET STARTED</p>
+                        <h2>What would you like to do?</h2>
+                    </div>
+                </div>
+
+
+                <div class="quick-actions-grid">
+
+                    <a href="help-request.html" class="quick-action-card">
+                        <span class="quick-action-icon quick-icon-green">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </span>
+
+                        <span class="quick-action-content">
+                            <strong>Request Help</strong>
+                            <small>Ask your community for support.</small>
+                        </span>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square quick-action-arrow"></i>
+                    </a>
+
+
+                    <a
+                        href="browse-requests.html"
+                        class="quick-action-card"
+                        id="browseQuickAction"
+                    >
+                        <span class="quick-action-icon quick-icon-gold">
+                            <i class="fa-solid fa-people-carry-box"></i>
+                        </span>
+
+                        <span class="quick-action-content">
+                            <strong>Offer Help</strong>
+                            <small>Find someone you can assist.</small>
+                        </span>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square quick-action-arrow"></i>
+                    </a>
+
+
+                    <a href="wallet.html" class="quick-action-card">
+                        <span class="quick-action-icon quick-icon-blue">
+                            <i class="fa-solid fa-coins"></i>
+                        </span>
+
+                        <span class="quick-action-content">
+                            <strong>View SocialCredits</strong>
+                            <small>Explore your credit activity.</small>
+                        </span>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square quick-action-arrow"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= STATISTICS ================= -->
+            <section class="dashboard-stats-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="dashboard-eyebrow">YOUR OVERVIEW</p>
+                        <h2>Your activity at a glance</h2>
+                    </div>
+
+                    <a href="my-requests.html" class="section-text-link">
+                        View all requests
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+                <div class="dashboard-stats-grid">
+
+                    <article class="dashboard-stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon stat-icon-green">
+                                <i class="fa-solid fa-clipboard-list"></i>
+                            </span>
+
+                            <span class="stat-label">All requests</span>
+                        </div>
+
+                        <div class="stat-card-bottom">
+                            <strong id="totalRequests">2</strong>
+                            <span class="stat-description">
+                                Requests created
+                            </span>
+                        </div>
+                    </article>
+
+
+                    <article class="dashboard-stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon stat-icon-gold">
+                                <i class="fa-solid fa-clock"></i>
+                            </span>
+
+                            <span class="stat-label">In progress</span>
+                        </div>
+
+                        <div class="stat-card-bottom">
+                            <strong id="activeRequests">1</strong>
+                            <span class="stat-description">
+                                Active requests
+                            </span>
+                        </div>
+                    </article>
+
+
+                    <article class="dashboard-stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon stat-icon-blue">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </span>
+
+                            <span class="stat-label">Completed</span>
+                        </div>
+
+                        <div class="stat-card-bottom">
+                            <strong id="completedRequests">1</strong>
+                            <span class="stat-description">
+                                Help completed
+                            </span>
+                        </div>
+                    </article>
+
+
+                    <article class="dashboard-stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon stat-icon-purple">
+                                <i class="fa-solid fa-coins"></i>
+                            </span>
+
+                            <span class="stat-label">SocialCredits</span>
+                        </div>
+
+                        <div class="stat-card-bottom">
+                            <strong id="creditBalance">25</strong>
+                            <span class="stat-description">
+                                Sample credit balance
+                            </span>
+                        </div>
+
+                        <a href="wallet.html" class="stat-card-link">
+                            View wallet
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= ACTIVITY + SIDE PANEL ================= -->
+            <div class="dashboard-main-grid">
+
+
+                <!-- Recent requests -->
+                <section class="dashboard-panel requests-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <p class="dashboard-eyebrow">RECENT ACTIVITY</p>
+                            <h2>My help requests</h2>
+                        </div>
+
+                        <a href="my-requests.html" class="panel-view-link">
+                            View all
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="request-list" id="recentRequestsList">
+
+                        <article class="dashboard-request-item">
+
+                            <div class="request-item-icon request-item-green">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </div>
+
+                            <div class="request-item-content">
+                                <h3>Grocery Assistance</h3>
+
+                                <p>
+                                    <i class="fa-regular fa-calendar"></i>
+                                    18 October 2026
+                                </p>
+
+                                <span class="request-category-label">
+                                    Everyday Support
+                                </span>
+                            </div>
+
+                            <div class="request-item-status">
+                                <span class="status-badge status-in-progress">
+                                    In progress
+                                </span>
+
+                                <a href="request-details.html" class="request-details-link">
+                                    Details
+                                </a>
+                            </div>
+
+                        </article>
+
+
+                        <article class="dashboard-request-item">
+
+                            <div class="request-item-icon request-item-gold">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+
+                            <div class="request-item-content">
+                                <h3>Digital Guidance</h3>
+
+                                <p>
+                                    <i class="fa-regular fa-calendar"></i>
+                                    5 October 2026
+                                </p>
+
+                                <span class="request-category-label">
+                                    Digital Assistance
+                                </span>
+                            </div>
+
+                            <div class="request-item-status">
+                                <span class="status-badge status-completed">
+                                    Completed
+                                </span>
+
+                                <a href="request-details.html" class="request-details-link">
+                                    Details
+                                </a>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <a href="help-request.html" class="panel-create-request">
+                        <i class="fa-solid fa-plus"></i>
+                        Create a new help request
+                    </a>
+
+                </section>
+
+
+                <!-- Right-side panels -->
+                <div class="dashboard-side-panels">
+
+
+                    <!-- SocialCredits -->
+                    <section class="dashboard-panel credits-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <p class="dashboard-eyebrow">YOUR CONTRIBUTION</p>
+                                <h2>SocialCredits</h2>
+                            </div>
+
+                            <span class="credits-heading-icon">
+                                <i class="fa-solid fa-coins"></i>
+                            </span>
+                        </div>
+
+
+                        <div class="credits-balance">
+                            <span>Available balance</span>
+
+                            <div>
+                                <strong id="walletBalance">25</strong>
+                                <span>credits</span>
+                            </div>
+                        </div>
+
+
+                        <p class="credits-description">
+                            SocialCredits recognize verified community
+                            assistance. They are not money and cannot be
+                            exchanged for cash.
+                        </p>
+
+
+                        <div class="credits-note">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>
+                                Credits are subject to the community's
+                                verification and allocation rules.
+                            </span>
+                        </div>
+
+
+                        <a href="wallet.html" class="credits-view-button">
+                            View transaction history
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </section>
+
+
+                    <!-- Community reminder -->
+                    <section class="community-reminder-panel">
+
+                        <div class="reminder-icon">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+
+                        <p class="dashboard-eyebrow">A LITTLE REMINDER</p>
+
+                        <h2>Small acts. Meaningful impact.</h2>
+
+                        <p>
+                            A little help with groceries, a friendly walk,
+                            or a few minutes of digital guidance can make
+                            someone's day brighter.
+                        </p>
+
+                        <a href="services.html">
+                            Explore ways to help
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BOTTOM SUPPORT STRIP ================= -->
+            <section class="dashboard-bottom-banner">
+
+                <div class="bottom-banner-icon">
+                    <i class="fa-solid fa-hands-holding-circle"></i>
+                </div>
+
+                <div class="bottom-banner-content">
+                    <h2>Care works both ways.</h2>
+
+                    <p>
+                        Need assistance, want to volunteer, or have questions
+                        about CareCircle? Your next step starts here.
+                    </p>
+                </div>
+
+                <div class="bottom-banner-actions">
+                    <a href="services.html" class="banner-secondary-button">
+                        Explore services
+                    </a>
+
+                    <a href="contact.html" class="banner-primary-button">
+                        Get support
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </section>
+
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="dashboard-footer">
+
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    Help Today. Be Helped Tomorrow.
+                </p>
+
+                <div class="dashboard-footer-links">
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+
+            </footer>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

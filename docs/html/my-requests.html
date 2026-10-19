@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Manage your CareCircle help requests, track progress, and keep up with the assistance you give and receive."
+    >
+
+    <title>My Requests | CareCircle</title>
+
+    <!-- Shared website styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Page-specific styles: create this file next -->
+    <link rel="stylesheet" href="../css/my-requests.css">
+</head>
+
+<body class="my-requests-page">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon" aria-hidden="true">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-controls="navMenu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About</a>
+                <a href="dashboard.html" class="nav-dashboard-link">Dashboard</a>
+                <a href="login.html" class="btn btn-primary nav-login-btn">
+                    Sign In
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ==================== PAGE HERO ==================== -->
+        <section class="my-requests-hero">
+            <div class="container">
+
+                <div class="my-requests-hero-content">
+
+                    <a href="dashboard.html" class="back-to-dashboard">
+                        <span aria-hidden="true">←</span>
+                        Back to Dashboard
+                    </a>
+
+                    <span class="section-tag">Your Community Activity</span>
+
+                    <h1>
+                        My <span>Requests</span>
+                    </h1>
+
+                    <p>
+                        Keep track of the help you need and the assistance
+                        you provide. Every completed request is another step
+                        towards a more caring community.
+                    </p>
+
+                    <div class="my-requests-hero-actions">
+                        <a href="help-request.html" class="btn btn-primary">
+                            <span aria-hidden="true">+</span>
+                            Create a Help Request
+                        </a>
+
+                        <a href="browse-requests.html" class="btn btn-outline">
+                            Browse Requests
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== DEMO NOTICE ==================== -->
+        <section class="my-requests-notice-section">
+            <div class="container">
+
+                <div class="my-requests-demo-notice" role="note">
+                    <span class="notice-icon" aria-hidden="true">ⓘ</span>
+
+                    <div>
+                        <strong>Demonstration mode</strong>
+
+                        <p>
+                            The requests shown on this page are fictional
+                            examples. They are not connected to your account
+                            or saved in a database. Request management will
+                            become available after backend integration.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="dismissMyRequestsNotice"
+                        class="notice-dismiss"
+                        aria-label="Dismiss demonstration notice"
+                    >
+                        &times;
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REQUEST SUMMARY ==================== -->
+        <section class="my-requests-summary-section">
+            <div class="container">
+
+                <div class="my-requests-section-heading">
+                    <div>
+                        <span class="section-tag">Activity Overview</span>
+                        <h2>Your Request Summary</h2>
+                        <p>
+                            A quick overview of the example requests in
+                            different stages of the journey.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="my-requests-stats-grid">
+
+                    <article class="my-request-stat-card">
+                        <div class="my-request-stat-icon stat-icon-total"
+                             aria-hidden="true">
+                            ▤
+                        </div>
+
+                        <div>
+                            <span class="my-request-stat-label">Total Requests</span>
+                            <strong id="myTotalRequests">4</strong>
+                            <small>All demo requests</small>
+                        </div>
+                    </article>
+
+
+                    <article class="my-request-stat-card">
+                        <div class="my-request-stat-icon stat-icon-pending"
+                             aria-hidden="true">
+                            ◷
+                        </div>
+
+                        <div>
+                            <span class="my-request-stat-label">Pending</span>
+                            <strong id="myPendingRequests">1</strong>
+                            <small>Awaiting confirmation</small>
+                        </div>
+                    </article>
+
+
+                    <article class="my-request-stat-card">
+                        <div class="my-request-stat-icon stat-icon-active"
+                             aria-hidden="true">
+                            ↗
+                        </div>
+
+                        <div>
+                            <span class="my-request-stat-label">In Progress</span>
+                            <strong id="myActiveRequests">2</strong>
+                            <small>Currently underway</small>
+                        </div>
+                    </article>
+
+
+                    <article class="my-request-stat-card">
+                        <div class="my-request-stat-icon stat-icon-completed"
+                             aria-hidden="true">
+                            ✓
+                        </div>
+
+                        <div>
+                            <span class="my-request-stat-label">Completed</span>
+                            <strong id="myCompletedRequests">1</strong>
+                            <small>Successfully finished</small>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REQUEST MANAGEMENT ==================== -->
+        <section class="my-requests-list-section" id="myRequestsList">
+            <div class="container">
+
+                <div class="my-requests-section-heading request-list-heading">
+                    <div>
+                        <span class="section-tag">Manage Activity</span>
+                        <h2>All My Requests</h2>
+                        <p>
+                            Search, filter, and review your example
+                            requests below.
+                        </p>
+                    </div>
+
+                    <div class="my-requests-result-count" aria-live="polite">
+                        <strong id="myRequestsResultCount">4</strong>
+                        <span id="myRequestsResultLabel">demo requests</span>
+                    </div>
+                </div>
+
+
+                <!-- FILTER TOOLBAR -->
+                <div class="my-requests-filter-panel">
+
+                    <div class="my-requests-search-field">
+                        <label for="myRequestsSearch">Search requests</label>
+
+                        <div class="my-requests-search-input">
+                            <span aria-hidden="true">⌕</span>
+
+                            <input
+                                type="search"
+                                id="myRequestsSearch"
+                                placeholder="Search by title or category"
+                                autocomplete="off"
+                            >
+                        </div>
+                    </div>
+
+
+                    <div class="my-requests-filter-field">
+                        <label for="myRequestTypeFilter">Request type</label>
+
+                        <select id="myRequestTypeFilter">
+                            <option value="all">All Types</option>
+                            <option value="help-needed">Help I Need</option>
+                            <option value="helping">Help I'm Providing</option>
+                        </select>
+                    </div>
+
+
+                    <div class="my-requests-filter-field">
+                        <label for="myRequestStatusFilter">Status</label>
+
+                        <select id="myRequestStatusFilter">
+                            <option value="all">All Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+
+
+                    <div class="my-requests-filter-field">
+                        <label for="myRequestSortFilter">Sort by</label>
+
+                        <select id="myRequestSortFilter">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="title">Title A–Z</option>
+                        </select>
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-outline my-requests-clear-button"
+                        id="clearMyRequestFilters"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+
+                <!-- REQUEST LIST -->
+                <div
+                    class="my-requests-card-list"
+                    id="myRequestsContainer"
+                    aria-live="polite"
+                >
+
+                    <!-- REQUEST 1: HELP NEEDED -->
+                    <article
+                        class="my-request-card"
+                        data-id="my-demo-001"
+                        data-type="help-needed"
+                        data-status="pending"
+                        data-date="2026-10-10"
+                        data-title="Grocery Shopping Assistance"
+                        data-category="Groceries"
+                    >
+                        <div class="my-request-card-main">
+
+                            <div class="my-request-card-icon" aria-hidden="true">
+                                🛒
+                            </div>
+
+                            <div class="my-request-card-content">
+
+                                <div class="my-request-card-labels">
+                                    <span class="my-request-type-badge type-help-needed">
+                                        Help I Need
+                                    </span>
+
+                                    <span class="my-request-status status-pending">
+                                        Pending
+                                    </span>
+                                </div>
+
+                                <h3>Grocery Shopping Assistance</h3>
+
+                                <p>
+                                    Assistance collecting vegetables, fruits,
+                                    and household essentials from a nearby shop.
+                                </p>
+
+                                <div class="my-request-meta">
+                                    <span>
+                                        <strong>Category:</strong> Groceries
+                                    </span>
+
+                                    <span>
+                                        <strong>Posted:</strong>
+                                        <time datetime="2026-10-10">
+                                            10 October 2026
+                                        </time>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="my-request-card-actions">
+                            <button
+                                type="button"
+                                class="btn btn-outline my-request-view-button"
+                                data-request-id="my-demo-001"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 2: HELP BEING PROVIDED -->
+                    <article
+                        class="my-request-card"
+                        data-id="my-demo-002"
+                        data-type="helping"
+                        data-status="in-progress"
+                        data-date="2026-10-09"
+                        data-title="Smartphone Guidance"
+                        data-category="Digital Guidance"
+                    >
+                        <div class="my-request-card-main">
+
+                            <div class="my-request-card-icon" aria-hidden="true">
+                                📱
+                            </div>
+
+                            <div class="my-request-card-content">
+
+                                <div class="my-request-card-labels">
+                                    <span class="my-request-type-badge type-helping">
+                                        Help I'm Providing
+                                    </span>
+
+                                    <span class="my-request-status status-in-progress">
+                                        In Progress
+                                    </span>
+                                </div>
+
+                                <h3>Smartphone Guidance</h3>
+
+                                <p>
+                                    Helping a community member learn basic
+                                    smartphone features and video calling.
+                                </p>
+
+                                <div class="my-request-meta">
+                                    <span>
+                                        <strong>Category:</strong> Digital Guidance
+                                    </span>
+
+                                    <span>
+                                        <strong>Posted:</strong>
+                                        <time datetime="2026-10-09">
+                                            9 October 2026
+                                        </time>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="my-request-card-actions">
+                            <button
+                                type="button"
+                                class="btn btn-outline my-request-view-button"
+                                data-request-id="my-demo-002"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 3: HELP BEING PROVIDED -->
+                    <article
+                        class="my-request-card"
+                        data-id="my-demo-003"
+                        data-type="helping"
+                        data-status="in-progress"
+                        data-date="2026-10-08"
+                        data-title="Friendly Walk and Conversation"
+                        data-category="Companionship"
+                    >
+                        <div class="my-request-card-main">
+
+                            <div class="my-request-card-icon" aria-hidden="true">
+                                🌿
+                            </div>
+
+                            <div class="my-request-card-content">
+
+                                <div class="my-request-card-labels">
+                                    <span class="my-request-type-badge type-helping">
+                                        Help I'm Providing
+                                    </span>
+
+                                    <span class="my-request-status status-in-progress">
+                                        In Progress
+                                    </span>
+                                </div>
+
+                                <h3>Friendly Walk and Conversation</h3>
+
+                                <p>
+                                    Providing companionship and helping make
+                                    everyday community connections stronger.
+                                </p>
+
+                                <div class="my-request-meta">
+                                    <span>
+                                        <strong>Category:</strong> Companionship
+                                    </span>
+
+                                    <span>
+                                        <strong>Posted:</strong>
+                                        <time datetime="2026-10-08">
+                                            8 October 2026
+                                        </time>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="my-request-card-actions">
+                            <button
+                                type="button"
+                                class="btn btn-outline my-request-view-button"
+                                data-request-id="my-demo-003"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 4: COMPLETED -->
+                    <article
+                        class="my-request-card"
+                        data-id="my-demo-004"
+                        data-type="help-needed"
+                        data-status="completed"
+                        data-date="2026-10-05"
+                        data-title="Online Form Guidance"
+                        data-category="Documents & Forms"
+                    >
+                        <div class="my-request-card-main">
+
+                            <div class="my-request-card-icon" aria-hidden="true">
+                                📄
+                            </div>
+
+                            <div class="my-request-card-content">
+
+                                <div class="my-request-card-labels">
+                                    <span class="my-request-type-badge type-help-needed">
+                                        Help I Need
+                                    </span>
+
+                                    <span class="my-request-status status-completed">
+                                        Completed
+                                    </span>
+                                </div>
+
+                                <h3>Online Form Guidance</h3>
+
+                                <p>
+                                    Received basic guidance with navigating
+                                    an online form while keeping personal
+                                    information private.
+                                </p>
+
+                                <div class="my-request-meta">
+                                    <span>
+                                        <strong>Category:</strong> Documents & Forms
+                                    </span>
+
+                                    <span>
+                                        <strong>Posted:</strong>
+                                        <time datetime="2026-10-05">
+                                            5 October 2026
+                                        </time>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="my-request-card-actions">
+                            <button
+                                type="button"
+                                class="btn btn-outline my-request-view-button"
+                                data-request-id="my-demo-004"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+                <div class="my-requests-empty-state" id="myRequestsEmptyState" hidden>
+                    <span class="my-requests-empty-icon" aria-hidden="true">⌕</span>
+
+                    <h3>No matching requests</h3>
+
+                    <p>
+                        We couldn't find any requests matching your filters.
+                        Try changing your search or clearing the filters.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="myRequestsEmptyClearButton"
+                    >
+                        Clear Filters
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SOCIALCREDITS REMINDER ==================== -->
+        <section class="my-requests-credits-section">
+            <div class="container">
+
+                <div class="my-requests-credits-card">
+
+                    <div class="my-requests-credits-icon" aria-hidden="true">
+                        ♡
+                    </div>
+
+                    <div class="my-requests-credits-content">
+                        <span class="section-tag">The CareCircle Promise</span>
+
+                        <h2>Every act of care counts.</h2>
+
+                        <p>
+                            Eligible SocialCredits are recorded only after
+                            assistance is completed and verified under
+                            CareCircle's rules. Credits are not cash and
+                            cannot be exchanged for money.
+                        </p>
+
+                        <a href="how-it-works.html" class="credits-learn-link">
+                            Learn how SocialCredits work
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                    <a href="wallet.html" class="btn btn-outline">
+                        View Wallet
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOTTOM CTA ==================== -->
+        <section class="my-requests-cta-section">
+            <div class="container">
+
+                <div class="my-requests-cta">
+                    <div>
+                        <span class="section-tag">Keep the Circle Growing</span>
+
+                        <h2>Ready to make another difference?</h2>
+
+                        <p>
+                            Find a community request that matches your skills,
+                            interests, and availability.
+                        </p>
+                    </div>
+
+                    <div class="my-requests-cta-actions">
+                        <a href="browse-requests.html" class="btn btn-primary">
+                            Browse Requests
+                        </a>
+
+                        <a href="help-request.html" class="btn btn-outline">
+                            Ask for Help
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon" aria-hidden="true">♡</span>
+                        <span>CareCircle</span>
+                    </a>
+
+                    <p>
+                        Help Today. Be Helped Tomorrow.
+                        Building stronger communities through kindness,
+                        trust, and shared support.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Explore</h3>
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="how-it-works.html">How It Works</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Community</h3>
+                    <a href="browse-requests.html">Browse Requests</a>
+                    <a href="help-request.html">Request Help</a>
+                    <a href="special-care.html">Special Care</a>
+                    <a href="my-requests.html">My Requests</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Account</h3>
+                    <a href="login.html">Sign In</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    All rights reserved.
+                </p>
+
+                <div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ==================== REQUEST DETAILS DIALOG ==================== -->
+    <dialog
+        id="myRequestDetailsDialog"
+        class="my-request-details-dialog"
+        aria-labelledby="myRequestDialogTitle"
+    >
+        <div class="my-request-dialog-content">
+
+            <div class="my-request-dialog-header">
+                <span class="section-tag">Request Details</span>
+
+                <button
+                    type="button"
+                    id="closeMyRequestDialog"
+                    class="my-request-dialog-close"
+                    aria-label="Close request details"
+                >
+                    &times;
+                </button>
+            </div>
+
+            <div class="my-request-dialog-badges">
+                <span
+                    class="my-request-type-badge"
+                    id="myDialogRequestType"
+                >
+                    Request type
+                </span>
+
+                <span
+                    class="my-request-status"
+                    id="myDialogRequestStatus"
+                >
+                    Status
+                </span>
+            </div>
+
+            <h2 id="myRequestDialogTitle">Request title</h2>
+
+            <p
+                id="myRequestDialogDescription"
+                class="my-request-dialog-description"
+            >
+                Request description will appear here.
+            </p>
+
+            <div class="my-request-dialog-information">
+                <p>
+                    <strong>Category</strong>
+                    <span id="myDialogRequestCategory"></span>
+                </p>
+
+                <p>
+                    <strong>Posted Date</strong>
+                    <span id="myDialogRequestDate"></span>
+                </p>
+            </div>
+
+            <div class="my-request-dialog-notice" role="note">
+                This request is sample data. Its status cannot be changed
+                until the CareCircle backend is connected.
+            </div>
+
+            <div class="my-request-dialog-actions">
+                <button
+                    type="button"
+                    id="cancelMyRequestDialog"
+                    class="btn btn-outline"
+                >
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </dialog>
+
+
+    <!-- Shared website JavaScript -->
+    <script src="../js/main.js" defer></script>
+
+    <!-- Page-specific JavaScript: create this file next -->
+    <script src="../js/my-requests.js" defer></script>
+
+</body>
+</html>

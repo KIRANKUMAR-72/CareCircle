@@ -1,0 +1,757 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Browse community help requests on CareCircle and discover meaningful ways to support people in your community."
+    >
+
+    <title>Browse Help Requests | CareCircle</title>
+
+    <!-- Shared website styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Page-specific styles (create this file next) -->
+    <link rel="stylesheet" href="../css/browse-requests.css">
+
+    <!-- Page icon -->
+    <link rel="icon" href="../assets/favicon.png" type="image/png">
+</head>
+
+<body class="browse-requests-page">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon" aria-hidden="true">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-controls="navMenu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About</a>
+                <a href="dashboard.html" class="nav-dashboard-link">Dashboard</a>
+                <a href="login.html" class="btn btn-primary nav-login-btn">
+                    Sign In
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ==================== PAGE INTRO ==================== -->
+        <section class="browse-hero">
+            <div class="container">
+
+                <div class="browse-hero-content">
+
+                    <span class="section-tag">
+                        <span aria-hidden="true">♡</span>
+                        Community Support
+                    </span>
+
+                    <h1>
+                        Small Acts.
+                        <span>Meaningful Impact.</span>
+                    </h1>
+
+                    <p>
+                        Discover people in your community who need a helping
+                        hand. Find a request that suits your skills and
+                        availability, and make someone's day a little easier.
+                    </p>
+
+                    <div class="browse-hero-actions">
+                        <a href="#requestCatalog" class="btn btn-primary">
+                            Explore Requests
+                        </a>
+
+                        <a href="how-it-works.html" class="btn btn-outline">
+                            How It Works
+                        </a>
+                    </div>
+
+                    <div class="browse-trust-note">
+                        <span aria-hidden="true">✓</span>
+                        Help responsibly. Respect privacy. Build trust.
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== COMMUNITY MESSAGE ==================== -->
+        <section class="browse-community-strip">
+            <div class="container browse-community-inner">
+
+                <div>
+                    <span class="browse-community-icon" aria-hidden="true">♡</span>
+                    <div>
+                        <h2>Every helping hand matters</h2>
+                        <p>
+                            A little time, kindness, and care can make a
+                            meaningful difference.
+                        </p>
+                    </div>
+                </div>
+
+                <a href="help-request.html" class="btn btn-outline">
+                    Request Help
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REQUEST BROWSER ==================== -->
+        <section class="browse-catalog-section" id="requestCatalog">
+            <div class="container">
+
+                <div class="browse-section-heading">
+                    <div>
+                        <span class="section-tag">Find Your Opportunity</span>
+                        <h2>Browse Help Requests</h2>
+                        <p>
+                            Explore the requests below and find a way to
+                            contribute to your community.
+                        </p>
+                    </div>
+
+                    <div class="browse-results-summary" aria-live="polite">
+                        <strong id="requestResultCount">6</strong>
+                        <span id="requestResultLabel">demo requests</span>
+                    </div>
+                </div>
+
+
+                <!-- SEARCH AND FILTERS -->
+                <div class="request-filter-panel">
+
+                    <div class="request-search-field">
+                        <label for="requestSearch">Search requests</label>
+
+                        <div class="request-search-input-wrap">
+                            <span aria-hidden="true">⌕</span>
+
+                            <input
+                                type="search"
+                                id="requestSearch"
+                                placeholder="Try groceries, medicine, or companionship"
+                                autocomplete="off"
+                            >
+                        </div>
+                    </div>
+
+
+                    <div class="request-filter-field">
+                        <label for="categoryFilter">Service category</label>
+
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="groceries">Groceries</option>
+                            <option value="medicine">Medicine Pickup</option>
+                            <option value="hospital">Hospital Assistance</option>
+                            <option value="companionship">Companionship</option>
+                            <option value="digital-guidance">Digital Guidance</option>
+                            <option value="documents">Documents & Forms</option>
+                            <option value="personal-support">Everyday Support</option>
+                            <option value="special-care">Special Care</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <div class="request-filter-field">
+                        <label for="urgencyFilter">Priority</label>
+
+                        <select id="urgencyFilter">
+                            <option value="all">All Priorities</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="normal">Normal</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+
+
+                    <div class="request-filter-field">
+                        <label for="sortFilter">Sort by</label>
+
+                        <select id="sortFilter">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="priority">Priority First</option>
+                        </select>
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="clearFiltersButton"
+                        class="btn btn-outline clear-filters-button"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+
+                <!-- DEMO DATA NOTICE -->
+                <div class="browse-demo-notice" role="note">
+                    <span class="browse-notice-icon" aria-hidden="true">ⓘ</span>
+
+                    <p>
+                        <strong>Preview mode:</strong>
+                        The requests displayed below are fictional examples
+                        for testing the interface. They are not real requests
+                        from community members, and you cannot accept them yet.
+                    </p>
+                </div>
+
+
+                <!-- REQUEST CARDS -->
+                <div class="request-grid" id="requestGrid" aria-live="polite">
+
+                    <!-- REQUEST 1 -->
+                    <article
+                        class="request-card"
+                        data-id="demo-001"
+                        data-category="groceries"
+                        data-priority="normal"
+                        data-date="2026-10-10"
+                        data-search="grocery groceries elderly vegetables fruits daily essentials"
+                    >
+                        <div class="request-card-top">
+                            <span class="request-category-icon" aria-hidden="true">🛒</span>
+                            <span class="request-priority priority-normal">
+                                Normal
+                            </span>
+                        </div>
+
+                        <div class="request-card-content">
+                            <span class="request-category-label">Groceries</span>
+
+                            <h3>Grocery Shopping Assistance</h3>
+
+                            <p>
+                                Help with collecting vegetables, fruits, and
+                                a few household essentials from a nearby shop.
+                            </p>
+
+                            <div class="request-meta">
+                                <span><span aria-hidden="true">⌖</span> Example locality</span>
+                                <span><span aria-hidden="true">◷</span> Flexible timing</span>
+                            </div>
+                        </div>
+
+                        <div class="request-card-footer">
+                            <div class="request-person">
+                                <span class="request-avatar" aria-hidden="true">A</span>
+                                <div>
+                                    <strong>Community Member A</strong>
+                                    <small>Demo profile</small>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary request-view-button"
+                                data-request-id="demo-001"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 2 -->
+                    <article
+                        class="request-card"
+                        data-id="demo-002"
+                        data-category="medicine"
+                        data-priority="urgent"
+                        data-date="2026-10-11"
+                        data-search="medicine pharmacy prescription pickup urgent elderly"
+                    >
+                        <div class="request-card-top">
+                            <span class="request-category-icon" aria-hidden="true">💊</span>
+                            <span class="request-priority priority-urgent">
+                                Urgent
+                            </span>
+                        </div>
+
+                        <div class="request-card-content">
+                            <span class="request-category-label">Medicine Pickup</span>
+
+                            <h3>Medicine Pickup Support</h3>
+
+                            <p>
+                                Assistance collecting a prepared prescription
+                                from a pharmacy. No medical advice is required.
+                            </p>
+
+                            <div class="request-meta">
+                                <span><span aria-hidden="true">⌖</span> Example locality</span>
+                                <span><span aria-hidden="true">◷</span> Time to be confirmed</span>
+                            </div>
+                        </div>
+
+                        <div class="request-card-footer">
+                            <div class="request-person">
+                                <span class="request-avatar" aria-hidden="true">B</span>
+                                <div>
+                                    <strong>Community Member B</strong>
+                                    <small>Demo profile</small>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary request-view-button"
+                                data-request-id="demo-002"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 3 -->
+                    <article
+                        class="request-card"
+                        data-id="demo-003"
+                        data-category="companionship"
+                        data-priority="flexible"
+                        data-date="2026-10-09"
+                        data-search="companionship walking conversation elderly friendship park"
+                    >
+                        <div class="request-card-top">
+                            <span class="request-category-icon" aria-hidden="true">🌿</span>
+                            <span class="request-priority priority-flexible">
+                                Flexible
+                            </span>
+                        </div>
+
+                        <div class="request-card-content">
+                            <span class="request-category-label">Companionship</span>
+
+                            <h3>A Friendly Walk and Conversation</h3>
+
+                            <p>
+                                Spend some time chatting and, if comfortable,
+                                accompany a community member on a short walk.
+                            </p>
+
+                            <div class="request-meta">
+                                <span><span aria-hidden="true">⌖</span> Example locality</span>
+                                <span><span aria-hidden="true">◷</span> Weekend preferred</span>
+                            </div>
+                        </div>
+
+                        <div class="request-card-footer">
+                            <div class="request-person">
+                                <span class="request-avatar" aria-hidden="true">C</span>
+                                <div>
+                                    <strong>Community Member C</strong>
+                                    <small>Demo profile</small>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary request-view-button"
+                                data-request-id="demo-003"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 4 -->
+                    <article
+                        class="request-card"
+                        data-id="demo-004"
+                        data-category="digital-guidance"
+                        data-priority="normal"
+                        data-date="2026-10-08"
+                        data-search="digital guidance smartphone video call mobile phone technology help"
+                    >
+                        <div class="request-card-top">
+                            <span class="request-category-icon" aria-hidden="true">📱</span>
+                            <span class="request-priority priority-normal">
+                                Normal
+                            </span>
+                        </div>
+
+                        <div class="request-card-content">
+                            <span class="request-category-label">Digital Guidance</span>
+
+                            <h3>Help Using a Smartphone</h3>
+
+                            <p>
+                                Explain basic smartphone features and how to
+                                make video calls to family members.
+                            </p>
+
+                            <div class="request-meta">
+                                <span><span aria-hidden="true">⌖</span> Example locality</span>
+                                <span><span aria-hidden="true">◷</span> Afternoon preferred</span>
+                            </div>
+                        </div>
+
+                        <div class="request-card-footer">
+                            <div class="request-person">
+                                <span class="request-avatar" aria-hidden="true">D</span>
+                                <div>
+                                    <strong>Community Member D</strong>
+                                    <small>Demo profile</small>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary request-view-button"
+                                data-request-id="demo-004"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 5 -->
+                    <article
+                        class="request-card"
+                        data-id="demo-005"
+                        data-category="hospital"
+                        data-priority="normal"
+                        data-date="2026-10-07"
+                        data-search="hospital assistance appointment travel companion hospital visit"
+                    >
+                        <div class="request-card-top">
+                            <span class="request-category-icon" aria-hidden="true">🏥</span>
+                            <span class="request-priority priority-normal">
+                                Normal
+                            </span>
+                        </div>
+
+                        <div class="request-card-content">
+                            <span class="request-category-label">Hospital Assistance</span>
+
+                            <h3>Help Accompanying Someone to an Appointment</h3>
+
+                            <p>
+                                Provide companionship and practical assistance
+                                during travel to a scheduled appointment.
+                            </p>
+
+                            <div class="request-meta">
+                                <span><span aria-hidden="true">⌖</span> Example locality</span>
+                                <span><span aria-hidden="true">◷</span> Date to be confirmed</span>
+                            </div>
+                        </div>
+
+                        <div class="request-card-footer">
+                            <div class="request-person">
+                                <span class="request-avatar" aria-hidden="true">E</span>
+                                <div>
+                                    <strong>Community Member E</strong>
+                                    <small>Demo profile</small>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary request-view-button"
+                                data-request-id="demo-005"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <!-- REQUEST 6 -->
+                    <article
+                        class="request-card"
+                        data-id="demo-006"
+                        data-category="documents"
+                        data-priority="flexible"
+                        data-date="2026-10-06"
+                        data-search="documents forms paperwork online application digital form assistance"
+                    >
+                        <div class="request-card-top">
+                            <span class="request-category-icon" aria-hidden="true">📄</span>
+                            <span class="request-priority priority-flexible">
+                                Flexible
+                            </span>
+                        </div>
+
+                        <div class="request-card-content">
+                            <span class="request-category-label">Documents & Forms</span>
+
+                            <h3>Help Understanding an Online Form</h3>
+
+                            <p>
+                                Provide basic guidance with navigating an
+                                online form while keeping personal information
+                                private.
+                            </p>
+
+                            <div class="request-meta">
+                                <span><span aria-hidden="true">⌖</span> Example locality</span>
+                                <span><span aria-hidden="true">◷</span> Flexible timing</span>
+                            </div>
+                        </div>
+
+                        <div class="request-card-footer">
+                            <div class="request-person">
+                                <span class="request-avatar" aria-hidden="true">F</span>
+                                <div>
+                                    <strong>Community Member F</strong>
+                                    <small>Demo profile</small>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary request-view-button"
+                                data-request-id="demo-006"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <!-- EMPTY RESULTS -->
+                <div class="request-empty-state" id="emptyRequestState" hidden>
+                    <span class="empty-state-icon" aria-hidden="true">⌕</span>
+
+                    <h3>No matching requests found</h3>
+
+                    <p>
+                        Try a different keyword or change your filters
+                        to explore more requests.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="emptyStateClearButton"
+                    >
+                        Clear Filters
+                    </button>
+                </div>
+
+
+                <p class="browse-demo-footnote">
+                    The examples above are static demonstration content.
+                    Real requests will appear here once the CareCircle backend
+                    and database are connected.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== COMMUNITY CTA ==================== -->
+        <section class="browse-cta-section">
+            <div class="container">
+
+                <div class="browse-cta-card">
+                    <div>
+                        <span class="section-tag">Be Part of the Circle</span>
+
+                        <h2>Someone nearby may need your help.</h2>
+
+                        <p>
+                            Share your time and skills to build a more caring
+                            and connected community.
+                        </p>
+                    </div>
+
+                    <div class="browse-cta-actions">
+                        <a href="register.html" class="btn btn-primary">
+                            Join CareCircle
+                        </a>
+
+                        <a href="services.html" class="btn btn-outline">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon" aria-hidden="true">♡</span>
+                        <span>CareCircle</span>
+                    </a>
+
+                    <p>
+                        Help Today. Be Helped Tomorrow.
+                        Building stronger communities through kindness,
+                        trust, and shared support.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Explore</h3>
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="how-it-works.html">How It Works</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Community</h3>
+                    <a href="browse-requests.html">Browse Requests</a>
+                    <a href="help-request.html">Request Help</a>
+                    <a href="special-care.html">Special Care</a>
+                    <a href="register.html">Join CareCircle</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Account</h3>
+                    <a href="login.html">Sign In</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    All rights reserved.
+                </p>
+
+                <div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ==================== REQUEST DETAILS DIALOG ==================== -->
+    <dialog
+        class="request-details-dialog"
+        id="requestDetailsDialog"
+        aria-labelledby="dialogRequestTitle"
+    >
+        <div class="request-dialog-content">
+
+            <div class="request-dialog-header">
+                <span class="section-tag">Request Preview</span>
+
+                <button
+                    type="button"
+                    class="request-dialog-close"
+                    id="closeRequestDialog"
+                    aria-label="Close request details"
+                >
+                    &times;
+                </button>
+            </div>
+
+            <span class="request-category-label" id="dialogRequestCategory">
+                Category
+            </span>
+
+            <h2 id="dialogRequestTitle">Request title</h2>
+
+            <p id="dialogRequestDescription">
+                Request description will appear here.
+            </p>
+
+            <div class="request-dialog-meta">
+                <p>
+                    <strong>Priority:</strong>
+                    <span id="dialogRequestPriority"></span>
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    <span>Example locality (demo)</span>
+                </p>
+
+                <p>
+                    <strong>Posted:</strong>
+                    <span id="dialogRequestDate"></span>
+                </p>
+            </div>
+
+            <div class="request-dialog-demo-message" role="note">
+                This is a fictional request for demonstration. Accepting
+                requests is not available until backend integration.
+            </div>
+
+            <div class="request-dialog-actions">
+                <button
+                    type="button"
+                    class="btn btn-outline"
+                    id="cancelRequestDialog"
+                >
+                    Close
+                </button>
+
+                <a href="login.html" class="btn btn-primary">
+                    Sign In
+                </a>
+            </div>
+
+        </div>
+    </dialog>
+
+
+    <!-- Shared JavaScript -->
+    <script src="../js/main.js" defer></script>
+
+    <!-- Page-specific JavaScript (create this file next) -->
+    <script src="../js/browse-requests.js" defer></script>
+
+</body>
+</html>

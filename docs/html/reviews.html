@@ -1,0 +1,902 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Read community reviews and share feedback about your CareCircle assistance experience.">
+
+    <title>Community Reviews | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reviews.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/reviews.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">C</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="browse-requests.html">Find Help</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About</a>
+                <a href="login.html" class="btn btn-outline nav-login">Login</a>
+                <a href="register.html" class="btn btn-primary nav-register">Join Community</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="reviews-hero">
+            <div class="container reviews-hero-grid">
+
+                <div class="reviews-hero-content">
+                    <span class="section-eyebrow">COMMUNITY VOICES</span>
+
+                    <h1>Kindness speaks through <span>every review.</span></h1>
+
+                    <p>
+                        Every helping hand creates a story. Read experiences shared
+                        by community members and help others discover the value of
+                        supporting one another.
+                    </p>
+
+                    <div class="reviews-hero-actions">
+                        <a href="#communityReviews" class="btn btn-primary">
+                            Read Reviews
+                        </a>
+
+                        <a href="#writeReview" class="btn btn-outline">
+                            Share Your Experience
+                        </a>
+                    </div>
+
+                    <div class="reviews-trust-points">
+                        <span><span class="trust-check">✓</span> Respectful feedback</span>
+                        <span><span class="trust-check">✓</span> Community-focused</span>
+                        <span><span class="trust-check">✓</span> Safety-conscious</span>
+                    </div>
+                </div>
+
+                <div class="reviews-hero-visual">
+                    <div class="reviews-illustration-card">
+
+                        <div class="review-illustration-icon" aria-hidden="true">
+                            <svg viewBox="0 0 120 120" fill="none">
+                                <path d="M60 100C60 100 17 74 17 43C17 26 38 18 52 35L60 44L68 35C82 18 103 26 103 43C103 74 60 100 60 100Z"
+                                    fill="#D8EBDD" stroke="#287A57" stroke-width="4"
+                                    stroke-linejoin="round"/>
+                                <path d="M32 60L47 60L54 46L66 75L75 57L89 57"
+                                    stroke="#287A57" stroke-width="4"
+                                    stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="illustration-stars" aria-label="Five out of five stars">
+                            ★★★★★
+                        </div>
+
+                        <h2>A little help can mean a lot.</h2>
+
+                        <p>
+                            Your experience can encourage someone else to take
+                            the first step toward helping.
+                        </p>
+
+                        <div class="illustration-footer">
+                            <div class="illustration-avatar-stack" aria-hidden="true">
+                                <span>AM</span>
+                                <span>RK</span>
+                                <span>SP</span>
+                            </div>
+                            <span>Stronger together</span>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-review-note">
+                        <span class="floating-note-icon" aria-hidden="true">♡</span>
+                        <span>Every act of care matters</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Demo Notice -->
+        <section class="reviews-notice-section">
+            <div class="container">
+
+                <div class="reviews-demo-notice" id="reviewsDemoNotice">
+                    <div class="notice-icon" aria-hidden="true">ⓘ</div>
+
+                    <div class="notice-content">
+                        <strong>Demonstration reviews</strong>
+                        <p>
+                            The reviews and ratings shown here are sample content
+                            for the CareCircle frontend. Submitting a review will
+                            not publish or permanently save it until the backend
+                            is connected.
+                        </p>
+                    </div>
+
+                    <button type="button" class="notice-dismiss"
+                        id="dismissReviewsNotice"
+                        aria-label="Dismiss demonstration notice">
+                        &times;
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Overview -->
+        <section class="reviews-overview-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-eyebrow">THE COMMUNITY EXPERIENCE</span>
+                    <h2>Feedback that brings us closer</h2>
+                    <p>
+                        Reviews help community members reflect on their experiences,
+                        recognize helpful actions, and improve the way they support
+                        one another.
+                    </p>
+                </div>
+
+                <div class="reviews-overview-grid">
+
+                    <article class="overview-card overview-card-featured">
+                        <div class="overview-card-icon" aria-hidden="true">♡</div>
+                        <h3>Recognize kindness</h3>
+                        <p>
+                            Appreciate the time, patience, and effort someone
+                            contributed to helping another person.
+                        </p>
+                    </article>
+
+                    <article class="overview-card">
+                        <div class="overview-card-icon" aria-hidden="true">✓</div>
+                        <h3>Share useful feedback</h3>
+                        <p>
+                            Describe what went well and offer constructive
+                            suggestions for future assistance.
+                        </p>
+                    </article>
+
+                    <article class="overview-card">
+                        <div class="overview-card-icon" aria-hidden="true">♧</div>
+                        <h3>Build trust together</h3>
+                        <p>
+                            Help community members make informed decisions
+                            while respecting everyone's privacy.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Review Listing -->
+        <section class="community-reviews-section" id="communityReviews">
+            <div class="container">
+
+                <div class="reviews-section-heading">
+                    <div>
+                        <span class="section-eyebrow">COMMUNITY STORIES</span>
+                        <h2>What members are sharing</h2>
+                        <p>Explore the sample experiences below.</p>
+                    </div>
+
+                    <div class="reviews-total-badge">
+                        <span class="reviews-total-number" id="reviewTotalCount">6</span>
+                        <span>sample reviews</span>
+                    </div>
+                </div>
+
+                <!-- Search and filters -->
+                <div class="review-filters-panel">
+
+                    <div class="review-search-field">
+                        <label for="reviewSearch">Search reviews</label>
+
+                        <div class="review-search-input-wrap">
+                            <span aria-hidden="true">⌕</span>
+                            <input type="search" id="reviewSearch"
+                                placeholder="Search by name, service, or keyword">
+                        </div>
+                    </div>
+
+                    <div class="review-filter-field">
+                        <label for="reviewCategoryFilter">Service category</label>
+
+                        <select id="reviewCategoryFilter">
+                            <option value="all">All categories</option>
+                            <option value="groceries">Groceries</option>
+                            <option value="medicine">Medicine pickup</option>
+                            <option value="hospital">Hospital assistance</option>
+                            <option value="companionship">Companionship</option>
+                            <option value="digital-guidance">Digital guidance</option>
+                            <option value="documents">Documents &amp; forms</option>
+                            <option value="personal-support">Everyday support</option>
+                            <option value="special-care">Special Care</option>
+                        </select>
+                    </div>
+
+                    <div class="review-filter-field">
+                        <label for="reviewRatingFilter">Rating</label>
+
+                        <select id="reviewRatingFilter">
+                            <option value="all">All ratings</option>
+                            <option value="5">5 stars</option>
+                            <option value="4">4 stars</option>
+                            <option value="3">3 stars</option>
+                            <option value="2">2 stars</option>
+                            <option value="1">1 star</option>
+                        </select>
+                    </div>
+
+                    <div class="review-filter-field">
+                        <label for="reviewSortFilter">Sort by</label>
+
+                        <select id="reviewSortFilter">
+                            <option value="newest">Newest first</option>
+                            <option value="oldest">Oldest first</option>
+                            <option value="highest">Highest rating</option>
+                            <option value="lowest">Lowest rating</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-outline review-clear-button"
+                        id="clearReviewFiltersButton">
+                        Clear filters
+                    </button>
+
+                </div>
+
+                <div class="review-results-heading" aria-live="polite">
+                    <p>
+                        Showing <strong id="reviewResultCount">6</strong>
+                        <span id="reviewResultLabel">reviews</span>
+                    </p>
+                </div>
+
+                <!-- Review cards -->
+                <div class="reviews-grid" id="reviewsGrid">
+
+                    <article class="community-review-card"
+                        data-review-id="review-demo-001"
+                        data-category="groceries"
+                        data-rating="5"
+                        data-date="2026-10-10"
+                        data-search="anita mehta groceries grocery shopping elderly volunteer helpful kind patient">
+
+                        <div class="review-card-top">
+                            <div class="reviewer-profile">
+                                <div class="reviewer-avatar avatar-sage">AM</div>
+
+                                <div>
+                                    <h3>Anita Mehta</h3>
+                                    <span>Community member</span>
+                                </div>
+                            </div>
+
+                            <span class="review-verified-label">
+                                <span aria-hidden="true">✓</span> Demo
+                            </span>
+                        </div>
+
+                        <div class="review-rating-row">
+                            <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                            <span class="review-rating-text">5.0</span>
+                        </div>
+
+                        <span class="review-category-tag">Groceries</span>
+
+                        <h4>A thoughtful and helpful experience</h4>
+
+                        <p class="review-description">
+                            The grocery assistance made a difficult day much easier.
+                            The volunteer was patient, friendly, and careful to check
+                            that everything on the list was included.
+                        </p>
+
+                        <div class="review-card-footer">
+                            <span class="review-date">October 10, 2026</span>
+                            <span class="review-thanks">♡ Community care</span>
+                        </div>
+
+                    </article>
+
+                    <article class="community-review-card"
+                        data-review-id="review-demo-002"
+                        data-category="digital-guidance"
+                        data-rating="5"
+                        data-date="2026-10-09"
+                        data-search="ravi kumar digital guidance smartphone phone technology volunteer respectful patient">
+
+                        <div class="review-card-top">
+                            <div class="reviewer-profile">
+                                <div class="reviewer-avatar avatar-blue">RK</div>
+
+                                <div>
+                                    <h3>Ravi Kumar</h3>
+                                    <span>Community member</span>
+                                </div>
+                            </div>
+
+                            <span class="review-verified-label">
+                                <span aria-hidden="true">✓</span> Demo
+                            </span>
+                        </div>
+
+                        <div class="review-rating-row">
+                            <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                            <span class="review-rating-text">5.0</span>
+                        </div>
+
+                        <span class="review-category-tag">Digital Guidance</span>
+
+                        <h4>Technology felt less confusing</h4>
+
+                        <p class="review-description">
+                            I received clear guidance on using my smartphone.
+                            Everything was explained step by step, without rushing
+                            or making me feel uncomfortable about asking questions.
+                        </p>
+
+                        <div class="review-card-footer">
+                            <span class="review-date">October 9, 2026</span>
+                            <span class="review-thanks">♡ Community care</span>
+                        </div>
+
+                    </article>
+
+                    <article class="community-review-card"
+                        data-review-id="review-demo-003"
+                        data-category="companionship"
+                        data-rating="5"
+                        data-date="2026-10-08"
+                        data-search="meera sharma companionship walk conversation friendship elderly kindness caring">
+
+                        <div class="review-card-top">
+                            <div class="reviewer-profile">
+                                <div class="reviewer-avatar avatar-peach">MS</div>
+
+                                <div>
+                                    <h3>Meera Sharma</h3>
+                                    <span>Community member</span>
+                                </div>
+                            </div>
+
+                            <span class="review-verified-label">
+                                <span aria-hidden="true">✓</span> Demo
+                            </span>
+                        </div>
+
+                        <div class="review-rating-row">
+                            <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                            <span class="review-rating-text">5.0</span>
+                        </div>
+
+                        <span class="review-category-tag">Companionship</span>
+
+                        <h4>A walk that brightened my day</h4>
+
+                        <p class="review-description">
+                            Having someone join me for a walk and a conversation
+                            was wonderful. It reminded me how much a little time
+                            and genuine attention can mean.
+                        </p>
+
+                        <div class="review-card-footer">
+                            <span class="review-date">October 8, 2026</span>
+                            <span class="review-thanks">♡ Community care</span>
+                        </div>
+
+                    </article>
+
+                    <article class="community-review-card"
+                        data-review-id="review-demo-004"
+                        data-category="medicine"
+                        data-rating="4"
+                        data-date="2026-10-06"
+                        data-search="arjun nair medicine pickup pharmacy medicine delivery reliable assistance volunteer">
+
+                        <div class="review-card-top">
+                            <div class="reviewer-profile">
+                                <div class="reviewer-avatar avatar-lavender">AN</div>
+
+                                <div>
+                                    <h3>Arjun Nair</h3>
+                                    <span>Community member</span>
+                                </div>
+                            </div>
+
+                            <span class="review-verified-label">
+                                <span aria-hidden="true">✓</span> Demo
+                            </span>
+                        </div>
+
+                        <div class="review-rating-row">
+                            <span class="review-stars" aria-label="4 out of 5 stars">★★★★<span class="empty-star">★</span></span>
+                            <span class="review-rating-text">4.0</span>
+                        </div>
+
+                        <span class="review-category-tag">Medicine Pickup</span>
+
+                        <h4>Reliable support when I needed it</h4>
+
+                        <p class="review-description">
+                            The volunteer helped collect my requested medicines
+                            and kept me informed. Clearer coordination about the
+                            pickup time would make the experience even better.
+                        </p>
+
+                        <div class="review-card-footer">
+                            <span class="review-date">October 6, 2026</span>
+                            <span class="review-thanks">♡ Community care</span>
+                        </div>
+
+                    </article>
+
+                    <article class="community-review-card"
+                        data-review-id="review-demo-005"
+                        data-category="hospital"
+                        data-rating="5"
+                        data-date="2026-10-04"
+                        data-search="priya desai hospital assistance appointment hospital visit directions non medical support">
+
+                        <div class="review-card-top">
+                            <div class="reviewer-profile">
+                                <div class="reviewer-avatar avatar-rose">PD</div>
+
+                                <div>
+                                    <h3>Priya Desai</h3>
+                                    <span>Community member</span>
+                                </div>
+                            </div>
+
+                            <span class="review-verified-label">
+                                <span aria-hidden="true">✓</span> Demo
+                            </span>
+                        </div>
+
+                        <div class="review-rating-row">
+                            <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                            <span class="review-rating-text">5.0</span>
+                        </div>
+
+                        <span class="review-category-tag">Hospital Assistance</span>
+
+                        <h4>Support through a stressful day</h4>
+
+                        <p class="review-description">
+                            Having someone accompany me and help me navigate
+                            the hospital made the visit less stressful. Their
+                            calm and respectful approach was greatly appreciated.
+                        </p>
+
+                        <div class="review-card-footer">
+                            <span class="review-date">October 4, 2026</span>
+                            <span class="review-thanks">♡ Community care</span>
+                        </div>
+
+                    </article>
+
+                    <article class="community-review-card"
+                        data-review-id="review-demo-006"
+                        data-category="documents"
+                        data-rating="4"
+                        data-date="2026-10-02"
+                        data-search="kavya reddy documents forms online application digital paperwork form guidance">
+
+                        <div class="review-card-top">
+                            <div class="reviewer-profile">
+                                <div class="reviewer-avatar avatar-yellow">KR</div>
+
+                                <div>
+                                    <h3>Kavya Reddy</h3>
+                                    <span>Community member</span>
+                                </div>
+                            </div>
+
+                            <span class="review-verified-label">
+                                <span aria-hidden="true">✓</span> Demo
+                            </span>
+                        </div>
+
+                        <div class="review-rating-row">
+                            <span class="review-stars" aria-label="4 out of 5 stars">★★★★<span class="empty-star">★</span></span>
+                            <span class="review-rating-text">4.0</span>
+                        </div>
+
+                        <span class="review-category-tag">Documents &amp; Forms</span>
+
+                        <h4>Helpful guidance with paperwork</h4>
+
+                        <p class="review-description">
+                            The steps for completing an online form were explained
+                            clearly. I felt more confident completing similar tasks
+                            on my own after receiving this guidance.
+                        </p>
+
+                        <div class="review-card-footer">
+                            <span class="review-date">October 2, 2026</span>
+                            <span class="review-thanks">♡ Community care</span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- Empty state -->
+                <div class="reviews-empty-state" id="reviewsEmptyState" hidden>
+                    <div class="reviews-empty-icon" aria-hidden="true">⌕</div>
+                    <h3>No reviews found</h3>
+                    <p>
+                        Try another search term or adjust your filters to see
+                        more community experiences.
+                    </p>
+
+                    <button type="button" class="btn btn-primary"
+                        id="emptyReviewClearButton">
+                        Clear filters
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Writing a Review -->
+        <section class="write-review-section" id="writeReview">
+            <div class="container write-review-layout">
+
+                <div class="write-review-intro">
+                    <span class="section-eyebrow">YOUR EXPERIENCE MATTERS</span>
+
+                    <h2>Have you experienced the power of community care?</h2>
+
+                    <p>
+                        Share what happened, what you appreciated, and what could
+                        be improved. Your feedback can help make future assistance
+                        more thoughtful and respectful.
+                    </p>
+
+                    <div class="review-guidelines">
+                        <h3>Before you write</h3>
+
+                        <ul>
+                            <li>
+                                <span>✓</span>
+                                Be honest, fair, and constructive.
+                            </li>
+                            <li>
+                                <span>✓</span>
+                                Focus on the assistance experience.
+                            </li>
+                            <li>
+                                <span>✓</span>
+                                Avoid sharing addresses, phone numbers, medical
+                                details, or other private information.
+                            </li>
+                            <li>
+                                <span>✓</span>
+                                Do not use reviews to threaten or harass others.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="review-privacy-note">
+                        <span class="privacy-icon" aria-hidden="true">♧</span>
+                        <div>
+                            <strong>Your privacy matters</strong>
+                            <p>
+                                Only share information you are comfortable
+                                including in a community review.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="write-review-card">
+
+                    <div class="write-review-card-heading">
+                        <span class="write-review-icon" aria-hidden="true">✎</span>
+                        <div>
+                            <h3>Write a review</h3>
+                            <p>Tell us about your experience.</p>
+                        </div>
+                    </div>
+
+                    <form id="reviewForm" novalidate>
+
+                        <div class="review-form-group">
+                            <label for="reviewerName">
+                                Your name <span aria-hidden="true">*</span>
+                            </label>
+
+                            <input type="text" id="reviewerName"
+                                name="reviewerName"
+                                placeholder="Enter your name"
+                                minlength="2" maxlength="80"
+                                autocomplete="name"
+                                required>
+
+                            <small class="review-field-error"
+                                id="reviewerNameError"></small>
+                        </div>
+
+                        <div class="review-form-group">
+                            <label for="reviewService">
+                                Service category <span aria-hidden="true">*</span>
+                            </label>
+
+                            <select id="reviewService" name="reviewService" required>
+                                <option value="">Choose a service</option>
+                                <option value="groceries">Groceries</option>
+                                <option value="medicine">Medicine pickup</option>
+                                <option value="hospital">Hospital assistance</option>
+                                <option value="companionship">Companionship</option>
+                                <option value="digital-guidance">Digital guidance</option>
+                                <option value="documents">Documents &amp; forms</option>
+                                <option value="personal-support">Everyday personal support</option>
+                                <option value="special-care">Special Care</option>
+                            </select>
+
+                            <small class="review-field-error"
+                                id="reviewServiceError"></small>
+                        </div>
+
+                        <fieldset class="review-form-group review-rating-fieldset">
+                            <legend>
+                                Your rating <span aria-hidden="true">*</span>
+                            </legend>
+
+                            <div class="rating-selector" role="radiogroup"
+                                aria-label="Choose a rating from one to five stars">
+
+                                <input type="radio" id="rating1"
+                                    name="reviewRating" value="1">
+                                <label for="rating1" title="1 star">★</label>
+
+                                <input type="radio" id="rating2"
+                                    name="reviewRating" value="2">
+                                <label for="rating2" title="2 stars">★</label>
+
+                                <input type="radio" id="rating3"
+                                    name="reviewRating" value="3">
+                                <label for="rating3" title="3 stars">★</label>
+
+                                <input type="radio" id="rating4"
+                                    name="reviewRating" value="4">
+                                <label for="rating4" title="4 stars">★</label>
+
+                                <input type="radio" id="rating5"
+                                    name="reviewRating" value="5">
+                                <label for="rating5" title="5 stars">★</label>
+
+                            </div>
+
+                            <p class="rating-help-text" id="ratingHelpText">
+                                Select a rating.
+                            </p>
+
+                            <small class="review-field-error"
+                                id="reviewRatingError"></small>
+                        </fieldset>
+
+                        <div class="review-form-group">
+                            <label for="reviewTitle">
+                                Review title <span aria-hidden="true">*</span>
+                            </label>
+
+                            <input type="text" id="reviewTitle"
+                                name="reviewTitle"
+                                placeholder="Summarize your experience"
+                                minlength="4" maxlength="100"
+                                required>
+
+                            <small class="review-field-error"
+                                id="reviewTitleError"></small>
+                        </div>
+
+                        <div class="review-form-group">
+                            <div class="review-textarea-label-row">
+                                <label for="reviewComment">
+                                    Your review <span aria-hidden="true">*</span>
+                                </label>
+
+                                <span id="reviewCharacterCount">0 / 1000</span>
+                            </div>
+
+                            <textarea id="reviewComment"
+                                name="reviewComment"
+                                rows="5"
+                                minlength="20"
+                                maxlength="1000"
+                                placeholder="What went well? What could be improved?"
+                                required></textarea>
+
+                            <small class="review-field-error"
+                                id="reviewCommentError"></small>
+                        </div>
+
+                        <div class="review-consent-group">
+                            <input type="checkbox" id="reviewConsent"
+                                name="reviewConsent" required>
+
+                            <label for="reviewConsent">
+                                I confirm that this review reflects my experience
+                                and does not intentionally include another
+                                person's private information.
+                            </label>
+                        </div>
+
+                        <small class="review-field-error"
+                            id="reviewConsentError"></small>
+
+                        <div class="review-form-message"
+                            id="reviewFormMessage"
+                            role="status"
+                            aria-live="polite"
+                            hidden></div>
+
+                        <button type="submit" class="btn btn-primary review-submit-button"
+                            id="submitReviewButton">
+                            Submit Review
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                        <p class="review-submit-note">
+                            Demo only: your review will not be published or
+                            saved to an account.
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Community Principles -->
+        <section class="review-principles-section">
+            <div class="container">
+
+                <div class="review-principles-content">
+                    <div>
+                        <span class="section-eyebrow">OUR SHARED RESPONSIBILITY</span>
+                        <h2>Kind feedback. Respectful community.</h2>
+                        <p>
+                            Reviews should help people learn and improve. They
+                            should never be used to shame, discriminate against,
+                            or expose someone who requested or provided help.
+                        </p>
+                    </div>
+
+                    <a href="about.html" class="btn btn-outline">
+                        Learn About CareCircle
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="reviews-cta-section">
+            <div class="container">
+                <div class="reviews-cta-card">
+
+                    <div>
+                        <span class="section-eyebrow">BE PART OF SOMETHING GOOD</span>
+                        <h2>One helpful action can inspire another.</h2>
+                        <p>
+                            Join CareCircle and help build a community where
+                            kindness, dignity, and mutual support matter.
+                        </p>
+                    </div>
+
+                    <div class="reviews-cta-actions">
+                        <a href="register.html" class="btn btn-primary">
+                            Join CareCircle
+                        </a>
+                        <a href="services.html" class="btn btn-outline">
+                            Explore Services
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo footer-logo">
+                        <span class="logo-icon">C</span>
+                        <span>CareCircle</span>
+                    </a>
+
+                    <p>
+                        Help Today. Be Helped Tomorrow.
+                        Building a kinder community, one act of care at a time.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Explore</h3>
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="services.html">Services</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Community</h3>
+                    <a href="browse-requests.html">Find Help</a>
+                    <a href="help-request.html">Request Help</a>
+                    <a href="reviews.html">Reviews</a>
+                    <a href="special-care.html">Special Care</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Account</h3>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Create Account</a>
+                    <a href="profile.html">My Profile</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> CareCircle. All rights reserved.</p>
+                <p>Made with care for a stronger community.</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

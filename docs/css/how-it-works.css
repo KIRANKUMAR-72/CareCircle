@@ -1,0 +1,1506 @@
+/* =========================================================
+   CareCircle — How It Works Page
+   File: frontend/css/how-it-works.css
+   Depends on: css/style.css
+   ========================================================= */
+
+/* ---------- Page-specific variables ---------- */
+
+:root {
+    --hiw-green: #145c4b;
+    --hiw-green-dark: #0d4437;
+    --hiw-green-light: #e7f3ed;
+    --hiw-cream: #fbf8f1;
+    --hiw-gold: #d8a64b;
+    --hiw-gold-light: #fbf1d9;
+    --hiw-peach: #f9e9df;
+    --hiw-blue-light: #e8f0fa;
+    --hiw-text: #263b35;
+    --hiw-muted: #6e7d76;
+    --hiw-border: #e5e9e3;
+    --hiw-white: #ffffff;
+    --hiw-shadow: 0 18px 45px rgba(20, 92, 75, 0.09);
+    --hiw-radius: 22px;
+}
+
+/* ---------- General page helpers ---------- */
+
+.hiw-hero,
+.hiw-process,
+.hiw-credits-section,
+.hiw-request-section,
+.hiw-members-section,
+.hiw-safety-section,
+.hiw-faq-section,
+.hiw-cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hiw-hero *,
+.hiw-process *,
+.hiw-credits-section *,
+.hiw-request-section *,
+.hiw-members-section *,
+.hiw-safety-section *,
+.hiw-faq-section *,
+.hiw-cta-section * {
+    box-sizing: border-box;
+}
+
+.hiw-hero p,
+.hiw-process p,
+.hiw-credits-section p,
+.hiw-request-section p,
+.hiw-members-section p,
+.hiw-safety-section p,
+.hiw-faq-section p,
+.hiw-cta-section p {
+    line-height: 1.8;
+}
+
+.hiw-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: var(--hiw-green);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.hiw-eyebrow::before {
+    width: 25px;
+    height: 2px;
+    background: var(--hiw-gold);
+    content: "";
+}
+
+.hiw-section-heading {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.hiw-section-heading h2 {
+    margin: 0 0 16px;
+    color: var(--hiw-green-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+
+.hiw-section-heading p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--hiw-muted);
+    font-size: 1rem;
+}
+
+/* =========================================================
+   1. HERO SECTION
+   ========================================================= */
+
+.hiw-hero {
+    padding: 90px 0 100px;
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(216, 166, 75, 0.14),
+            transparent 27%
+        ),
+        linear-gradient(135deg, #fbf8f1 0%, #f2f7ef 100%);
+}
+
+.hiw-hero::before {
+    position: absolute;
+    top: -130px;
+    left: -100px;
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(20, 92, 75, 0.08);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.hiw-hero::after {
+    position: absolute;
+    top: -70px;
+    left: -40px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(20, 92, 75, 0.07);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.hiw-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 0.92fr;
+    align-items: center;
+    gap: 65px;
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.hiw-hero-content {
+    max-width: 590px;
+}
+
+.hiw-hero-content h1 {
+    margin: 0 0 24px;
+    color: var(--hiw-green-dark);
+    font-size: clamp(2.8rem, 5.3vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+}
+
+.hiw-hero-content h1 span {
+    color: var(--hiw-green);
+}
+
+.hiw-hero-content > p {
+    max-width: 520px;
+    margin: 0 0 30px;
+    color: var(--hiw-muted);
+    font-size: 1.08rem;
+}
+
+.hiw-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.hiw-hero-actions .btn {
+    min-height: 49px;
+}
+
+.hiw-hero-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--hiw-muted);
+    font-size: 0.88rem;
+}
+
+.hiw-hero-note i {
+    color: var(--hiw-green);
+    font-size: 1rem;
+}
+
+.hiw-hero-visual {
+    position: relative;
+    min-width: 0;
+}
+
+.hiw-hero-visual img {
+    display: block;
+    width: 100%;
+    height: 475px;
+    border-radius: 32px;
+    object-fit: cover;
+    box-shadow: var(--hiw-shadow);
+}
+
+.hiw-image-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 65px 28px 26px;
+    border-radius: 0 0 32px 32px;
+    background: linear-gradient(
+        to top,
+        rgba(9, 45, 36, 0.88),
+        rgba(9, 45, 36, 0)
+    );
+    color: var(--hiw-white);
+}
+
+.hiw-image-overlay h3 {
+    margin: 0 0 7px;
+    color: var(--hiw-white);
+    font-size: 1.35rem;
+}
+
+.hiw-image-overlay p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.92rem;
+}
+
+.hiw-floating-message {
+    position: absolute;
+    right: -25px;
+    bottom: 65px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 250px;
+    padding: 16px 19px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 14px 35px rgba(22, 52, 41, 0.13);
+    animation: hiw-float 5s ease-in-out infinite;
+}
+
+.hiw-floating-icon {
+    display: grid;
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--hiw-green-light);
+    color: var(--hiw-green);
+    font-size: 1.15rem;
+}
+
+.hiw-floating-message strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--hiw-green-dark);
+    font-size: 0.91rem;
+}
+
+.hiw-floating-message span {
+    display: block;
+    color: var(--hiw-muted);
+    font-size: 0.78rem;
+}
+
+.hiw-decoration {
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hiw-decoration-one {
+    top: 60px;
+    right: 6%;
+    width: 75px;
+    height: 75px;
+    background: rgba(216, 166, 75, 0.13);
+}
+
+.hiw-decoration-two {
+    bottom: 35px;
+    left: 44%;
+    width: 42px;
+    height: 42px;
+    border: 8px solid rgba(20, 92, 75, 0.08);
+}
+
+/* =========================================================
+   2. FOUR-STEP PROCESS
+   ========================================================= */
+
+.hiw-process {
+    padding: 100px 0;
+    background: var(--hiw-white);
+}
+
+.hiw-process-inner,
+.hiw-credits-grid,
+.hiw-request-grid,
+.hiw-members-grid,
+.hiw-safety-grid,
+.hiw-faq-inner {
+    width: min(1120px, calc(100% - 48px));
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hiw-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.hiw-timeline::before {
+    position: absolute;
+    top: 35px;
+    right: 11%;
+    left: 11%;
+    height: 2px;
+    background: repeating-linear-gradient(
+        to right,
+        #cbdcd1 0,
+        #cbdcd1 7px,
+        transparent 7px,
+        transparent 14px
+    );
+    content: "";
+}
+
+.hiw-step {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.hiw-step-marker {
+    display: grid;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    place-items: center;
+    border: 7px solid var(--hiw-white);
+    border-radius: 50%;
+    background: var(--hiw-green);
+    box-shadow: 0 0 0 1px var(--hiw-border);
+    color: var(--hiw-white);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.hiw-step-card {
+    height: calc(100% - 95px);
+    padding: 26px 21px;
+    border: 1px solid var(--hiw-border);
+    border-radius: var(--hiw-radius);
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(20, 92, 75, 0.035);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.hiw-step-card:hover {
+    transform: translateY(-6px);
+    border-color: #c6ded0;
+    box-shadow: var(--hiw-shadow);
+}
+
+.hiw-step-icon {
+    display: grid;
+    width: 53px;
+    height: 53px;
+    margin-bottom: 20px;
+    place-items: center;
+    border-radius: 16px;
+    font-size: 1.3rem;
+}
+
+.icon-green {
+    background: var(--hiw-green-light);
+    color: var(--hiw-green);
+}
+
+.icon-peach {
+    background: var(--hiw-peach);
+    color: #a75f3e;
+}
+
+.icon-gold {
+    background: var(--hiw-gold-light);
+    color: #9c711e;
+}
+
+.icon-blue {
+    background: var(--hiw-blue-light);
+    color: #426da2;
+}
+
+.hiw-step-card h3 {
+    margin: 0 0 12px;
+    color: var(--hiw-green-dark);
+    font-size: 1.16rem;
+    line-height: 1.35;
+}
+
+.hiw-step-card p {
+    margin: 0 0 18px;
+    color: var(--hiw-muted);
+    font-size: 0.9rem;
+}
+
+.hiw-step-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+    color: var(--hiw-green);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hiw-step-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.hiw-step-tags span {
+    padding: 6px 10px;
+    border-radius: 30px;
+    background: #f3f6f2;
+    color: #53665b;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+/* =========================================================
+   3. SOCIALCREDITS SECTION
+   ========================================================= */
+
+.hiw-credits-section {
+    padding: 100px 0;
+    background: var(--hiw-cream);
+}
+
+.hiw-credits-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.88fr;
+    align-items: center;
+    gap: 85px;
+}
+
+.hiw-credits-content h2 {
+    margin: 0 0 22px;
+    color: var(--hiw-green-dark);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -1.2px;
+}
+
+.hiw-credits-content > p {
+    margin: 0 0 25px;
+    color: var(--hiw-muted);
+    font-size: 1rem;
+}
+
+.hiw-credit-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 22px 0;
+}
+
+.hiw-credit-feature > i {
+    display: grid;
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--hiw-green-light);
+    color: var(--hiw-green);
+    font-size: 1.05rem;
+}
+
+.hiw-credit-feature h3 {
+    margin: 0 0 6px;
+    color: var(--hiw-green-dark);
+    font-size: 1rem;
+}
+
+.hiw-credit-feature p {
+    margin: 0;
+    color: var(--hiw-muted);
+    font-size: 0.88rem;
+}
+
+.hiw-credit-disclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-top: 28px;
+    padding: 16px 18px;
+    border: 1px solid #eadbb9;
+    border-radius: 14px;
+    background: #fffaf0;
+    color: #77613a;
+    font-size: 0.84rem;
+    line-height: 1.7;
+}
+
+.hiw-credit-disclaimer i {
+    flex: 0 0 auto;
+    margin-top: 4px;
+    color: #b38732;
+}
+
+.hiw-credit-visual {
+    position: relative;
+    display: grid;
+    min-height: 430px;
+    place-items: center;
+}
+
+.hiw-credit-visual::before {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(20, 92, 75, 0.12);
+    border-radius: 50%;
+    content: "";
+}
+
+.hiw-credit-visual::after {
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background: rgba(216, 166, 75, 0.11);
+    content: "";
+}
+
+.hiw-credit-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 370px);
+    min-height: 245px;
+    padding: 27px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    background: linear-gradient(135deg, #1b705a, #0c4035);
+    box-shadow: 0 25px 55px rgba(13, 68, 55, 0.24);
+    color: var(--hiw-white);
+    transform: rotate(-4deg);
+    transition: transform 0.3s ease;
+}
+
+.hiw-credit-card:hover {
+    transform: rotate(0deg) translateY(-5px);
+}
+
+.hiw-credit-card::after {
+    position: absolute;
+    top: -75px;
+    right: -70px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 50%;
+    content: "";
+}
+
+.hiw-credit-card-top,
+.hiw-credit-card-bottom {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.hiw-mini-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.94rem;
+    font-weight: 800;
+}
+
+.hiw-mini-brand i {
+    font-size: 1.25rem;
+}
+
+.hiw-credit-emblem {
+    display: grid;
+    width: 72px;
+    height: 72px;
+    margin: 32px 0 25px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f8d68b;
+    font-size: 2rem;
+}
+
+.hiw-credit-card-bottom {
+    align-items: flex-end;
+}
+
+.hiw-credit-card-bottom strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 1.15rem;
+}
+
+.hiw-credit-card-bottom span {
+    display: block;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.75rem;
+}
+
+.hiw-credit-card-bottom > i {
+    color: #f8d68b;
+    font-size: 1.6rem;
+}
+
+.hiw-credit-float {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 15px 18px;
+    border: 1px solid var(--hiw-border);
+    border-radius: 16px;
+    background: var(--hiw-white);
+    box-shadow: 0 12px 32px rgba(20, 92, 75, 0.1);
+}
+
+.hiw-credit-float i {
+    color: var(--hiw-green);
+    font-size: 1.25rem;
+}
+
+.hiw-credit-float strong {
+    display: block;
+    color: var(--hiw-green-dark);
+    font-size: 0.87rem;
+}
+
+.hiw-credit-float span {
+    display: block;
+    margin-top: 3px;
+    color: var(--hiw-muted);
+    font-size: 0.75rem;
+}
+
+.hiw-credit-float-one {
+    top: 50px;
+    right: -10px;
+}
+
+.hiw-credit-float-two {
+    bottom: 42px;
+    left: -10px;
+}
+
+/* =========================================================
+   4. HELP REQUEST JOURNEY
+   ========================================================= */
+
+.hiw-request-section {
+    padding: 100px 0;
+    background: var(--hiw-white);
+}
+
+.hiw-request-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.hiw-request-card {
+    position: relative;
+    padding: 30px 27px;
+    border: 1px solid var(--hiw-border);
+    border-radius: var(--hiw-radius);
+    background: #fff;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hiw-request-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hiw-shadow);
+}
+
+.hiw-request-number {
+    position: absolute;
+    top: 23px;
+    right: 25px;
+    color: #e0e8e1;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.hiw-request-icon {
+    display: grid;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 24px;
+    place-items: center;
+    border-radius: 17px;
+    background: var(--hiw-green-light);
+    color: var(--hiw-green);
+    font-size: 1.4rem;
+}
+
+.hiw-request-card:nth-child(2) .hiw-request-icon {
+    background: var(--hiw-gold-light);
+    color: #9c711e;
+}
+
+.hiw-request-card:nth-child(3) .hiw-request-icon {
+    background: var(--hiw-peach);
+    color: #a75f3e;
+}
+
+.hiw-request-card h3 {
+    margin: 0 0 12px;
+    color: var(--hiw-green-dark);
+    font-size: 1.15rem;
+}
+
+.hiw-request-card p {
+    margin: 0;
+    color: var(--hiw-muted);
+    font-size: 0.9rem;
+}
+
+.hiw-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 850px;
+    margin: 35px auto 0;
+    padding: 19px 22px;
+    border-radius: 15px;
+    background: #f1f7f1;
+    color: #536b5e;
+    font-size: 0.9rem;
+}
+
+.hiw-note i {
+    flex: 0 0 auto;
+    margin-top: 4px;
+    color: var(--hiw-green);
+}
+
+/* =========================================================
+   5. COMMUNITY MEMBER ROLES
+   ========================================================= */
+
+.hiw-members-section {
+    padding: 100px 0;
+    background: #f7f8f3;
+}
+
+.hiw-members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.hiw-member-card {
+    padding: 28px 23px;
+    border: 1px solid var(--hiw-border);
+    border-radius: var(--hiw-radius);
+    background: var(--hiw-white);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hiw-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hiw-shadow);
+}
+
+.hiw-member-icon {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 22px;
+    place-items: center;
+    border-radius: 18px;
+    font-size: 1.45rem;
+}
+
+.member-green {
+    background: var(--hiw-green-light);
+    color: var(--hiw-green);
+}
+
+.member-gold {
+    background: var(--hiw-gold-light);
+    color: #9c711e;
+}
+
+.member-peach {
+    background: var(--hiw-peach);
+    color: #a75f3e;
+}
+
+.member-blue {
+    background: var(--hiw-blue-light);
+    color: #426da2;
+}
+
+.hiw-member-card h3 {
+    margin: 0 0 12px;
+    color: var(--hiw-green-dark);
+    font-size: 1.1rem;
+}
+
+.hiw-member-card p {
+    margin: 0 0 18px;
+    color: var(--hiw-muted);
+    font-size: 0.88rem;
+}
+
+.hiw-member-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--hiw-green);
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.hiw-member-card a i {
+    transition: transform 0.2s ease;
+}
+
+.hiw-member-card a:hover i {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   6. TRUST AND SAFETY
+   ========================================================= */
+
+.hiw-safety-section {
+    padding: 100px 0;
+    background: var(--hiw-white);
+}
+
+.hiw-safety-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1fr;
+    align-items: center;
+    gap: 75px;
+}
+
+.hiw-safety-visual {
+    position: relative;
+    min-height: 390px;
+}
+
+.hiw-safety-visual img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    border-radius: 28px;
+    object-fit: cover;
+}
+
+.hiw-safety-content h2 {
+    margin: 0 0 18px;
+    color: var(--hiw-green-dark);
+    font-size: clamp(2rem, 3.7vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.hiw-safety-content > p {
+    margin: 0 0 25px;
+    color: var(--hiw-muted);
+    font-size: 0.98rem;
+}
+
+.hiw-safety-list {
+    display: grid;
+    gap: 17px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hiw-safety-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.hiw-safety-item > i {
+    display: grid;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--hiw-green-light);
+    color: var(--hiw-green);
+    font-size: 0.88rem;
+}
+
+.hiw-safety-item strong {
+    display: block;
+    margin: 0 0 4px;
+    color: var(--hiw-green-dark);
+    font-size: 0.96rem;
+}
+
+.hiw-safety-item span {
+    display: block;
+    color: var(--hiw-muted);
+    font-size: 0.86rem;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   7. FAQ ACCORDION
+   ========================================================= */
+
+.hiw-faq-section {
+    padding: 100px 0;
+    background: var(--hiw-cream);
+}
+
+.hiw-faq-list {
+    display: grid;
+    gap: 13px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.hiw-faq-item {
+    overflow: hidden;
+    border: 1px solid var(--hiw-border);
+    border-radius: 16px;
+    background: var(--hiw-white);
+    transition: border-color 0.2s ease;
+}
+
+.hiw-faq-item:has(.hiw-faq-question[aria-expanded="true"]) {
+    border-color: #b7d2c0;
+}
+
+.hiw-faq-question {
+    display: flex;
+    width: 100%;
+    min-height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 21px 24px;
+    border: 0;
+    background: transparent;
+    color: var(--hiw-green-dark);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.hiw-faq-question > span:first-child {
+    flex: 1;
+}
+
+.hiw-faq-question > i,
+.hiw-faq-question .fa-plus,
+.hiw-faq-question .fa-minus {
+    display: grid;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--hiw-green-light);
+    color: var(--hiw-green);
+    font-size: 0.85rem;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.hiw-faq-question:hover > i,
+.hiw-faq-question:hover .fa-plus,
+.hiw-faq-question:hover .fa-minus {
+    background: #d6e9dd;
+}
+
+.hiw-faq-question:focus-visible {
+    outline: 3px solid rgba(20, 92, 75, 0.35);
+    outline-offset: -3px;
+}
+
+.hiw-faq-answer {
+    padding: 0 24px 23px;
+}
+
+.hiw-faq-answer p {
+    margin: 0;
+    color: var(--hiw-muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+.hiw-faq-answer[hidden] {
+    display: none !important;
+}
+
+/* =========================================================
+   8. FINAL CALL TO ACTION
+   ========================================================= */
+
+.hiw-cta-section {
+    padding: 85px 24px;
+    background: var(--hiw-white);
+}
+
+.hiw-cta-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    padding: 55px 60px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: linear-gradient(125deg, #145c4b, #0d4437);
+    box-shadow: 0 20px 50px rgba(13, 68, 55, 0.16);
+    color: var(--hiw-white);
+}
+
+.hiw-cta-card::before,
+.hiw-cta-card::after {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.hiw-cta-card::before {
+    top: -140px;
+    right: 8%;
+    width: 320px;
+    height: 320px;
+}
+
+.hiw-cta-card::after {
+    right: -90px;
+    bottom: -190px;
+    width: 390px;
+    height: 390px;
+}
+
+.hiw-cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hiw-cta-content h2 {
+    margin: 0 0 15px;
+    color: var(--hiw-white);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.hiw-cta-content p {
+    max-width: 550px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.98rem;
+}
+
+.hiw-cta-actions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.hiw-cta-actions .btn {
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.hiw-cta-actions .btn-primary {
+    background: var(--hiw-gold);
+    color: #24382e;
+}
+
+.hiw-cta-actions .btn-primary:hover {
+    background: #e8bd68;
+}
+
+.hiw-cta-actions .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: transparent;
+    color: var(--hiw-white);
+}
+
+.hiw-cta-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hiw-cta-icon {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 20px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f8d68b;
+    font-size: 1.5rem;
+}
+
+/* =========================================================
+   9. ANIMATIONS
+   ========================================================= */
+
+@keyframes hiw-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+/* =========================================================
+   10. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .hiw-hero-grid {
+        gap: 40px;
+    }
+
+    .hiw-floating-message {
+        right: -10px;
+    }
+
+    .hiw-credits-grid {
+        gap: 45px;
+    }
+
+    .hiw-safety-grid {
+        gap: 45px;
+    }
+
+    .hiw-members-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hiw-cta-card {
+        padding: 45px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hiw-hero {
+        padding: 70px 0 80px;
+    }
+
+    .hiw-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .hiw-hero-content {
+        max-width: 720px;
+    }
+
+    .hiw-hero-visual {
+        max-width: 680px;
+    }
+
+    .hiw-hero-visual img {
+        height: 430px;
+    }
+
+    .hiw-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 22px;
+    }
+
+    .hiw-timeline::before {
+        display: none;
+    }
+
+    .hiw-step-marker {
+        margin-bottom: 18px;
+    }
+
+    .hiw-step-card {
+        height: auto;
+        min-height: 290px;
+    }
+
+    .hiw-credits-grid,
+    .hiw-safety-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hiw-credits-content,
+    .hiw-safety-content {
+        max-width: 720px;
+    }
+
+    .hiw-credit-visual {
+        width: min(100%, 520px);
+        margin: 0 auto;
+    }
+
+    .hiw-safety-visual {
+        order: 2;
+        min-height: 340px;
+    }
+
+    .hiw-safety-visual img {
+        height: 340px;
+    }
+
+    .hiw-request-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hiw-request-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .hiw-cta-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hiw-cta-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .hiw-hero {
+        padding: 55px 0 65px;
+    }
+
+    .hiw-hero-grid,
+    .hiw-process-inner,
+    .hiw-credits-grid,
+    .hiw-request-grid,
+    .hiw-members-grid,
+    .hiw-safety-grid,
+    .hiw-faq-inner {
+        width: min(100% - 32px, 520px);
+    }
+
+    .hiw-hero-content h1 {
+        font-size: clamp(2.4rem, 11vw, 3.3rem);
+        letter-spacing: -1.5px;
+    }
+
+    .hiw-hero-content > p {
+        font-size: 0.97rem;
+    }
+
+    .hiw-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hiw-hero-actions .btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hiw-hero-visual img {
+        height: 330px;
+        border-radius: 23px;
+    }
+
+    .hiw-image-overlay {
+        padding: 50px 20px 21px;
+        border-radius: 0 0 23px 23px;
+    }
+
+    .hiw-image-overlay h3 {
+        font-size: 1.15rem;
+    }
+
+    .hiw-floating-message {
+        right: -4px;
+        bottom: 18px;
+        max-width: 220px;
+        padding: 12px;
+    }
+
+    .hiw-floating-icon {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .hiw-section-heading {
+        margin-bottom: 35px;
+    }
+
+    .hiw-section-heading h2,
+    .hiw-credits-content h2,
+    .hiw-safety-content h2 {
+        font-size: 2rem;
+        letter-spacing: -0.7px;
+    }
+
+    .hiw-process,
+    .hiw-credits-section,
+    .hiw-request-section,
+    .hiw-members-section,
+    .hiw-safety-section,
+    .hiw-faq-section {
+        padding: 70px 0;
+    }
+
+    .hiw-timeline {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .hiw-step-marker {
+        margin-left: 0;
+    }
+
+    .hiw-step-card {
+        min-height: auto;
+        padding: 24px 21px;
+    }
+
+    .hiw-credit-visual {
+        min-height: 340px;
+    }
+
+    .hiw-credit-visual::before {
+        width: 290px;
+        height: 290px;
+    }
+
+    .hiw-credit-visual::after {
+        width: 230px;
+        height: 230px;
+    }
+
+    .hiw-credit-card {
+        min-height: 220px;
+        padding: 22px;
+        transform: rotate(-2deg);
+    }
+
+    .hiw-credit-emblem {
+        width: 60px;
+        height: 60px;
+        margin: 24px 0 20px;
+    }
+
+    .hiw-credit-float-one {
+        top: 5px;
+        right: -4px;
+    }
+
+    .hiw-credit-float-two {
+        bottom: 0;
+        left: -4px;
+    }
+
+    .hiw-credit-float {
+        padding: 11px 13px;
+    }
+
+    .hiw-request-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hiw-request-card:last-child {
+        grid-column: auto;
+    }
+
+    .hiw-members-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hiw-member-card {
+        padding: 25px;
+    }
+
+    .hiw-safety-visual,
+    .hiw-safety-visual img {
+        min-height: 0;
+        height: 280px;
+    }
+
+    .hiw-faq-question {
+        min-height: 65px;
+        padding: 18px;
+        font-size: 0.92rem;
+    }
+
+    .hiw-faq-answer {
+        padding: 0 18px 20px;
+    }
+
+    .hiw-cta-section {
+        padding: 55px 16px;
+    }
+
+    .hiw-cta-card {
+        padding: 32px 24px;
+        border-radius: 22px;
+    }
+
+    .hiw-cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .hiw-cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hiw-cta-actions .btn {
+        width: 100%;
+    }
+}
+
+/* ---------- Accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .hiw-floating-message {
+        animation: none;
+    }
+
+    .hiw-step-card,
+    .hiw-request-card,
+    .hiw-member-card,
+    .hiw-credit-card,
+    .hiw-member-card a i {
+        transition: none;
+    }
+}

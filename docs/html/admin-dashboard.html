@@ -1,0 +1,1418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CareCircle administrator dashboard for managing community members, support requests, verifications, and SocialCredits.">
+
+    <title>Admin Dashboard | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/admin-dashboard.js" defer></script>
+</head>
+
+<body class="admin-dashboard-page">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon" aria-hidden="true">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-controls="navMenu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html" class="btn btn-outline admin-header-logout" id="adminLogoutButton">
+                    Sign Out
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="admin-main">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar" aria-label="Administrator navigation">
+
+            <div class="admin-profile">
+                <div class="admin-avatar" id="adminAvatar" aria-hidden="true">CA</div>
+
+                <div class="admin-profile-info">
+                    <h2 id="adminName">CareCircle Admin</h2>
+                    <p><span class="admin-status-dot"></span> Administrator</p>
+                </div>
+            </div>
+
+            <div class="admin-sidebar-label">ADMINISTRATION</div>
+
+            <nav class="admin-side-nav" aria-label="Dashboard sections">
+                <a href="#overview" class="admin-nav-link active" data-admin-section="overview">
+                    <span class="admin-nav-icon" aria-hidden="true">▦</span>
+                    Overview
+                </a>
+
+                <a href="#users" class="admin-nav-link" data-admin-section="users">
+                    <span class="admin-nav-icon" aria-hidden="true">♙</span>
+                    Community Members
+                    <span class="admin-nav-count" id="sidebarUserCount">248</span>
+                </a>
+
+                <a href="#requests" class="admin-nav-link" data-admin-section="requests">
+                    <span class="admin-nav-icon" aria-hidden="true">♡</span>
+                    Help Requests
+                    <span class="admin-nav-count" id="sidebarRequestCount">18</span>
+                </a>
+
+                <a href="#verifications" class="admin-nav-link" data-admin-section="verifications">
+                    <span class="admin-nav-icon" aria-hidden="true">✓</span>
+                    Verifications
+                    <span class="admin-nav-count warning-count" id="sidebarVerificationCount">7</span>
+                </a>
+
+                <a href="#credits" class="admin-nav-link" data-admin-section="credits">
+                    <span class="admin-nav-icon" aria-hidden="true">◎</span>
+                    SocialCredits
+                </a>
+
+                <a href="#activity" class="admin-nav-link" data-admin-section="activity">
+                    <span class="admin-nav-icon" aria-hidden="true">◷</span>
+                    Recent Activity
+                </a>
+            </nav>
+
+            <div class="admin-sidebar-divider"></div>
+
+            <div class="admin-sidebar-label">GENERAL</div>
+
+            <nav class="admin-side-nav" aria-label="General settings">
+                <a href="settings.html" class="admin-nav-link">
+                    <span class="admin-nav-icon" aria-hidden="true">⚙</span>
+                    Settings
+                </a>
+
+                <a href="reviews.html" class="admin-nav-link">
+                    <span class="admin-nav-icon" aria-hidden="true">☆</span>
+                    Community Reviews
+                </a>
+
+                <a href="verification.html" class="admin-nav-link">
+                    <span class="admin-nav-icon" aria-hidden="true">▤</span>
+                    Verification Form
+                </a>
+            </nav>
+
+            <div class="admin-sidebar-bottom">
+                <div class="admin-sidebar-help">
+                    <span class="admin-help-icon" aria-hidden="true">?</span>
+                    <h3>Need assistance?</h3>
+                    <p>Visit the support page for help with administration.</p>
+                    <a href="contact.html">Contact Support →</a>
+                </div>
+
+                <a href="../index.html" class="admin-back-home">
+                    ← Back to website
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- Main dashboard content -->
+        <div class="admin-content">
+
+            <!-- Top bar -->
+            <div class="admin-topbar">
+
+                <div class="admin-topbar-left">
+                    <button
+                        type="button"
+                        class="admin-sidebar-toggle"
+                        id="adminSidebarToggle"
+                        aria-label="Toggle administrator sidebar"
+                        aria-controls="adminSidebar"
+                        aria-expanded="false"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <div>
+                        <p class="admin-breadcrumb">CareCircle / Administration</p>
+                        <p class="admin-topbar-subtitle">Community management workspace</p>
+                    </div>
+                </div>
+
+                <div class="admin-topbar-actions">
+                    <span class="admin-date" id="adminCurrentDate">Loading date...</span>
+
+                    <button
+                        type="button"
+                        class="admin-icon-button"
+                        id="adminRefreshButton"
+                        aria-label="Refresh dashboard"
+                        title="Refresh demo dashboard"
+                    >
+                        ↻
+                    </button>
+
+                    <div class="admin-topbar-avatar" aria-label="Administrator">CA</div>
+                </div>
+
+            </div>
+
+            <!-- Demo notice -->
+            <div class="admin-demo-notice" id="adminDemoNotice" role="status">
+                <div class="admin-demo-notice-icon" aria-hidden="true">ⓘ</div>
+
+                <div class="admin-demo-notice-text">
+                    <strong>Demonstration dashboard</strong>
+                    <p>
+                        The statistics and records below are illustrative examples.
+                        Administrator authentication, live data, and management actions
+                        require backend integration.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="admin-notice-dismiss"
+                    id="dismissAdminNotice"
+                    aria-label="Dismiss demonstration notice"
+                >
+                    ×
+                </button>
+            </div>
+
+            <!-- Overview -->
+            <section class="admin-section" id="overview">
+
+                <div class="admin-welcome-row">
+                    <div>
+                        <span class="admin-eyebrow">PLATFORM OVERVIEW</span>
+                        <h1>Administrator Dashboard</h1>
+                        <p>
+                            Monitor community activity, support requests, and the
+                            health of the CareCircle platform.
+                        </p>
+                    </div>
+
+                    <a href="verification.html" class="btn btn-primary admin-primary-action">
+                        Review Verifications <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="admin-summary-grid">
+
+                    <article class="admin-stat-card">
+                        <div class="admin-stat-top">
+                            <div class="admin-stat-icon stat-members" aria-hidden="true">♙</div>
+                            <span class="admin-stat-label">Community Members</span>
+                        </div>
+
+                        <div class="admin-stat-value" id="adminTotalUsers">248</div>
+
+                        <div class="admin-stat-bottom">
+                            <span class="admin-stat-neutral">Across all roles</span>
+                        </div>
+                    </article>
+
+                    <article class="admin-stat-card">
+                        <div class="admin-stat-top">
+                            <div class="admin-stat-icon stat-requests" aria-hidden="true">♡</div>
+                            <span class="admin-stat-label">Total Help Requests</span>
+                        </div>
+
+                        <div class="admin-stat-value" id="adminTotalRequests">136</div>
+
+                        <div class="admin-stat-bottom">
+                            <span class="admin-stat-neutral">All request statuses</span>
+                        </div>
+                    </article>
+
+                    <article class="admin-stat-card">
+                        <div class="admin-stat-top">
+                            <div class="admin-stat-icon stat-pending" aria-hidden="true">◷</div>
+                            <span class="admin-stat-label">Pending Requests</span>
+                        </div>
+
+                        <div class="admin-stat-value" id="adminPendingRequests">18</div>
+
+                        <div class="admin-stat-bottom">
+                            <span class="admin-stat-warning">Needs attention</span>
+                        </div>
+                    </article>
+
+                    <article class="admin-stat-card">
+                        <div class="admin-stat-top">
+                            <div class="admin-stat-icon stat-verification" aria-hidden="true">✓</div>
+                            <span class="admin-stat-label">Pending Verifications</span>
+                        </div>
+
+                        <div class="admin-stat-value" id="adminPendingVerifications">7</div>
+
+                        <div class="admin-stat-bottom">
+                            <span class="admin-stat-warning">Awaiting review</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Operational summary -->
+                <div class="admin-overview-grid">
+
+                    <article class="admin-panel admin-community-panel">
+                        <div class="admin-panel-heading">
+                            <div>
+                                <h2>Community Snapshot</h2>
+                                <p>Illustrative distribution of registered members</p>
+                            </div>
+
+                            <span class="admin-panel-badge">Demo data</span>
+                        </div>
+
+                        <div class="admin-role-list">
+
+                            <div class="admin-role-item">
+                                <div class="admin-role-icon role-volunteer" aria-hidden="true">V</div>
+
+                                <div class="admin-role-details">
+                                    <div class="admin-role-heading">
+                                        <span>Volunteers</span>
+                                        <strong id="adminVolunteerCount">124</strong>
+                                    </div>
+
+                                    <div class="admin-progress-track">
+                                        <div class="admin-progress-fill volunteer-fill" id="volunteerProgress" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-role-item">
+                                <div class="admin-role-icon role-elderly" aria-hidden="true">E</div>
+
+                                <div class="admin-role-details">
+                                    <div class="admin-role-heading">
+                                        <span>Elderly Members</span>
+                                        <strong id="adminElderlyCount">62</strong>
+                                    </div>
+
+                                    <div class="admin-progress-track">
+                                        <div class="admin-progress-fill elderly-fill" id="elderlyProgress" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-role-item">
+                                <div class="admin-role-icon role-family" aria-hidden="true">F</div>
+
+                                <div class="admin-role-details">
+                                    <div class="admin-role-heading">
+                                        <span>Family Members</span>
+                                        <strong id="adminFamilyCount">38</strong>
+                                    </div>
+
+                                    <div class="admin-progress-track">
+                                        <div class="admin-progress-fill family-fill" id="familyProgress" style="width: 15.3%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-role-item">
+                                <div class="admin-role-icon role-care" aria-hidden="true">S</div>
+
+                                <div class="admin-role-details">
+                                    <div class="admin-role-heading">
+                                        <span>Special Care Members</span>
+                                        <strong id="adminSpecialCareCount">24</strong>
+                                    </div>
+
+                                    <div class="admin-progress-track">
+                                        <div class="admin-progress-fill care-fill" id="specialCareProgress" style="width: 9.7%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <a href="#users" class="admin-panel-link">
+                            Manage community members <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="admin-panel admin-priority-panel">
+                        <div class="admin-panel-heading">
+                            <div>
+                                <h2>Priority Overview</h2>
+                                <p>Items requiring administrative attention</p>
+                            </div>
+                        </div>
+
+                        <div class="admin-priority-list">
+
+                            <a href="#requests" class="admin-priority-item">
+                                <span class="priority-symbol priority-orange" aria-hidden="true">!</span>
+
+                                <span class="admin-priority-copy">
+                                    <strong>Pending Help Requests</strong>
+                                    <small>Requests waiting for action</small>
+                                </span>
+
+                                <span class="admin-priority-number" id="priorityPendingRequests">18</span>
+                            </a>
+
+                            <a href="#verifications" class="admin-priority-item">
+                                <span class="priority-symbol priority-blue" aria-hidden="true">✓</span>
+
+                                <span class="admin-priority-copy">
+                                    <strong>Verification Reviews</strong>
+                                    <small>Submissions awaiting review</small>
+                                </span>
+
+                                <span class="admin-priority-number" id="priorityPendingVerifications">7</span>
+                            </a>
+
+                            <a href="#requests" class="admin-priority-item">
+                                <span class="priority-symbol priority-green" aria-hidden="true">♡</span>
+
+                                <span class="admin-priority-copy">
+                                    <strong>Active Support</strong>
+                                    <small>Requests currently in progress</small>
+                                </span>
+
+                                <span class="admin-priority-number" id="priorityActiveRequests">12</span>
+                            </a>
+
+                        </div>
+
+                        <div class="admin-priority-footer">
+                            <span class="admin-live-dot"></span>
+                            <span>Illustrative platform summary</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- Community member management -->
+            <section class="admin-section admin-management-section" id="users">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <span class="admin-eyebrow">COMMUNITY</span>
+                        <h2>Community Members</h2>
+                        <p>Search and review sample member records.</p>
+                    </div>
+
+                    <span class="admin-section-count" id="adminMembersSectionCount">
+                        5 sample records
+                    </span>
+                </div>
+
+                <div class="admin-panel">
+
+                    <div class="admin-table-toolbar">
+                        <div class="admin-search-wrap">
+                            <label for="adminUserSearch" class="visually-hidden">
+                                Search community members
+                            </label>
+
+                            <span aria-hidden="true">⌕</span>
+
+                            <input
+                                type="search"
+                                id="adminUserSearch"
+                                placeholder="Search name, email, or city..."
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <label class="admin-filter-label" for="adminUserRoleFilter">
+                            Role
+                        </label>
+
+                        <select id="adminUserRoleFilter">
+                            <option value="all">All roles</option>
+                            <option value="volunteer">Volunteer</option>
+                            <option value="elderly">Elderly</option>
+                            <option value="family">Family member</option>
+                            <option value="special-care">Special Care</option>
+                        </select>
+
+                        <label class="admin-filter-label" for="adminUserStatusFilter">
+                            Status
+                        </label>
+
+                        <select id="adminUserStatusFilter">
+                            <option value="all">All statuses</option>
+                            <option value="verified">Verified</option>
+                            <option value="pending">Pending</option>
+                            <option value="unverified">Unverified</option>
+                        </select>
+
+                        <button type="button" class="admin-secondary-button" id="clearAdminUserFilters">
+                            Clear
+                        </button>
+                    </div>
+
+                    <div class="admin-table-scroll">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Member</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Joined</th>
+                                    <th scope="col">Verification</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="adminUsersTableBody">
+
+                                <tr
+                                    class="admin-user-row"
+                                    data-user-id="USR-DEMO-001"
+                                    data-name="Ananya Rao"
+                                    data-email="ananya@example.com"
+                                    data-city="Bengaluru"
+                                    data-role="volunteer"
+                                    data-status="verified"
+                                    data-joined="2026-09-12"
+                                    data-credits="85"
+                                >
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-green">AR</div>
+                                            <div>
+                                                <strong>Ananya Rao</strong>
+                                                <span>ananya@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-role-tag">Volunteer</span></td>
+                                    <td>Bengaluru</td>
+                                    <td>12 Sep 2026</td>
+                                    <td><span class="admin-status-badge status-verified">Verified</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-user-action="view" data-user-id="USR-DEMO-001">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    class="admin-user-row"
+                                    data-user-id="USR-DEMO-002"
+                                    data-name="Ramesh Kumar"
+                                    data-email="ramesh@example.com"
+                                    data-city="Mysuru"
+                                    data-role="elderly"
+                                    data-status="verified"
+                                    data-joined="2026-08-20"
+                                    data-credits="40"
+                                >
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-blue">RK</div>
+                                            <div>
+                                                <strong>Ramesh Kumar</strong>
+                                                <span>ramesh@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-role-tag">Elderly</span></td>
+                                    <td>Mysuru</td>
+                                    <td>20 Aug 2026</td>
+                                    <td><span class="admin-status-badge status-verified">Verified</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-user-action="view" data-user-id="USR-DEMO-002">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    class="admin-user-row"
+                                    data-user-id="USR-DEMO-003"
+                                    data-name="Priya Sharma"
+                                    data-email="priya@example.com"
+                                    data-city="Hubballi"
+                                    data-role="family"
+                                    data-status="pending"
+                                    data-joined="2026-10-02"
+                                    data-credits="0"
+                                >
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-purple">PS</div>
+                                            <div>
+                                                <strong>Priya Sharma</strong>
+                                                <span>priya@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-role-tag">Family member</span></td>
+                                    <td>Hubballi</td>
+                                    <td>02 Oct 2026</td>
+                                    <td><span class="admin-status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-user-action="view" data-user-id="USR-DEMO-003">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    class="admin-user-row"
+                                    data-user-id="USR-DEMO-004"
+                                    data-name="Meera Patil"
+                                    data-email="meera@example.com"
+                                    data-city="Dharwad"
+                                    data-role="special-care"
+                                    data-status="pending"
+                                    data-joined="2026-10-04"
+                                    data-credits="25"
+                                >
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-orange">MP</div>
+                                            <div>
+                                                <strong>Meera Patil</strong>
+                                                <span>meera@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-role-tag">Special Care</span></td>
+                                    <td>Dharwad</td>
+                                    <td>04 Oct 2026</td>
+                                    <td><span class="admin-status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-user-action="view" data-user-id="USR-DEMO-004">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    class="admin-user-row"
+                                    data-user-id="USR-DEMO-005"
+                                    data-name="Arjun Desai"
+                                    data-email="arjun@example.com"
+                                    data-city="Belagavi"
+                                    data-role="volunteer"
+                                    data-status="unverified"
+                                    data-joined="2026-10-06"
+                                    data-credits="15"
+                                >
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-teal">AD</div>
+                                            <div>
+                                                <strong>Arjun Desai</strong>
+                                                <span>arjun@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-role-tag">Volunteer</span></td>
+                                    <td>Belagavi</td>
+                                    <td>06 Oct 2026</td>
+                                    <td><span class="admin-status-badge status-unverified">Unverified</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-user-action="view" data-user-id="USR-DEMO-005">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="admin-table-footer">
+                        <p id="adminUserResultMessage" role="status">Showing 5 sample members</p>
+                        <span>Member details are fictional demonstration records.</span>
+                    </div>
+
+                    <div class="admin-empty-state" id="adminUsersEmptyState" hidden>
+                        <div class="admin-empty-icon" aria-hidden="true">⌕</div>
+                        <h3>No members found</h3>
+                        <p>Try a different search term or clear the selected filters.</p>
+                        <button type="button" class="admin-secondary-button" id="adminUsersEmptyClearButton">
+                            Clear filters
+                        </button>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Help request management -->
+            <section class="admin-section admin-management-section" id="requests">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <span class="admin-eyebrow">COMMUNITY SUPPORT</span>
+                        <h2>Help Request Monitoring</h2>
+                        <p>Review the status and priority of sample assistance requests.</p>
+                    </div>
+
+                    <a href="browse-requests.html" class="admin-text-link">
+                        Browse requests <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="admin-panel">
+
+                    <div class="admin-table-toolbar admin-request-toolbar">
+                        <div class="admin-search-wrap">
+                            <label for="adminRequestSearch" class="visually-hidden">
+                                Search help requests
+                            </label>
+
+                            <span aria-hidden="true">⌕</span>
+
+                            <input
+                                type="search"
+                                id="adminRequestSearch"
+                                placeholder="Search request title or category..."
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <label class="admin-filter-label" for="adminRequestStatusFilter">
+                            Status
+                        </label>
+
+                        <select id="adminRequestStatusFilter">
+                            <option value="all">All statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+
+                        <label class="admin-filter-label" for="adminRequestPriorityFilter">
+                            Priority
+                        </label>
+
+                        <select id="adminRequestPriorityFilter">
+                            <option value="all">All priorities</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="normal">Normal</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+
+                        <button type="button" class="admin-secondary-button" id="clearAdminRequestFilters">
+                            Clear
+                        </button>
+                    </div>
+
+                    <div class="admin-table-scroll">
+                        <table class="admin-table admin-request-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Request</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Requester</th>
+                                    <th scope="col">Priority</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="adminRequestsTableBody">
+
+                                <tr
+                                    class="admin-request-row"
+                                    data-request-id="demo-001"
+                                    data-title="Grocery Shopping Assistance"
+                                    data-category="groceries"
+                                    data-requester="Ramesh Kumar"
+                                    data-priority="normal"
+                                    data-status="pending"
+                                    data-description="Assistance with collecting essential groceries from a nearby shop."
+                                    data-date="2026-10-10"
+                                >
+                                    <td>
+                                        <div class="admin-table-primary">
+                                            <strong>Grocery Shopping Assistance</strong>
+                                            <span>CC-REQ-001</span>
+                                        </div>
+                                    </td>
+                                    <td>Groceries</td>
+                                    <td>Ramesh Kumar</td>
+                                    <td><span class="admin-priority-badge priority-normal">Normal</span></td>
+                                    <td><span class="admin-status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-request-action="view" data-request-id="demo-001">
+                                            Review
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    class="admin-request-row"
+                                    data-request-id="demo-002"
+                                    data-title="Medicine Pickup"
+                                    data-category="medicine"
+                                    data-requester="Meera Patil"
+                                    data-priority="urgent"
+                                    data-status="pending"
+                                    data-description="Help collecting prescribed medicine from a pharmacy. Volunteers must not provide medical advice."
+                                    data-date="2026-10-11"
+                                >
+                                    <td>
+                                        <div class="admin-table-primary">
+                                            <strong>Medicine Pickup</strong>
+                                            <span>CC-REQ-002</span>
+                                        </div>
+                                    </td>
+                                    <td>Medicine</td>
+                                    <td>Meera Patil</td>
+                                    <td><span class="admin-priority-badge priority-urgent">Urgent</span></td>
+                                    <td><span class="admin-status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-request-action="view" data-request-id="demo-002">
+                                            Review
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    class="admin-request-row"
+                                    data-request-id="demo-003"
+                                    data-title="Friendly Walk and Conversation"
+                                    data-category="companionship"
+                                    data-requester="Ramesh Kumar"
+                                    data-priority="flexible"
+                                    data-status="in-progress"
+                                    data-description="A friendly companion for a short walk and conversation in the neighborhood."
+                                    data-date="2026-10-09"
+                                >
+                                    <td>
+                                        <div class="admin-table-primary">
+                                            <strong>Friendly Walk and Conversation</strong>
+                                            <span>CC-REQ-003</span>
+                                        </div>
+                                    </td>
+                                    <td>Companionship</td>
+                                    <td>Ramesh Kumar</td>
+                                    <td><span class="admin-priority-badge priority-flexible">Flexible</span></td>
+                                    <td><span class="admin-status-badge status-in-progress">In progress</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-request-action="view" data-request-id="demo-003">
+                                            Review
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    class="admin-request-row"
+                                    data-request-id="demo-004"
+                                    data-title="Smartphone Guidance"
+                                    data-category="digital-guidance"
+                                    data-requester="Priya Sharma"
+                                    data-priority="normal"
+                                    data-status="completed"
+                                    data-description="Help understanding basic smartphone features and video calling."
+                                    data-date="2026-10-08"
+                                >
+                                    <td>
+                                        <div class="admin-table-primary">
+                                            <strong>Smartphone Guidance</strong>
+                                            <span>CC-REQ-004</span>
+                                        </div>
+                                    </td>
+                                    <td>Digital Guidance</td>
+                                    <td>Priya Sharma</td>
+                                    <td><span class="admin-priority-badge priority-normal">Normal</span></td>
+                                    <td><span class="admin-status-badge status-completed">Completed</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-request-action="view" data-request-id="demo-004">
+                                            Review
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="admin-table-footer">
+                        <p id="adminRequestResultMessage" role="status">Showing 4 sample requests</p>
+                        <span>Reviewing a request does not change its backend status.</span>
+                    </div>
+
+                    <div class="admin-empty-state" id="adminRequestsEmptyState" hidden>
+                        <div class="admin-empty-icon" aria-hidden="true">♡</div>
+                        <h3>No requests found</h3>
+                        <p>Change the search term or filters to see other sample requests.</p>
+                        <button type="button" class="admin-secondary-button" id="adminRequestsEmptyClearButton">
+                            Clear filters
+                        </button>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Verification queue -->
+            <section class="admin-section admin-management-section" id="verifications">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <span class="admin-eyebrow">TRUST AND SAFETY</span>
+                        <h2>Verification Review Queue</h2>
+                        <p>Track sample submissions requiring review.</p>
+                    </div>
+
+                    <a href="verification.html" class="admin-text-link">
+                        Open verification form <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="admin-panel">
+
+                    <div class="admin-verification-intro">
+                        <div class="admin-verification-intro-icon" aria-hidden="true">✓</div>
+
+                        <div>
+                            <h3>Verification requires careful review</h3>
+                            <p>
+                                Check eligibility and submitted evidence using the
+                                platform's approved verification process. Avoid exposing
+                                sensitive documents or personal information.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-scroll">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Applicant</th>
+                                    <th scope="col">Verification Type</th>
+                                    <th scope="col">Submitted</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="adminVerificationsTableBody">
+
+                                <tr class="admin-verification-row" data-verification-id="VER-DEMO-001">
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-purple">MP</div>
+                                            <div>
+                                                <strong>Meera Patil</strong>
+                                                <span>meera@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Special Care eligibility</td>
+                                    <td>10 Oct 2026</td>
+                                    <td><span class="admin-status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-verification-action="review" data-verification-id="VER-DEMO-001">
+                                            Review
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr class="admin-verification-row" data-verification-id="VER-DEMO-002">
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-blue">RK</div>
+                                            <div>
+                                                <strong>Ramesh Kumar</strong>
+                                                <span>ramesh@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Age verification</td>
+                                    <td>09 Oct 2026</td>
+                                    <td><span class="admin-status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-verification-action="review" data-verification-id="VER-DEMO-002">
+                                            Review
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr class="admin-verification-row" data-verification-id="VER-DEMO-003">
+                                    <td>
+                                        <div class="admin-table-member">
+                                            <div class="admin-member-avatar avatar-green">PS</div>
+                                            <div>
+                                                <strong>Priya Sharma</strong>
+                                                <span>priya@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Caregiver relationship</td>
+                                    <td>08 Oct 2026</td>
+                                    <td><span class="admin-status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="admin-table-action" data-verification-action="review" data-verification-id="VER-DEMO-003">
+                                            Review
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="admin-table-footer">
+                        <p id="adminVerificationResultMessage" role="status">
+                            Showing 3 sample submissions
+                        </p>
+
+                        <span>
+                            No real documents are available in this demonstration.
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SocialCredits oversight -->
+            <section class="admin-section admin-management-section" id="credits">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <span class="admin-eyebrow">COMMUNITY RECIPROCITY</span>
+                        <h2>SocialCredits Overview</h2>
+                        <p>Understand community credit activity and its safeguards.</p>
+                    </div>
+                </div>
+
+                <div class="admin-credit-grid">
+
+                    <article class="admin-credit-card admin-credit-main">
+                        <div class="admin-credit-card-top">
+                            <div class="admin-credit-symbol" aria-hidden="true">◎</div>
+                            <span>Platform-wide demo total</span>
+                        </div>
+
+                        <div class="admin-credit-value" id="adminCreditsCirculating">
+                            12,450
+                        </div>
+
+                        <p>SocialCredits currently represented in the demo ledger</p>
+
+                        <div class="admin-credit-disclaimer">
+                            <span aria-hidden="true">ⓘ</span>
+                            <span>
+                                SocialCredits are non-cash community credits, not money
+                                or a monetary investment.
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="admin-credit-card">
+                        <div class="admin-credit-small-icon earned-icon" aria-hidden="true">↗</div>
+                        <p class="admin-credit-small-label">Credits earned</p>
+                        <div class="admin-credit-small-value" id="adminCreditsEarned">9,820</div>
+                        <span class="admin-credit-small-note">Illustrative completed-help rewards</span>
+                    </article>
+
+                    <article class="admin-credit-card">
+                        <div class="admin-credit-small-icon redeemed-icon" aria-hidden="true">↘</div>
+                        <p class="admin-credit-small-label">Credits redeemed</p>
+                        <div class="admin-credit-small-value" id="adminCreditsRedeemed">2,370</div>
+                        <span class="admin-credit-small-note">Illustrative eligible assistance use</span>
+                    </article>
+
+                </div>
+
+                <div class="admin-panel admin-credit-policy">
+                    <div class="admin-credit-policy-icon" aria-hidden="true">⚖</div>
+
+                    <div class="admin-credit-policy-copy">
+                        <h3>SocialCredits integrity principles</h3>
+                        <p>
+                            Credit records should be created through verified, completed
+                            assistance. Every award or redemption should have an auditable
+                            ledger entry and backend validation.
+                        </p>
+
+                        <ul>
+                            <li>Never award credits solely because a request was created.</li>
+                            <li>Prevent duplicate, unauthorized, or altered transactions.</li>
+                            <li>Maintain a transaction history for every credit change.</li>
+                            <li>Apply approved eligibility rules for special allocations.</li>
+                            <li>Do not represent credits as cash or promise cash conversion.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Recent activity -->
+            <section class="admin-section admin-management-section" id="activity">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <span class="admin-eyebrow">PLATFORM AUDIT</span>
+                        <h2>Recent Activity</h2>
+                        <p>Examples of events that an administrative audit log may display.</p>
+                    </div>
+                </div>
+
+                <div class="admin-panel">
+
+                    <div class="admin-activity-list" id="adminActivityList">
+
+                        <article class="admin-activity-item">
+                            <div class="admin-activity-icon activity-verification" aria-hidden="true">✓</div>
+
+                            <div class="admin-activity-content">
+                                <strong>Verification submitted</strong>
+                                <p>Meera Patil submitted a Special Care eligibility request.</p>
+                                <span>10 Oct 2026 · 10:15 AM</span>
+                            </div>
+
+                            <span class="admin-activity-tag">Verification</span>
+                        </article>
+
+                        <article class="admin-activity-item">
+                            <div class="admin-activity-icon activity-request" aria-hidden="true">♡</div>
+
+                            <div class="admin-activity-content">
+                                <strong>New help request created</strong>
+                                <p>Medicine Pickup was added to the support queue.</p>
+                                <span>11 Oct 2026 · 09:30 AM</span>
+                            </div>
+
+                            <span class="admin-activity-tag">Request</span>
+                        </article>
+
+                        <article class="admin-activity-item">
+                            <div class="admin-activity-icon activity-credit" aria-hidden="true">◎</div>
+
+                            <div class="admin-activity-content">
+                                <strong>Sample credit transaction recorded</strong>
+                                <p>A demonstration ledger entry illustrates completed-help credit accounting.</p>
+                                <span>09 Oct 2026 · 04:45 PM</span>
+                            </div>
+
+                            <span class="admin-activity-tag">SocialCredits</span>
+                        </article>
+
+                        <article class="admin-activity-item">
+                            <div class="admin-activity-icon activity-member" aria-hidden="true">♙</div>
+
+                            <div class="admin-activity-content">
+                                <strong>New community member registered</strong>
+                                <p>Arjun Desai joined as a volunteer.</p>
+                                <span>06 Oct 2026 · 01:20 PM</span>
+                            </div>
+
+                            <span class="admin-activity-tag">Member</span>
+                        </article>
+
+                    </div>
+
+                    <div class="admin-audit-note">
+                        <span aria-hidden="true">ⓘ</span>
+                        <p>
+                            These entries are static examples, not a real audit log.
+                            Production audit records should be generated and protected
+                            by the backend.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Quick actions -->
+            <section class="admin-section admin-management-section" id="quickActions">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <span class="admin-eyebrow">QUICK ACCESS</span>
+                        <h2>Administrative Shortcuts</h2>
+                        <p>Navigate to common CareCircle management pages.</p>
+                    </div>
+                </div>
+
+                <div class="admin-quick-actions-grid">
+
+                    <a href="verification.html" class="admin-quick-action">
+                        <span class="quick-action-icon quick-action-blue" aria-hidden="true">✓</span>
+                        <span>
+                            <strong>Verification Form</strong>
+                            <small>Open the verification workflow</small>
+                        </span>
+                        <span class="quick-action-arrow" aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="browse-requests.html" class="admin-quick-action">
+                        <span class="quick-action-icon quick-action-green" aria-hidden="true">♡</span>
+                        <span>
+                            <strong>Browse Help Requests</strong>
+                            <small>Explore sample support requests</small>
+                        </span>
+                        <span class="quick-action-arrow" aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="reviews.html" class="admin-quick-action">
+                        <span class="quick-action-icon quick-action-orange" aria-hidden="true">☆</span>
+                        <span>
+                            <strong>Community Reviews</strong>
+                            <small>View the community feedback page</small>
+                        </span>
+                        <span class="quick-action-arrow" aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="settings.html" class="admin-quick-action">
+                        <span class="quick-action-icon quick-action-purple" aria-hidden="true">⚙</span>
+                        <span>
+                            <strong>Preferences</strong>
+                            <small>Open the settings page</small>
+                        </span>
+                        <span class="quick-action-arrow" aria-hidden="true">→</span>
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- Footer -->
+            <footer class="admin-footer">
+                <p>
+                    <span>©</span>
+                    <span id="currentYear">2026</span>
+                    CareCircle. Help Today. Be Helped Tomorrow.
+                </p>
+
+                <p>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Support</a>
+                </p>
+            </footer>
+
+        </div>
+
+    </main>
+
+    <!-- Member details dialog -->
+    <dialog class="admin-dialog" id="adminUserDialog" aria-labelledby="adminUserDialogTitle">
+        <div class="admin-dialog-header">
+            <div>
+                <span class="admin-eyebrow">MEMBER RECORD</span>
+                <h2 id="adminUserDialogTitle">Member Details</h2>
+            </div>
+
+            <button type="button" class="admin-dialog-close" id="closeAdminUserDialog" aria-label="Close member details">
+                ×
+            </button>
+        </div>
+
+        <div class="admin-dialog-body">
+
+            <div class="admin-dialog-member">
+                <div class="admin-member-avatar avatar-green" id="adminDialogUserAvatar">CM</div>
+
+                <div>
+                    <h3 id="adminDialogUserName">Community Member</h3>
+                    <p id="adminDialogUserEmail">member@example.com</p>
+                </div>
+            </div>
+
+            <div class="admin-dialog-detail-grid">
+                <div>
+                    <span>Member ID</span>
+                    <strong id="adminDialogUserId">USR-DEMO-000</strong>
+                </div>
+
+                <div>
+                    <span>Role</span>
+                    <strong id="adminDialogUserRole">Volunteer</strong>
+                </div>
+
+                <div>
+                    <span>Location</span>
+                    <strong id="adminDialogUserCity">Not provided</strong>
+                </div>
+
+                <div>
+                    <span>Joined</span>
+                    <strong id="adminDialogUserJoined">Not available</strong>
+                </div>
+
+                <div>
+                    <span>Verification</span>
+                    <strong id="adminDialogUserStatus">Pending</strong>
+                </div>
+
+                <div>
+                    <span>Demo SocialCredits</span>
+                    <strong id="adminDialogUserCredits">0</strong>
+                </div>
+            </div>
+
+            <div class="admin-dialog-notice">
+                This is a fictional sample record. Editing member details,
+                changing roles, suspending accounts, and reviewing real verification
+                evidence are not enabled.
+            </div>
+
+        </div>
+
+        <div class="admin-dialog-footer">
+            <button type="button" class="admin-secondary-button" id="closeAdminUserDialogFooter">
+                Close
+            </button>
+        </div>
+    </dialog>
+
+    <!-- Help request details dialog -->
+    <dialog class="admin-dialog" id="adminRequestDialog" aria-labelledby="adminRequestDialogTitle">
+        <div class="admin-dialog-header">
+            <div>
+                <span class="admin-eyebrow">HELP REQUEST</span>
+                <h2 id="adminRequestDialogTitle">Request Details</h2>
+            </div>
+
+            <button type="button" class="admin-dialog-close" id="closeAdminRequestDialog" aria-label="Close request details">
+                ×
+            </button>
+        </div>
+
+        <div class="admin-dialog-body">
+
+            <div class="admin-request-dialog-id" id="adminDialogRequestId">CC-REQ-000</div>
+
+            <h3 class="admin-request-dialog-title" id="adminDialogRequestName">
+                Help Request
+            </h3>
+
+            <p class="admin-request-dialog-description" id="adminDialogRequestDescription">
+                Request description will appear here.
+            </p>
+
+            <div class="admin-dialog-detail-grid">
+                <div>
+                    <span>Category</span>
+                    <strong id="adminDialogRequestCategory">General support</strong>
+                </div>
+
+                <div>
+                    <span>Requester</span>
+                    <strong id="adminDialogRequestRequester">Community Member</strong>
+                </div>
+
+                <div>
+                    <span>Priority</span>
+                    <strong id="adminDialogRequestPriority">Normal</strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong id="adminDialogRequestStatus">Pending</strong>
+                </div>
+
+                <div>
+                    <span>Created</span>
+                    <strong id="adminDialogRequestDate">Not available</strong>
+                </div>
+            </div>
+
+            <div class="admin-dialog-notice">
+                Request details are sample content. Assigning volunteers, changing
+                request status, contacting members, and awarding credits require
+                authenticated backend workflows.
+            </div>
+
+        </div>
+
+        <div class="admin-dialog-footer">
+            <button type="button" class="admin-secondary-button" id="closeAdminRequestDialogFooter">
+                Close
+            </button>
+        </div>
+    </dialog>
+
+    <!-- Verification review information dialog -->
+    <dialog class="admin-dialog" id="adminVerificationDialog" aria-labelledby="adminVerificationDialogTitle">
+        <div class="admin-dialog-header">
+            <div>
+                <span class="admin-eyebrow">TRUST AND SAFETY</span>
+                <h2 id="adminVerificationDialogTitle">Verification Review</h2>
+            </div>
+
+            <button type="button" class="admin-dialog-close" id="closeAdminVerificationDialog" aria-label="Close verification details">
+                ×
+            </button>
+        </div>
+
+        <div class="admin-dialog-body">
+
+            <div class="admin-verification-dialog-icon" aria-hidden="true">✓</div>
+
+            <h3 id="adminDialogVerificationApplicant">Applicant</h3>
+            <p id="adminDialogVerificationType">Verification type</p>
+
+            <div class="admin-dialog-detail-grid">
+                <div>
+                    <span>Submission ID</span>
+                    <strong id="adminDialogVerificationId">VER-DEMO-000</strong>
+                </div>
+
+                <div>
+                    <span>Current status</span>
+                    <strong id="adminDialogVerificationStatus">Pending review</strong>
+                </div>
+            </div>
+
+            <div class="admin-dialog-notice">
+                This demo does not include identity documents. In production, access
+                must be restricted to authorized reviewers and decisions must follow
+                the approved verification policy.
+            </div>
+
+        </div>
+
+        <div class="admin-dialog-footer">
+            <button type="button" class="admin-secondary-button" id="closeAdminVerificationDialogFooter">
+                Close
+            </button>
+        </div>
+    </dialog>
+
+    <!-- Mobile sidebar backdrop -->
+    <div class="admin-sidebar-overlay" id="adminSidebarOverlay" hidden></div>
+
+</body>
+</html>
