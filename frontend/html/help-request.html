@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Request everyday community assistance through CareCircle. Describe what you need and your preferred schedule."
+    >
+
+    <title>Request Help | CareCircle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Page Styles -->
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/help-request.css">
+
+    <!-- JavaScript -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/help-request.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                </span>
+                <span>Care<span class="logo-highlight">Circle</span></span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="special-care.html">Special Care</a>
+
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-outline">Log In</a>
+                    <a href="register.html" class="btn btn-primary">
+                        Join CareCircle
+                    </a>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ================= PAGE INTRO ================= -->
+
+        <section class="request-hero">
+            <div class="request-container">
+
+                <div class="request-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <a href="services.html">Services</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Request Help</span>
+                </div>
+
+                <div class="request-hero-content">
+                    <span class="request-eyebrow">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                        We're here to help
+                    </span>
+
+                    <h1>
+                        Asking for help is
+                        <span>a strength.</span>
+                    </h1>
+
+                    <p>
+                        Tell us what you need. CareCircle is designed to
+                        connect community members who need everyday
+                        assistance with people willing to lend a hand.
+                    </p>
+
+                    <div class="request-hero-points">
+                        <span>
+                            <i class="fa-solid fa-check-circle"></i>
+                            Clear request details
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-check-circle"></i>
+                            Community-based support
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-check-circle"></i>
+                            Respectful and inclusive
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= REQUEST FORM ================= -->
+
+        <section class="request-form-section">
+            <div class="request-container request-layout">
+
+                <!-- Main Form -->
+
+                <div class="request-form-card">
+
+                    <div class="request-form-heading">
+                        <div>
+                            <span class="request-step-label">
+                                <span class="request-step-dot"></span>
+                                HELP REQUEST
+                            </span>
+
+                            <h2>Tell us what you need</h2>
+
+                            <p>
+                                Fields marked with
+                                <span class="required-mark">*</span>
+                                are required.
+                            </p>
+                        </div>
+
+                        <div class="request-heading-icon">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                    </div>
+
+
+                    <form id="helpRequestForm" novalidate>
+
+                        <!-- Service Category -->
+
+                        <fieldset class="request-fieldset">
+                            <legend>
+                                01. What kind of help do you need?
+                            </legend>
+
+                            <p class="request-field-description">
+                                Choose the category that best describes
+                                your request.
+                            </p>
+
+                            <div class="request-category-grid">
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="groceries"
+                                        required
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-green">
+                                            <i class="fa-solid fa-basket-shopping"></i>
+                                        </span>
+                                        <strong>Groceries</strong>
+                                        <small>Shopping and essentials</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="medicine"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-peach">
+                                            <i class="fa-solid fa-prescription-bottle-medical"></i>
+                                        </span>
+                                        <strong>Medicine Pickup</strong>
+                                        <small>Collecting prescriptions</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="hospital"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-blue">
+                                            <i class="fa-solid fa-hospital"></i>
+                                        </span>
+                                        <strong>Hospital Assistance</strong>
+                                        <small>Non-medical appointment support</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="companionship"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-gold">
+                                            <i class="fa-solid fa-people-group"></i>
+                                        </span>
+                                        <strong>Companionship</strong>
+                                        <small>Visits, conversation and walks</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="digital-guidance"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-purple">
+                                            <i class="fa-solid fa-mobile-screen-button"></i>
+                                        </span>
+                                        <strong>Digital Guidance</strong>
+                                        <small>Smartphones and digital tools</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="documents"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-green">
+                                            <i class="fa-solid fa-file-lines"></i>
+                                        </span>
+                                        <strong>Documents & Forms</strong>
+                                        <small>Routine paperwork assistance</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="personal-support"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-peach">
+                                            <i class="fa-solid fa-house"></i>
+                                        </span>
+                                        <strong>Everyday Support</strong>
+                                        <small>Suitable daily activities</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="special-care"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-blue">
+                                            <i class="fa-solid fa-wheelchair"></i>
+                                        </span>
+                                        <strong>Special Care</strong>
+                                        <small>Accessibility-related support</small>
+                                    </span>
+                                </label>
+
+
+                                <label class="request-category-option">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="other"
+                                    >
+
+                                    <span class="request-category-card">
+                                        <span class="request-category-icon category-gold">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </span>
+                                        <strong>Other</strong>
+                                        <small>Another suitable type of help</small>
+                                    </span>
+                                </label>
+
+                            </div>
+
+                            <small
+                                class="request-error"
+                                id="categoryError"
+                                aria-live="polite"
+                            ></small>
+                        </fieldset>
+
+
+                        <!-- Request Details -->
+
+                        <fieldset class="request-fieldset">
+                            <legend>
+                                02. Describe your request
+                            </legend>
+
+                            <div class="request-field">
+                                <label for="requestTitle">
+                                    Request title
+                                    <span class="required-mark">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="requestTitle"
+                                    name="title"
+                                    placeholder="e.g. Help collecting groceries"
+                                    minlength="5"
+                                    maxlength="100"
+                                    autocomplete="off"
+                                    required
+                                >
+
+                                <small class="request-hint">
+                                    Write a short title that explains what
+                                    you need.
+                                </small>
+
+                                <small
+                                    class="request-error"
+                                    id="titleError"
+                                    aria-live="polite"
+                                ></small>
+                            </div>
+
+                            <div class="request-field">
+                                <label for="requestDescription">
+                                    Additional details
+                                    <span class="required-mark">*</span>
+                                </label>
+
+                                <textarea
+                                    id="requestDescription"
+                                    name="description"
+                                    rows="5"
+                                    minlength="20"
+                                    maxlength="1500"
+                                    placeholder="Explain the assistance you need, any relevant details, and what the volunteer should know..."
+                                    required
+                                ></textarea>
+
+                                <div class="request-textarea-footer">
+                                    <small class="request-hint">
+                                        Please avoid sharing passwords,
+                                        bank details, or unnecessary
+                                        medical information.
+                                    </small>
+
+                                    <small id="descriptionCounter">
+                                        0 / 1500
+                                    </small>
+                                </div>
+
+                                <small
+                                    class="request-error"
+                                    id="descriptionError"
+                                    aria-live="polite"
+                                ></small>
+                            </div>
+                        </fieldset>
+
+
+                        <!-- Date and Time -->
+
+                        <fieldset class="request-fieldset">
+                            <legend>
+                                03. When do you need help?
+                            </legend>
+
+                            <p class="request-field-description">
+                                Choose your preferred schedule. The final
+                                arrangement depends on volunteer availability.
+                            </p>
+
+                            <div class="request-form-grid">
+
+                                <div class="request-field">
+                                    <label for="preferredDate">
+                                        Preferred date
+                                        <span class="required-mark">*</span>
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="preferredDate"
+                                        name="preferredDate"
+                                        required
+                                    >
+
+                                    <small
+                                        class="request-error"
+                                        id="dateError"
+                                        aria-live="polite"
+                                    ></small>
+                                </div>
+
+                                <div class="request-field">
+                                    <label for="preferredTime">
+                                        Preferred time
+                                        <span class="required-mark">*</span>
+                                    </label>
+
+                                    <input
+                                        type="time"
+                                        id="preferredTime"
+                                        name="preferredTime"
+                                        required
+                                    >
+
+                                    <small
+                                        class="request-error"
+                                        id="timeError"
+                                        aria-live="polite"
+                                    ></small>
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+
+                        <!-- Location -->
+
+                        <fieldset class="request-fieldset">
+                            <legend>
+                                04. Where should the help take place?
+                            </legend>
+
+                            <div class="request-field">
+                                <label for="city">
+                                    City or locality
+                                    <span class="required-mark">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    placeholder="e.g. Bengaluru"
+                                    maxlength="100"
+                                    autocomplete="address-level2"
+                                    required
+                                >
+
+                                <small
+                                    class="request-error"
+                                    id="cityError"
+                                    aria-live="polite"
+                                ></small>
+                            </div>
+
+                            <div class="request-field">
+                                <label for="locationDetails">
+                                    General meeting location
+                                    <span class="optional-label">Optional</span>
+                                </label>
+
+                                <textarea
+                                    id="locationDetails"
+                                    name="locationDetails"
+                                    rows="3"
+                                    maxlength="300"
+                                    placeholder="e.g. Near the community centre or a convenient public meeting point"
+                                ></textarea>
+
+                                <small class="request-hint">
+                                    Avoid posting your full home address
+                                    publicly. Share precise details only
+                                    through an appropriate, trusted channel
+                                    when necessary.
+                                </small>
+                            </div>
+                        </fieldset>
+
+
+                        <!-- Additional Preferences -->
+
+                        <fieldset class="request-fieldset">
+                            <legend>
+                                05. Additional preferences
+                            </legend>
+
+                            <div class="request-field">
+                                <label for="assistancePreference">
+                                    Anything else the volunteer should know?
+                                    <span class="optional-label">Optional</span>
+                                </label>
+
+                                <textarea
+                                    id="assistancePreference"
+                                    name="preferences"
+                                    rows="3"
+                                    maxlength="600"
+                                    placeholder="Mention accessibility needs, preferred communication, or other relevant arrangements."
+                                ></textarea>
+                            </div>
+
+                            <div class="request-checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="flexibleSchedule"
+                                    name="flexibleSchedule"
+                                    value="true"
+                                >
+
+                                <label for="flexibleSchedule">
+                                    My schedule is flexible if another time
+                                    is more convenient for a volunteer.
+                                </label>
+                            </div>
+
+                        </fieldset>
+
+
+                        <!-- Emergency Notice -->
+
+                        <div class="request-emergency-notice">
+                            <span class="request-emergency-icon">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </span>
+
+                            <div>
+                                <strong>Need urgent or emergency assistance?</strong>
+
+                                <p>
+                                    CareCircle is intended for non-emergency
+                                    community support. For a medical emergency
+                                    or immediate danger in India, call 112
+                                    or contact the appropriate emergency service.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <!-- Form Feedback -->
+
+                        <div
+                            id="requestFormMessage"
+                            class="request-form-message"
+                            role="status"
+                            aria-live="polite"
+                            hidden
+                        ></div>
+
+
+                        <!-- Submit -->
+
+                        <div class="request-form-actions">
+                            <a href="services.html" class="request-cancel-link">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                Back to Services
+                            </a>
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary request-submit-btn"
+                                id="submitRequestButton"
+                            >
+                                Submit Help Request
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <p class="request-form-disclaimer">
+                            Submitting a request does not guarantee a match.
+                            Requests must be reviewed and accepted according
+                            to CareCircle's rules and available community support.
+                        </p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- ================= SIDEBAR ================= -->
+
+                <aside class="request-sidebar">
+
+                    <div class="request-sidebar-card request-help-card">
+                        <span class="request-sidebar-icon">
+                            <i class="fa-solid fa-heart"></i>
+                        </span>
+
+                        <h3>You are not alone.</h3>
+
+                        <p>
+                            CareCircle is built around a simple belief:
+                            everyone deserves dignity, connection, and
+                            a community willing to help.
+                        </p>
+
+                        <a href="how-it-works.html">
+                            Learn how it works
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="request-sidebar-card">
+                        <h3>
+                            <i class="fa-solid fa-list-check"></i>
+                            Before submitting
+                        </h3>
+
+                        <ul class="request-checklist">
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Select the correct service category.
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Describe the task clearly.
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Choose a realistic preferred schedule.
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Keep personal information private.
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="request-sidebar-card request-credit-card">
+                        <div class="request-credit-icon">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+
+                        <h3>How do SocialCredits work?</h3>
+
+                        <p>
+                            Eligible assistance can be accessed according
+                            to CareCircle's credit and support policies.
+                            Credits earned by volunteering are awarded
+                            only after the assistance is verified.
+                        </p>
+
+                        <a href="how-it-works.html">
+                            Understand SocialCredits
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="request-sidebar-contact">
+                        <i class="fa-solid fa-circle-question"></i>
+
+                        <div>
+                            <strong>Need guidance?</strong>
+                            <p>
+                                Visit our
+                                <a href="contact.html">Contact page</a>
+                                for assistance.
+                            </p>
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </span>
+                    <span>Care<span class="logo-highlight">Circle</span></span>
+                </a>
+
+                <p>
+                    Building a caring community where helping one another
+                    today can make tomorrow better for everyone.
+                </p>
+
+                <span class="footer-tagline">
+                    Help Today. Be Helped Tomorrow.
+                </span>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <a href="../index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="services.html">Our Services</a>
+                <a href="about.html">About Us</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Community</h3>
+                <a href="register.html">Become a Member</a>
+                <a href="special-care.html">Special Care</a>
+                <a href="help-request.html">Request Assistance</a>
+                <a href="login.html">Member Login</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="contact.html">Contact Us</a>
+                <a href="how-it-works.html">How It Works</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    All rights reserved.
+                </p>
+
+                <p>
+                    Made with <i class="fa-solid fa-heart"></i> for community.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

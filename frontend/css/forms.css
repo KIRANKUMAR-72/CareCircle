@@ -1,0 +1,749 @@
+
+/* =========================================================
+   CARECIRCLE - SHARED FORM STYLES
+   File: frontend/css/forms.css
+   ========================================================= */
+
+/* ---------- Form Variables ---------- */
+
+:root {
+    --form-primary: #2f806b;
+    --form-primary-dark: #246653;
+    --form-primary-light: #eaf5f0;
+    --form-heading: #203b33;
+    --form-text: #53635d;
+    --form-muted: #77857f;
+    --form-border: #dce6e0;
+    --form-background: #ffffff;
+    --form-input-background: #ffffff;
+    --form-error: #c63d45;
+    --form-error-background: #fff1f1;
+    --form-success: #247a50;
+    --form-success-background: #eef9f1;
+    --form-focus-shadow: rgba(47, 128, 107, 0.14);
+}
+
+/* ---------- Box Sizing ---------- */
+
+.form-page *,
+.form-page *::before,
+.form-page *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- General Form Layout ---------- */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    margin-bottom: 22px;
+}
+
+.form-group > label,
+.form-label {
+    display: block;
+    color: var(--form-heading);
+    font-size: 0.93rem;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+.form-group label .required,
+.form-label .required {
+    margin-left: 3px;
+    color: var(--form-error);
+}
+
+.form-group label .optional,
+.form-label .optional {
+    margin-left: 5px;
+    color: var(--form-muted);
+    font-size: 0.82rem;
+    font-weight: 450;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-row .form-group {
+    min-width: 0;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section-title {
+    margin: 0 0 8px;
+    color: var(--form-heading);
+    font-size: 1.2rem;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.form-section-description {
+    margin: 0 0 22px;
+    color: var(--form-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* ---------- Input, Select and Textarea ---------- */
+
+.form-group input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+.form-group select,
+.form-group textarea,
+.form-control {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--form-border);
+    border-radius: 9px;
+    outline: none;
+    background: var(--form-input-background);
+    color: var(--form-heading);
+    font: inherit;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.form-group textarea,
+textarea.form-control {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.form-control::placeholder {
+    color: #98a69e;
+    opacity: 1;
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover,
+.form-control:hover {
+    border-color: #b8cdc1;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-control:focus {
+    border-color: var(--form-primary);
+    box-shadow: 0 0 0 4px var(--form-focus-shadow);
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled,
+.form-control:disabled {
+    cursor: not-allowed;
+    background: #f1f4f2;
+    color: var(--form-muted);
+    opacity: 0.8;
+}
+
+/* ---------- Select Inputs ---------- */
+
+.form-group select,
+select.form-control {
+    padding-right: 38px;
+    cursor: pointer;
+}
+
+.form-group select:required:invalid {
+    color: #98a69e;
+}
+
+.form-group select option {
+    color: var(--form-heading);
+}
+
+.form-group select option[value=""] {
+    color: var(--form-muted);
+}
+
+/* ---------- Date and Time Inputs ---------- */
+
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group input[type="datetime-local"] {
+    min-height: 48px;
+    cursor: pointer;
+}
+
+.form-group input[type="date"]:invalid,
+.form-group input[type="time"]:invalid {
+    color: var(--form-text);
+}
+
+/* ---------- Input Groups ---------- */
+
+.input-group {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+.input-group > input,
+.input-group > .form-control {
+    flex: 1;
+    min-width: 0;
+    border-radius: 9px 0 0 9px;
+}
+
+.input-group > button {
+    flex-shrink: 0;
+    padding: 0 15px;
+    border: 1px solid var(--form-border);
+    border-left: none;
+    border-radius: 0 9px 9px 0;
+    background: #f6faf7;
+    color: var(--form-primary-dark);
+    font-size: 0.88rem;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.input-group > button:hover {
+    background: var(--form-primary-light);
+}
+
+.input-group > input:focus + button,
+.input-group > .form-control:focus + button {
+    border-color: var(--form-primary);
+}
+
+/* ---------- Help Text ---------- */
+
+.form-help,
+.form-hint,
+.field-description {
+    display: block;
+    margin: 0;
+    color: var(--form-muted);
+    font-size: 0.83rem;
+    line-height: 1.65;
+}
+
+.form-help a,
+.form-hint a,
+.field-description a {
+    color: var(--form-primary-dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------- Validation Errors ---------- */
+
+.field-error,
+.form-error,
+.error-message {
+    display: block;
+    margin: 0;
+    color: var(--form-error);
+    font-size: 0.83rem;
+    line-height: 1.6;
+}
+
+.field-error:empty,
+.form-error:empty,
+.error-message:empty {
+    display: none;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group select[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"],
+.form-group .is-invalid,
+.form-control.is-invalid {
+    border-color: var(--form-error);
+    background-color: #fffafa;
+}
+
+.form-group input[aria-invalid="true"]:focus,
+.form-group select[aria-invalid="true"]:focus,
+.form-group textarea[aria-invalid="true"]:focus,
+.form-group .is-invalid:focus,
+.form-control.is-invalid:focus {
+    box-shadow: 0 0 0 4px rgba(198, 61, 69, 0.1);
+}
+
+/* ---------- Success State ---------- */
+
+.form-group input[aria-invalid="false"].is-valid,
+.form-group select[aria-invalid="false"].is-valid,
+.form-group textarea[aria-invalid="false"].is-valid {
+    border-color: var(--form-success);
+}
+
+/* ---------- Radio and Checkbox Groups ---------- */
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    color: var(--form-text);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 0;
+    accent-color: var(--form-primary);
+    cursor: pointer;
+}
+
+.radio-option input:focus-visible,
+.checkbox-option input:focus-visible {
+    outline: 3px solid var(--form-focus-shadow);
+    outline-offset: 3px;
+}
+
+.radio-option strong,
+.checkbox-option strong {
+    color: var(--form-heading);
+}
+
+/* ---------- Card-Style Choices ---------- */
+
+.choice-grid,
+.form-choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.choice-card,
+.form-choice-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+    padding: 17px;
+    border: 1px solid var(--form-border);
+    border-radius: 11px;
+    background: var(--form-background);
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.choice-card:hover,
+.form-choice-card:hover {
+    border-color: #a9cdbc;
+    background: #fbfefc;
+}
+
+.choice-card:has(input:checked),
+.form-choice-card:has(input:checked) {
+    border-color: var(--form-primary);
+    background: var(--form-primary-light);
+    box-shadow: 0 0 0 2px rgba(47, 128, 107, 0.06);
+}
+
+.choice-card input[type="radio"],
+.choice-card input[type="checkbox"],
+.form-choice-card input[type="radio"],
+.form-choice-card input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 0;
+    accent-color: var(--form-primary);
+}
+
+.choice-card-content,
+.form-choice-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.choice-card-title,
+.form-choice-title {
+    color: var(--form-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.choice-card-description,
+.form-choice-description {
+    color: var(--form-muted);
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+/* ---------- Fieldsets and Legends ---------- */
+
+.form-group fieldset,
+.form-fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.form-group legend,
+.form-fieldset legend {
+    margin-bottom: 12px;
+    color: var(--form-heading);
+    font-size: 0.94rem;
+    font-weight: 700;
+}
+
+/* ---------- File Upload ---------- */
+
+.form-group input[type="file"] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border: 1px dashed #b8cdc1;
+    border-radius: 9px;
+    background: #f8fbf9;
+    color: var(--form-text);
+    font: inherit;
+    font-size: 0.88rem;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: var(--form-primary-light);
+    color: var(--form-primary-dark);
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: #dcefe4;
+}
+
+/* ---------- Character Count ---------- */
+
+.character-count,
+.form-character-count {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -2px;
+    color: var(--form-muted);
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.character-count.is-limit,
+.form-character-count.is-limit {
+    color: var(--form-error);
+    font-weight: 700;
+}
+
+/* ---------- Form Messages ---------- */
+
+.form-message,
+.form-status-message {
+    margin: 0 0 20px;
+    padding: 13px 16px;
+    border: 1px solid var(--form-border);
+    border-radius: 9px;
+    background: #f6faf7;
+    color: var(--form-text);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.form-message:empty,
+.form-status-message:empty {
+    display: none;
+}
+
+.form-message[hidden],
+.form-status-message[hidden] {
+    display: none;
+}
+
+.form-message.error,
+.form-message.is-error,
+.form-status-message.error,
+.form-status-message.is-error {
+    border-color: #f0c6c8;
+    background: var(--form-error-background);
+    color: var(--form-error);
+}
+
+.form-message.success,
+.form-message.is-success,
+.form-status-message.success,
+.form-status-message.is-success {
+    border-color: #c5e6d0;
+    background: var(--form-success-background);
+    color: var(--form-success);
+}
+
+.form-message.info,
+.form-message.is-info,
+.form-status-message.info,
+.form-status-message.is-info {
+    border-color: #cbded3;
+    background: var(--form-primary-light);
+    color: var(--form-primary-dark);
+}
+
+/* ---------- Submit and Secondary Buttons ---------- */
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 13px;
+    margin-top: 28px;
+}
+
+.form-submit,
+.form-button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 49px;
+    padding: 12px 24px;
+    border: 1px solid var(--form-primary);
+    border-radius: 9px;
+    background: var(--form-primary);
+    color: #ffffff;
+    font: inherit;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.form-submit:hover,
+.form-button-primary:hover {
+    transform: translateY(-1px);
+    border-color: var(--form-primary-dark);
+    background: var(--form-primary-dark);
+    box-shadow: 0 6px 15px rgba(47, 128, 107, 0.15);
+}
+
+.form-submit:focus-visible,
+.form-button-primary:focus-visible {
+    outline: 3px solid rgba(47, 128, 107, 0.3);
+    outline-offset: 3px;
+}
+
+.form-submit:disabled,
+.form-button-primary:disabled {
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.form-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 47px;
+    padding: 11px 20px;
+    border: 1px solid var(--form-border);
+    border-radius: 9px;
+    background: #ffffff;
+    color: var(--form-heading);
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 650;
+    text-align: center;
+    cursor: pointer;
+}
+
+.form-button-secondary:hover {
+    border-color: #b8cdc1;
+    background: #f5faf7;
+}
+
+/* ---------- Required Field Notice ---------- */
+
+.form-required-note {
+    margin-bottom: 20px;
+    color: var(--form-muted);
+    font-size: 0.83rem;
+}
+
+.form-required-note span {
+    color: var(--form-error);
+}
+
+/* ---------- Consent ---------- */
+
+.form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-top: 8px;
+    color: var(--form-text);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+.form-consent input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin: 4px 0 0;
+    accent-color: var(--form-primary);
+}
+
+.form-consent a {
+    color: var(--form-primary-dark);
+    font-weight: 650;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------- Form Divider ---------- */
+
+.form-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 26px 0;
+    color: var(--form-muted);
+    font-size: 0.82rem;
+}
+
+.form-divider::before,
+.form-divider::after {
+    flex: 1;
+    height: 1px;
+    background: var(--form-border);
+    content: "";
+}
+
+/* ---------- Loading Indicator ---------- */
+
+.form-loading-indicator {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: formSpin 0.7s linear infinite;
+}
+
+@keyframes formSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------- Responsive: Tablet ---------- */
+
+@media (max-width: 760px) {
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .choice-grid,
+    .form-choice-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .form-actions {
+        gap: 11px;
+    }
+}
+
+/* ---------- Responsive: Mobile ---------- */
+
+@media (max-width: 480px) {
+    .form-group {
+        margin-bottom: 19px;
+    }
+
+    .form-group input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    .form-group select,
+    .form-group textarea,
+    .form-control {
+        font-size: 16px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-submit,
+    .form-button-primary,
+    .form-button-secondary {
+        width: 100%;
+    }
+
+    .choice-card,
+    .form-choice-card {
+        padding: 14px;
+    }
+}
+
+/* ---------- Reduced Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .form-page *,
+    .form-page *::before,
+    .form-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .form-submit:hover,
+    .form-button-primary:hover {
+        transform: none;
+    }
+}

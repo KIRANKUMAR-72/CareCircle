@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Join CareCircle and become part of a community built on kindness, mutual support, and meaningful connections."
+    >
+
+    <title>Create an Account | CareCircle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+
+    <!-- JavaScript -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/register.js" defer></script>
+</head>
+
+<body class="register-page">
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span>Care<span class="logo-highlight">Circle</span></span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="services.html">Services</a>
+                <a href="special-care.html">Special Care</a>
+                <a href="about.html">About Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a
+                    href="register.html"
+                    class="btn btn-primary active"
+                    aria-current="page"
+                >
+                    Join CareCircle
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="register-main">
+
+        <section class="register-section">
+            <div class="register-container">
+
+                <!-- LEFT: WELCOME PANEL -->
+                <aside class="register-welcome-panel">
+
+                    <div class="register-decoration register-decoration-one"></div>
+                    <div class="register-decoration register-decoration-two"></div>
+
+                    <div class="register-welcome-content">
+
+                        <span class="register-welcome-label">
+                            <i class="fa-solid fa-heart"></i>
+                            EVERY ACT OF KINDNESS MATTERS
+                        </span>
+
+                        <h1>
+                            Be part of something
+                            <span>meaningful.</span>
+                        </h1>
+
+                        <p class="register-welcome-description">
+                            Join a community where people support one another,
+                            share their time, and make everyday life a little
+                            easier for someone else.
+                        </p>
+
+                        <div class="register-benefits">
+
+                            <div class="register-benefit">
+                                <span class="register-benefit-icon">
+                                    <i class="fa-solid fa-people-group"></i>
+                                </span>
+                                <div>
+                                    <h3>Find your community</h3>
+                                    <p>Build connections based on care and trust.</p>
+                                </div>
+                            </div>
+
+                            <div class="register-benefit">
+                                <span class="register-benefit-icon">
+                                    <i class="fa-solid fa-handshake-angle"></i>
+                                </span>
+                                <div>
+                                    <h3>Give or receive assistance</h3>
+                                    <p>Make support part of everyday life.</p>
+                                </div>
+                            </div>
+
+                            <div class="register-benefit">
+                                <span class="register-benefit-icon">
+                                    <i class="fa-solid fa-coins"></i>
+                                </span>
+                                <div>
+                                    <h3>Be part of a fair exchange</h3>
+                                    <p>Explore the community SocialCredits system.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="register-quote">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>
+                                Help Today. Be Helped Tomorrow.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="register-welcome-bottom">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        A community built on dignity, kindness, and mutual respect.
+                    </div>
+
+                </aside>
+
+
+                <!-- RIGHT: REGISTRATION FORM -->
+                <div class="register-form-panel">
+
+                    <div class="register-form-header">
+
+                        <a href="../index.html" class="mobile-register-logo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            Care<span>Circle</span>
+                        </a>
+
+                        <div class="register-icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <p class="register-eyebrow">YOUR JOURNEY STARTS HERE</p>
+
+                        <h2>Create your account</h2>
+
+                        <p class="register-subtitle">
+                            Tell us a little about yourself to get started.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Status messages -->
+                    <div
+                        class="register-message"
+                        id="registerMessage"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    ></div>
+
+
+                    <form id="registerForm" novalidate>
+
+                        <!-- Full name -->
+                        <div class="register-field">
+                            <label for="fullName">Full name</label>
+
+                            <div class="register-input-wrapper">
+                                <i class="fa-regular fa-user register-input-icon"></i>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    name="fullName"
+                                    placeholder="Enter your full name"
+                                    autocomplete="name"
+                                    minlength="2"
+                                    maxlength="100"
+                                    required
+                                    aria-describedby="fullNameError"
+                                >
+                            </div>
+
+                            <small
+                                class="register-field-error"
+                                id="fullNameError"
+                            ></small>
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="register-field">
+                            <label for="registerEmail">Email address</label>
+
+                            <div class="register-input-wrapper">
+                                <i class="fa-regular fa-envelope register-input-icon"></i>
+
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                    maxlength="254"
+                                    required
+                                    aria-describedby="registerEmailError"
+                                >
+                            </div>
+
+                            <small
+                                class="register-field-error"
+                                id="registerEmailError"
+                            ></small>
+                        </div>
+
+
+                        <!-- Phone -->
+                        <div class="register-field">
+                            <label for="phone">Mobile number</label>
+
+                            <div class="register-input-wrapper">
+                                <i class="fa-solid fa-phone register-input-icon"></i>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Enter your mobile number"
+                                    autocomplete="tel"
+                                    inputmode="tel"
+                                    maxlength="20"
+                                    aria-describedby="phoneHint phoneError"
+                                >
+                            </div>
+
+                            <small class="register-field-hint" id="phoneHint">
+                                Optional for this initial form. Additional
+                                verification may be required for certain features.
+                            </small>
+
+                            <small
+                                class="register-field-error"
+                                id="phoneError"
+                            ></small>
+                        </div>
+
+
+                        <!-- Role selection -->
+                        <fieldset class="register-role-fieldset">
+                            <legend>How would you like to participate?</legend>
+
+                            <p class="register-role-description">
+                                Choose the role that best describes you.
+                            </p>
+
+                            <div class="register-role-grid">
+
+                                <label class="register-role-option">
+                                    <input
+                                        type="radio"
+                                        name="role"
+                                        value="volunteer"
+                                        required
+                                    >
+
+                                    <span class="register-role-card">
+                                        <span class="register-role-icon">
+                                            <i class="fa-solid fa-hand-holding-heart"></i>
+                                        </span>
+                                        <span class="register-role-title">
+                                            Volunteer
+                                        </span>
+                                        <span class="register-role-description-small">
+                                            I want to help others.
+                                        </span>
+                                    </span>
+                                </label>
+
+
+                                <label class="register-role-option">
+                                    <input
+                                        type="radio"
+                                        name="role"
+                                        value="elderly"
+                                    >
+
+                                    <span class="register-role-card">
+                                        <span class="register-role-icon">
+                                            <i class="fa-solid fa-person-cane"></i>
+                                        </span>
+                                        <span class="register-role-title">
+                                            Elderly Member
+                                        </span>
+                                        <span class="register-role-description-small">
+                                            I need community support.
+                                        </span>
+                                    </span>
+                                </label>
+
+
+                                <label class="register-role-option">
+                                    <input
+                                        type="radio"
+                                        name="role"
+                                        value="family"
+                                    >
+
+                                    <span class="register-role-card">
+                                        <span class="register-role-icon">
+                                            <i class="fa-solid fa-people-roof"></i>
+                                        </span>
+                                        <span class="register-role-title">
+                                            Family / Caregiver
+                                        </span>
+                                        <span class="register-role-description-small">
+                                            I help someone else.
+                                        </span>
+                                    </span>
+                                </label>
+
+
+                                <label class="register-role-option">
+                                    <input
+                                        type="radio"
+                                        name="role"
+                                        value="special-care"
+                                    >
+
+                                    <span class="register-role-card">
+                                        <span class="register-role-icon">
+                                            <i class="fa-solid fa-hands-holding-circle"></i>
+                                        </span>
+                                        <span class="register-role-title">
+                                            Special Care
+                                        </span>
+                                        <span class="register-role-description-small">
+                                            I need tailored support.
+                                        </span>
+                                    </span>
+                                </label>
+
+                            </div>
+
+                            <small
+                                class="register-field-error"
+                                id="roleError"
+                                aria-live="polite"
+                            ></small>
+
+                            <p class="register-role-note">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Special Care participation may require a separate
+                                eligibility and verification process. Selecting
+                                this role does not automatically grant eligibility
+                                or SocialCredits.
+                            </p>
+                        </fieldset>
+
+
+                        <!-- Password -->
+                        <div class="register-field">
+                            <label for="registerPassword">Create password</label>
+
+                            <div class="register-input-wrapper">
+                                <i class="fa-solid fa-lock register-input-icon"></i>
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    name="password"
+                                    placeholder="Create a strong password"
+                                    autocomplete="new-password"
+                                    minlength="8"
+                                    maxlength="128"
+                                    required
+                                    aria-describedby="passwordRequirements passwordError"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="register-password-toggle"
+                                    data-password-target="registerPassword"
+                                    aria-label="Show password"
+                                    aria-pressed="false"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+
+                            <small
+                                class="register-field-hint"
+                                id="passwordRequirements"
+                            >
+                                Use at least 8 characters. A longer, unique
+                                password is recommended.
+                            </small>
+
+                            <small
+                                class="register-field-error"
+                                id="passwordError"
+                            ></small>
+                        </div>
+
+
+                        <!-- Confirm password -->
+                        <div class="register-field">
+                            <label for="confirmPassword">Confirm password</label>
+
+                            <div class="register-input-wrapper">
+                                <i class="fa-solid fa-lock register-input-icon"></i>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    placeholder="Enter your password again"
+                                    autocomplete="new-password"
+                                    minlength="8"
+                                    maxlength="128"
+                                    required
+                                    aria-describedby="confirmPasswordError"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="register-password-toggle"
+                                    data-password-target="confirmPassword"
+                                    aria-label="Show password"
+                                    aria-pressed="false"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+
+                            <small
+                                class="register-field-error"
+                                id="confirmPasswordError"
+                            ></small>
+                        </div>
+
+
+                        <!-- Terms -->
+                        <div class="register-terms-field">
+                            <label class="register-terms-option" for="acceptTerms">
+                                <input
+                                    type="checkbox"
+                                    id="acceptTerms"
+                                    name="acceptTerms"
+                                    required
+                                >
+
+                                <span class="register-custom-checkbox"></span>
+
+                                <span class="register-terms-text">
+                                    I agree to the CareCircle
+                                    <a href="terms.html">Terms of Service</a>
+                                    and
+                                    <a href="privacy.html">Privacy Policy</a>.
+                                </span>
+                            </label>
+
+                            <small
+                                class="register-field-error"
+                                id="termsError"
+                            ></small>
+                        </div>
+
+
+                        <!-- Submit -->
+                        <button
+                            type="submit"
+                            class="btn btn-primary register-submit"
+                            id="registerSubmitButton"
+                        >
+                            <span>Create My Account</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+
+                        <p class="register-security-note">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Your account details should be handled securely.
+                        </p>
+
+                    </form>
+
+
+                    <!-- Login link -->
+                    <div class="register-divider">
+                        <span>ALREADY A MEMBER?</span>
+                    </div>
+
+                    <p class="register-login-prompt">
+                        Welcome back! Continue your CareCircle journey.
+                    </p>
+
+                    <a href="login.html" class="btn btn-outline register-login-button">
+                        Log In to Your Account
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <p class="register-help">
+                        Need assistance?
+                        <a href="contact.html">Contact our team</a>
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= TRUST STRIP ================= -->
+        <section class="register-trust-strip" aria-label="CareCircle values">
+
+            <div class="register-trust-item">
+                <i class="fa-solid fa-heart"></i>
+                <span>Community First</span>
+            </div>
+
+            <div class="register-trust-item">
+                <i class="fa-solid fa-handshake"></i>
+                <span>Mutual Support</span>
+            </div>
+
+            <div class="register-trust-item">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Respect and Dignity</span>
+            </div>
+
+            <div class="register-trust-item">
+                <i class="fa-solid fa-seedling"></i>
+                <span>Stronger Together</span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    Help Today. Be Helped Tomorrow.
+                </p>
+
+                <div class="footer-bottom-links">
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

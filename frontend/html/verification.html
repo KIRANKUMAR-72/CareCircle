@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verify your CareCircle account to help build a safer and more trustworthy community.">
+    <title>Account Verification | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/verification.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/verification.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a href="../index.html" class="logo" aria-label="CareCircle Home">
+                <span class="logo-icon">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Toggle navigation"
+                    aria-controls="navMenu"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">My Profile</a>
+                <a href="login.html" class="btn btn-outline">Log In</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="verification-hero">
+            <div class="container verification-hero-content">
+                <span class="section-label">Trust starts here</span>
+                <h1>Account <span>Verification</span></h1>
+                <p>
+                    Help us build a safer community. Verify your details so members
+                    can interact with greater confidence and peace of mind.
+                </p>
+
+                <div class="verification-hero-points">
+                    <span><span aria-hidden="true">✓</span> Safer community connections</span>
+                    <span><span aria-hidden="true">✓</span> Responsible assistance</span>
+                    <span><span aria-hidden="true">✓</span> Privacy-conscious process</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Notice -->
+        <section class="container verification-notice-wrap">
+            <div class="verification-demo-notice" id="verificationDemoNotice">
+                <div class="notice-icon" aria-hidden="true">ⓘ</div>
+                <div>
+                    <strong>Demonstration page</strong>
+                    <p>
+                        This form currently demonstrates the verification process.
+                        Documents are not uploaded, stored, or reviewed yet.
+                    </p>
+                </div>
+                <button type="button" id="dismissVerificationNotice"
+                        class="notice-dismiss" aria-label="Dismiss notice">×</button>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="verification-section section-padding">
+            <div class="container verification-layout">
+
+                <!-- Left Information Panel -->
+                <aside class="verification-sidebar">
+                    <div class="verification-status-card">
+                        <div class="status-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="27"
+                                        stroke="currentColor" stroke-width="3"/>
+                                <path d="M20 32L28 40L44 23"
+                                      stroke="currentColor" stroke-width="4"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <span class="status-eyebrow">YOUR ACCOUNT STATUS</span>
+                        <h2 id="verificationStatusHeading">Not Verified</h2>
+                        <p id="verificationStatusDescription">
+                            Complete the form to begin the verification process.
+                        </p>
+
+                        <div class="status-progress-track" aria-label="Verification progress">
+                            <div class="status-progress-bar" id="verificationProgressBar"></div>
+                        </div>
+                        <p class="progress-label" id="verificationProgressLabel">
+                            0 of 3 steps completed
+                        </p>
+                    </div>
+
+                    <div class="verification-steps-card">
+                        <h3>Verification steps</h3>
+
+                        <ol class="verification-steps" id="verificationSteps">
+                            <li class="verification-step active" data-step="1">
+                                <span class="step-number">1</span>
+                                <div>
+                                    <strong>Confirm your details</strong>
+                                    <p>Enter your name and account role.</p>
+                                </div>
+                            </li>
+                            <li class="verification-step" data-step="2">
+                                <span class="step-number">2</span>
+                                <div>
+                                    <strong>Choose verification type</strong>
+                                    <p>Select the category that applies to you.</p>
+                                </div>
+                            </li>
+                            <li class="verification-step" data-step="3">
+                                <span class="step-number">3</span>
+                                <div>
+                                    <strong>Review your submission</strong>
+                                    <p>Check the details before submitting.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="verification-help-card">
+                        <div class="help-card-icon" aria-hidden="true">♡</div>
+                        <h3>Need assistance?</h3>
+                        <p>
+                            If you are an elderly member or need help completing
+                            this form, a trusted family member or caregiver can
+                            assist you.
+                        </p>
+                        <a href="contact.html" class="text-link">
+                            Contact our team →
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- Verification Form -->
+                <div class="verification-main">
+                    <div class="verification-form-heading">
+                        <div>
+                            <span class="section-label">Your information</span>
+                            <h2>Verify your identity</h2>
+                            <p>Enter accurate information to continue.</p>
+                        </div>
+                        <span class="form-required-note">
+                            <span aria-hidden="true">*</span> Required fields
+                        </span>
+                    </div>
+
+                    <form id="verificationForm" novalidate>
+
+                        <!-- Section 1 -->
+                        <section class="verification-form-section">
+                            <div class="form-section-heading">
+                                <span class="form-section-number">01</span>
+                                <div>
+                                    <h3>Personal details</h3>
+                                    <p>Confirm the information associated with your account.</p>
+                                </div>
+                            </div>
+
+                            <div class="verification-form-grid">
+                                <div class="form-field">
+                                    <label for="verificationFullName">
+                                        Full name <span>*</span>
+                                    </label>
+                                    <input type="text" id="verificationFullName"
+                                           name="fullName" autocomplete="name"
+                                           placeholder="Enter your full name"
+                                           maxlength="80" required>
+                                    <small class="field-error" id="verificationNameError"></small>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="verificationEmail">
+                                        Email address <span>*</span>
+                                    </label>
+                                    <input type="email" id="verificationEmail"
+                                           name="email" autocomplete="email"
+                                           placeholder="you@example.com" required>
+                                    <small class="field-error" id="verificationEmailError"></small>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="verificationRole">
+                                        Community role <span>*</span>
+                                    </label>
+                                    <select id="verificationRole" name="role" required>
+                                        <option value="">Select your role</option>
+                                        <option value="volunteer">Volunteer</option>
+                                        <option value="elderly">Elderly member</option>
+                                        <option value="family">Family member / caregiver</option>
+                                        <option value="special-care">Special Care member</option>
+                                    </select>
+                                    <small class="field-error" id="verificationRoleError"></small>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="verificationCity">
+                                        City <span>*</span>
+                                    </label>
+                                    <input type="text" id="verificationCity"
+                                           name="city" autocomplete="address-level2"
+                                           placeholder="Enter your city"
+                                           maxlength="60" required>
+                                    <small class="field-error" id="verificationCityError"></small>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 2 -->
+                        <section class="verification-form-section">
+                            <div class="form-section-heading">
+                                <span class="form-section-number">02</span>
+                                <div>
+                                    <h3>Choose verification type</h3>
+                                    <p>
+                                        Select the verification category relevant to
+                                        your community role.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="verification-type-options">
+                                <label class="verification-type-card">
+                                    <input type="radio" name="verificationType"
+                                           value="identity" required>
+                                    <span class="verification-type-icon" aria-hidden="true">ID</span>
+                                    <span class="verification-type-copy">
+                                        <strong>Identity verification</strong>
+                                        <small>For members confirming their identity.</small>
+                                    </span>
+                                    <span class="type-radio-indicator"></span>
+                                </label>
+
+                                <label class="verification-type-card">
+                                    <input type="radio" name="verificationType"
+                                           value="age">
+                                    <span class="verification-type-icon" aria-hidden="true">65+</span>
+                                    <span class="verification-type-copy">
+                                        <strong>Age verification</strong>
+                                        <small>For elderly members seeking age-based eligibility.</small>
+                                    </span>
+                                    <span class="type-radio-indicator"></span>
+                                </label>
+
+                                <label class="verification-type-card">
+                                    <input type="radio" name="verificationType"
+                                           value="care">
+                                    <span class="verification-type-icon" aria-hidden="true">♡</span>
+                                    <span class="verification-type-copy">
+                                        <strong>Special Care eligibility</strong>
+                                        <small>For members requesting Special Care support.</small>
+                                    </span>
+                                    <span class="type-radio-indicator"></span>
+                                </label>
+
+                                <label class="verification-type-card">
+                                    <input type="radio" name="verificationType"
+                                           value="caregiver">
+                                    <span class="verification-type-icon" aria-hidden="true">＋</span>
+                                    <span class="verification-type-copy">
+                                        <strong>Family / caregiver relationship</strong>
+                                        <small>For people assisting another member.</small>
+                                    </span>
+                                    <span class="type-radio-indicator"></span>
+                                </label>
+                            </div>
+                            <small class="field-error" id="verificationTypeError"></small>
+
+                            <div class="verification-guidance" id="verificationGuidance">
+                                <div class="guidance-icon" aria-hidden="true">ⓘ</div>
+                                <div>
+                                    <strong id="verificationGuidanceTitle">Choose a verification type</strong>
+                                    <p id="verificationGuidanceText">
+                                        Guidance about the information required will appear here.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 3 -->
+                        <section class="verification-form-section">
+                            <div class="form-section-heading">
+                                <span class="form-section-number">03</span>
+                                <div>
+                                    <h3>Supporting information</h3>
+                                    <p>
+                                        Provide a reference to the information you
+                                        intend to submit. Do not enter sensitive
+                                        document numbers in this demonstration form.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="verification-form-grid">
+                                <div class="form-field">
+                                    <label for="verificationDocumentType">
+                                        Supporting document type <span>*</span>
+                                    </label>
+                                    <select id="verificationDocumentType"
+                                            name="documentType" required>
+                                        <option value="">Select document type</option>
+                                        <option value="government-id">Government-issued identity document</option>
+                                        <option value="age-proof">Age or date-of-birth proof</option>
+                                        <option value="care-document">Supporting care documentation</option>
+                                        <option value="relationship-proof">Relationship or caregiver proof</option>
+                                        <option value="other">Other supporting document</option>
+                                    </select>
+                                    <small class="field-error" id="verificationDocumentError"></small>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="verificationReference">
+                                        Reference label (optional)
+                                    </label>
+                                    <input type="text" id="verificationReference"
+                                           name="referenceLabel"
+                                           placeholder="Example: identity document"
+                                           maxlength="80">
+                                    <small class="field-hint">
+                                        Use a general label only. Do not enter ID numbers.
+                                    </small>
+                                </div>
+
+                                <div class="form-field full-width">
+                                    <label for="verificationNotes">
+                                        Additional notes (optional)
+                                    </label>
+                                    <textarea id="verificationNotes" name="notes"
+                                              rows="4" maxlength="500"
+                                              placeholder="Tell us if you need assistance with verification."></textarea>
+                                    <div class="character-counter">
+                                        <span id="verificationNotesCount">0</span>/500 characters
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="document-upload-placeholder">
+                                <div class="upload-placeholder-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 48 48" fill="none">
+                                        <path d="M24 31V7M15 16L24 7L33 16"
+                                              stroke="currentColor" stroke-width="2.5"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 29V38C8 40 10 41 12 41H36C38 41 40 40 40 38V29"
+                                              stroke="currentColor" stroke-width="2.5"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Document upload</h4>
+                                    <p>
+                                        Secure document uploads will be available
+                                        after the backend and protected storage
+                                        are implemented.
+                                    </p>
+                                    <span class="upload-unavailable-label">
+                                        Upload unavailable in this demo
+                                    </span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Consent -->
+                        <section class="verification-consent-section">
+                            <label class="verification-consent">
+                                <input type="checkbox" id="verificationConsent"
+                                       name="consent" required>
+                                <span>
+                                    I confirm that the information entered is
+                                    accurate to the best of my knowledge, and I
+                                    understand that this demonstration does not
+                                    verify my identity or eligibility. <span>*</span>
+                                </span>
+                            </label>
+                            <small class="field-error" id="verificationConsentError"></small>
+
+                            <p class="verification-privacy-note">
+                                <span aria-hidden="true">🔒</span>
+                                <span>
+                                    <strong>Your privacy matters.</strong>
+                                    Never submit identity documents through an
+                                    untrusted channel. A production version should
+                                    use secure upload, restricted access, and a
+                                    clear data-retention policy.
+                                </span>
+                            </p>
+                        </section>
+
+                        <div class="verification-form-message"
+                             id="verificationFormMessage"
+                             role="status" aria-live="polite" hidden></div>
+
+                        <div class="verification-form-actions">
+                            <button type="reset" class="btn btn-outline"
+                                    id="resetVerificationButton">
+                                Reset form
+                            </button>
+                            <button type="submit" class="btn btn-primary"
+                                    id="submitVerificationButton">
+                                Review submission <span aria-hidden="true">→</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Demo Review Panel -->
+                    <section class="verification-review-panel" id="verificationReviewPanel" hidden>
+                        <div class="review-success-icon" aria-hidden="true">✓</div>
+                        <span class="section-label">Form validation complete</span>
+                        <h2>Review your information</h2>
+                        <p>
+                            Your form passed the browser checks. This does not mean
+                            your identity is verified or that your information has
+                            been sent to CareCircle.
+                        </p>
+
+                        <dl class="verification-review-list">
+                            <div>
+                                <dt>Full name</dt>
+                                <dd id="reviewFullName">—</dd>
+                            </div>
+                            <div>
+                                <dt>Email</dt>
+                                <dd id="reviewEmail">—</dd>
+                            </div>
+                            <div>
+                                <dt>Community role</dt>
+                                <dd id="reviewRole">—</dd>
+                            </div>
+                            <div>
+                                <dt>Verification type</dt>
+                                <dd id="reviewType">—</dd>
+                            </div>
+                            <div>
+                                <dt>Supporting document</dt>
+                                <dd id="reviewDocument">—</dd>
+                            </div>
+                        </dl>
+
+                        <div class="review-demo-message">
+                            <strong>Next step: backend integration required</strong>
+                            <p>
+                                A real submission workflow must securely send the
+                                information to the server and allow an authorized
+                                reviewer to approve, reject, or request additional
+                                information.
+                            </p>
+                        </div>
+
+                        <div class="verification-review-actions">
+                            <button type="button" class="btn btn-outline"
+                                    id="editVerificationButton">
+                                Edit information
+                            </button>
+                            <button type="button" class="btn btn-primary"
+                                    id="finishVerificationReviewButton">
+                                Return to form
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety Information -->
+        <section class="verification-safety-section section-padding">
+            <div class="container">
+                <div class="verification-safety-heading">
+                    <span class="section-label">A responsible community</span>
+                    <h2>What verification means</h2>
+                    <p>
+                        Verification should support trust without promising more
+                        than the process can guarantee.
+                    </p>
+                </div>
+
+                <div class="verification-safety-grid">
+                    <article class="verification-safety-card">
+                        <span class="safety-card-icon" aria-hidden="true">✓</span>
+                        <h3>Identity checks</h3>
+                        <p>
+                            A completed identity check can help confirm certain
+                            details, depending on the method used.
+                        </p>
+                    </article>
+
+                    <article class="verification-safety-card">
+                        <span class="safety-card-icon" aria-hidden="true">♡</span>
+                        <h3>Respect and dignity</h3>
+                        <p>
+                            Elderly and Special Care members should receive
+                            respectful assistance throughout the process.
+                        </p>
+                    </article>
+
+                    <article class="verification-safety-card">
+                        <span class="safety-card-icon" aria-hidden="true">⌂</span>
+                        <h3>Safe interactions</h3>
+                        <p>
+                            Verification is one safeguard, not a guarantee of
+                            another person's behavior or the safety of every visit.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="verification-faq">
+                    <h2>Frequently asked questions</h2>
+
+                    <div class="verification-faq-item">
+                        <button type="button" class="verification-faq-question"
+                                aria-expanded="false">
+                            <span>Does this page verify my account?</span>
+                            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="verification-faq-answer" hidden>
+                            <p>
+                                No. This is a frontend demonstration. It does not
+                                upload documents, contact a reviewer, or change
+                                your account verification status.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="verification-faq-item">
+                        <button type="button" class="verification-faq-question"
+                                aria-expanded="false">
+                            <span>Do I need to upload a document now?</span>
+                            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="verification-faq-answer" hidden>
+                            <p>
+                                No document upload is available in this demo.
+                                Do not enter sensitive document numbers or share
+                                copies through an untrusted channel.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="verification-faq-item">
+                        <button type="button" class="verification-faq-question"
+                                aria-expanded="false">
+                            <span>Can a family member help me?</span>
+                            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="verification-faq-answer" hidden>
+                            <p>
+                                Yes. A trusted family member or caregiver can help
+                                with the process, while respecting the member's
+                                consent, privacy, and independence.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="verification-faq-item">
+                        <button type="button" class="verification-faq-question"
+                                aria-expanded="false">
+                            <span>Does verification automatically give me SocialCredits?</span>
+                            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="verification-faq-answer" hidden>
+                            <p>
+                                No. Verification and SocialCredits are separate
+                                processes. Any eligibility or initial allocation
+                                must follow CareCircle's defined policy and
+                                authorized review.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="verification-bottom-cta">
+            <div class="container verification-bottom-cta-inner">
+                <div>
+                    <h2>Building trust, one connection at a time.</h2>
+                    <p>Help Today. Be Helped Tomorrow.</p>
+                </div>
+                <a href="dashboard.html" class="btn btn-light">
+                    Return to Dashboard <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-bottom">
+            <p>
+                © <span id="currentYear"></span> CareCircle.
+                Help Today. Be Helped Tomorrow.
+            </p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

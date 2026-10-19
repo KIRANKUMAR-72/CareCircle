@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | CareCircle</title>
+    <meta
+        name="description"
+        content="View your CareCircle notifications, request updates, community messages, and SocialCredits activity."
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/notifications.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/notifications.js" defer></script>
+</head>
+
+<body class="notifications-page">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">C</span>
+                <span class="logo-text">Care<span>Circle</span></span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navMenu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About Us</a>
+                <a href="dashboard.html" class="nav-link-dashboard">Dashboard</a>
+                <a href="notifications.html" class="active" aria-current="page">
+                    Notifications
+                </a>
+                <a href="profile.html" class="btn btn-primary nav-cta">
+                    My Profile
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Page Hero -->
+        <section class="notifications-hero">
+            <div class="container notifications-hero-content">
+
+                <div class="notifications-hero-copy">
+                    <span class="notifications-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        YOUR COMMUNITY UPDATES
+                    </span>
+
+                    <h1>
+                        Stay connected with
+                        <span>CareCircle.</span>
+                    </h1>
+
+                    <p>
+                        Keep track of your help requests, community activities,
+                        important reminders, and SocialCredits updates in one place.
+                    </p>
+
+                    <div class="notifications-hero-actions">
+                        <a href="dashboard.html" class="btn btn-primary">
+                            Back to Dashboard
+                        </a>
+
+                        <a href="browse-requests.html" class="btn btn-outline">
+                            Explore Requests
+                        </a>
+                    </div>
+                </div>
+
+                <div class="notifications-hero-art" aria-hidden="true">
+                    <div class="notification-art-circle circle-one"></div>
+                    <div class="notification-art-circle circle-two"></div>
+
+                    <div class="notification-art-card">
+                        <div class="notification-art-icon">🔔</div>
+                        <div>
+                            <span class="notification-art-label">
+                                Community activity
+                            </span>
+                            <strong>You're in the loop!</strong>
+                            <span class="notification-art-small">
+                                Every little update matters.
+                            </span>
+                        </div>
+                        <span class="notification-art-dot"></span>
+                    </div>
+
+                    <div class="notification-art-mini mini-one">
+                        <span>💚</span>
+                        <div>
+                            <strong>Community care</strong>
+                            <small>People helping people</small>
+                        </div>
+                    </div>
+
+                    <div class="notification-art-mini mini-two">
+                        <span>🌱</span>
+                        <div>
+                            <strong>SocialCredits</strong>
+                            <small>Care creates value</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Notification Content -->
+        <section class="notifications-section">
+            <div class="container">
+
+                <!-- Demo Notice -->
+                <div class="notification-demo-notice" id="notificationDemoNotice">
+                    <div class="demo-notice-icon" aria-hidden="true">ℹ️</div>
+
+                    <div class="demo-notice-content">
+                        <strong>Demonstration notification center</strong>
+                        <p>
+                            These notifications are examples for the CareCircle
+                            prototype. Live notifications will be connected to
+                            your account when the backend is implemented.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="demo-notice-dismiss"
+                        id="dismissNotificationNotice"
+                        aria-label="Dismiss demonstration notice"
+                    >
+                        &times;
+                    </button>
+                </div>
+
+
+                <!-- Page Heading and Actions -->
+                <div class="notification-section-heading">
+                    <div>
+                        <span class="section-kicker">YOUR ACTIVITY</span>
+                        <h2>Notification Center</h2>
+                        <p>Important updates from your CareCircle community.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="notification-mark-all-button"
+                        id="markAllReadButton"
+                    >
+                        <span aria-hidden="true">✓</span>
+                        Mark all as read
+                    </button>
+                </div>
+
+
+                <!-- Summary Cards -->
+                <div class="notification-summary-grid">
+
+                    <article class="notification-summary-card">
+                        <div class="notification-summary-icon summary-icon-green">
+                            <span aria-hidden="true">🔔</span>
+                        </div>
+
+                        <div>
+                            <span class="summary-label">Total notifications</span>
+                            <strong id="totalNotificationCount">6</strong>
+                            <small>Across all categories</small>
+                        </div>
+                    </article>
+
+                    <article class="notification-summary-card">
+                        <div class="notification-summary-icon summary-icon-orange">
+                            <span aria-hidden="true">●</span>
+                        </div>
+
+                        <div>
+                            <span class="summary-label">Unread notifications</span>
+                            <strong id="unreadNotificationCount">4</strong>
+                            <small>Updates to review</small>
+                        </div>
+                    </article>
+
+                    <article class="notification-summary-card">
+                        <div class="notification-summary-icon summary-icon-blue">
+                            <span aria-hidden="true">🤝</span>
+                        </div>
+
+                        <div>
+                            <span class="summary-label">Request updates</span>
+                            <strong id="requestNotificationCount">3</strong>
+                            <small>Help and request activity</small>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <!-- Filters -->
+                <div class="notification-toolbar">
+
+                    <div class="notification-tabs" role="group" aria-label="Filter notifications">
+                        <button
+                            type="button"
+                            class="notification-tab active"
+                            data-notification-filter="all"
+                            aria-pressed="true"
+                        >
+                            All
+                            <span id="allTabCount">6</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="notification-tab"
+                            data-notification-filter="unread"
+                            aria-pressed="false"
+                        >
+                            Unread
+                            <span id="unreadTabCount">4</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="notification-tab"
+                            data-notification-filter="read"
+                            aria-pressed="false"
+                        >
+                            Read
+                        </button>
+                    </div>
+
+                    <div class="notification-filter-controls">
+
+                        <label class="notification-search">
+                            <span class="visually-hidden">
+                                Search notifications
+                            </span>
+
+                            <span class="search-icon" aria-hidden="true">⌕</span>
+
+                            <input
+                                type="search"
+                                id="notificationSearch"
+                                placeholder="Search notifications..."
+                                autocomplete="off"
+                            >
+                        </label>
+
+                        <label class="notification-category-filter">
+                            <span class="visually-hidden">
+                                Filter by notification category
+                            </span>
+
+                            <select id="notificationCategoryFilter">
+                                <option value="all">All categories</option>
+                                <option value="request">Request updates</option>
+                                <option value="credits">SocialCredits</option>
+                                <option value="community">Community</option>
+                                <option value="account">Account</option>
+                            </select>
+                        </label>
+
+                    </div>
+                </div>
+
+
+                <!-- Notification List -->
+                <div class="notification-list-heading">
+                    <h3>Recent activity</h3>
+
+                    <span
+                        class="notification-results"
+                        id="notificationResults"
+                        aria-live="polite"
+                    >
+                        Showing 6 notifications
+                    </span>
+                </div>
+
+
+                <div class="notification-list" id="notificationList">
+
+                    <!-- Notification 1 -->
+                    <article
+                        class="notification-item unread"
+                        data-notification-id="notification-001"
+                        data-category="request"
+                        data-read="false"
+                        data-search="grocery shopping assistance request received pending help"
+                    >
+                        <div class="notification-item-icon icon-request" aria-hidden="true">
+                            🛒
+                        </div>
+
+                        <div class="notification-item-content">
+                            <div class="notification-item-heading">
+                                <h4>Help request submitted</h4>
+                                <span class="notification-unread-dot" aria-label="Unread"></span>
+                            </div>
+
+                            <p>
+                                Your request for grocery shopping assistance has
+                                been submitted. You can check its status in My Requests.
+                            </p>
+
+                            <div class="notification-item-meta">
+                                <span class="notification-category-tag tag-request">
+                                    Request update
+                                </span>
+                                <time datetime="2026-10-10T10:30:00">
+                                    10 Oct 2026 · 10:30 AM
+                                </time>
+                            </div>
+
+                            <div class="notification-item-actions">
+                                <a href="my-requests.html" class="notification-action-link">
+                                    View my requests
+                                </a>
+
+                                <button
+                                    type="button"
+                                    class="notification-mark-read"
+                                    data-mark-read
+                                >
+                                    Mark as read
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- Notification 2 -->
+                    <article
+                        class="notification-item unread"
+                        data-notification-id="notification-002"
+                        data-category="credits"
+                        data-read="false"
+                        data-search="socialcredits wallet balance community contribution credits"
+                    >
+                        <div class="notification-item-icon icon-credits" aria-hidden="true">
+                            🌱
+                        </div>
+
+                        <div class="notification-item-content">
+                            <div class="notification-item-heading">
+                                <h4>Your SocialCredits wallet</h4>
+                                <span class="notification-unread-dot" aria-label="Unread"></span>
+                            </div>
+
+                            <p>
+                                Your demonstration wallet shows 125 SocialCredits.
+                                Credits are designed to recognize verified community
+                                assistance, not to represent cash.
+                            </p>
+
+                            <div class="notification-item-meta">
+                                <span class="notification-category-tag tag-credits">
+                                    SocialCredits
+                                </span>
+                                <time datetime="2026-10-10T09:15:00">
+                                    10 Oct 2026 · 9:15 AM
+                                </time>
+                            </div>
+
+                            <div class="notification-item-actions">
+                                <a href="wallet.html" class="notification-action-link">
+                                    View wallet
+                                </a>
+
+                                <button
+                                    type="button"
+                                    class="notification-mark-read"
+                                    data-mark-read
+                                >
+                                    Mark as read
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- Notification 3 -->
+                    <article
+                        class="notification-item unread"
+                        data-notification-id="notification-003"
+                        data-category="request"
+                        data-read="false"
+                        data-search="smartphone guidance helping request in progress"
+                    >
+                        <div class="notification-item-icon icon-help" aria-hidden="true">
+                            📱
+                        </div>
+
+                        <div class="notification-item-content">
+                            <div class="notification-item-heading">
+                                <h4>Helping someone in your community</h4>
+                                <span class="notification-unread-dot" aria-label="Unread"></span>
+                            </div>
+
+                            <p>
+                                Your demonstration activity includes a smartphone
+                                guidance request marked as in progress. Visit My Requests
+                                to review the example details.
+                            </p>
+
+                            <div class="notification-item-meta">
+                                <span class="notification-category-tag tag-request">
+                                    Request update
+                                </span>
+                                <time datetime="2026-10-09T14:00:00">
+                                    9 Oct 2026 · 2:00 PM
+                                </time>
+                            </div>
+
+                            <div class="notification-item-actions">
+                                <a href="my-requests.html" class="notification-action-link">
+                                    View activity
+                                </a>
+
+                                <button
+                                    type="button"
+                                    class="notification-mark-read"
+                                    data-mark-read
+                                >
+                                    Mark as read
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- Notification 4 -->
+                    <article
+                        class="notification-item unread"
+                        data-notification-id="notification-004"
+                        data-category="community"
+                        data-read="false"
+                        data-search="community care kindness support together people helping people"
+                    >
+                        <div class="notification-item-icon icon-community" aria-hidden="true">
+                            💚
+                        </div>
+
+                        <div class="notification-item-content">
+                            <div class="notification-item-heading">
+                                <h4>A little help can make a big difference</h4>
+                                <span class="notification-unread-dot" aria-label="Unread"></span>
+                            </div>
+
+                            <p>
+                                A friendly visit, a grocery pickup, or a little
+                                digital guidance can help someone feel more connected.
+                                Thank you for being part of a caring community.
+                            </p>
+
+                            <div class="notification-item-meta">
+                                <span class="notification-category-tag tag-community">
+                                    Community
+                                </span>
+                                <time datetime="2026-10-08T11:00:00">
+                                    8 Oct 2026 · 11:00 AM
+                                </time>
+                            </div>
+
+                            <div class="notification-item-actions">
+                                <a href="services.html" class="notification-action-link">
+                                    Explore services
+                                </a>
+
+                                <button
+                                    type="button"
+                                    class="notification-mark-read"
+                                    data-mark-read
+                                >
+                                    Mark as read
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- Notification 5 -->
+                    <article
+                        class="notification-item read"
+                        data-notification-id="notification-005"
+                        data-category="request"
+                        data-read="true"
+                        data-search="online form guidance request completed"
+                    >
+                        <div class="notification-item-icon icon-completed" aria-hidden="true">
+                            ✓
+                        </div>
+
+                        <div class="notification-item-content">
+                            <div class="notification-item-heading">
+                                <h4>Example request marked completed</h4>
+                            </div>
+
+                            <p>
+                                An example request for online form guidance is
+                                marked as completed in the demonstration activity.
+                                Actual completion updates will require backend integration.
+                            </p>
+
+                            <div class="notification-item-meta">
+                                <span class="notification-category-tag tag-request">
+                                    Request update
+                                </span>
+                                <time datetime="2026-10-05T16:20:00">
+                                    5 Oct 2026 · 4:20 PM
+                                </time>
+                            </div>
+
+                            <div class="notification-item-actions">
+                                <a href="my-requests.html" class="notification-action-link">
+                                    View my requests
+                                </a>
+
+                                <button
+                                    type="button"
+                                    class="notification-mark-read"
+                                    data-mark-read
+                                    hidden
+                                >
+                                    Mark as read
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- Notification 6 -->
+                    <article
+                        class="notification-item read"
+                        data-notification-id="notification-006"
+                        data-category="account"
+                        data-read="true"
+                        data-search="profile complete update personal information account settings"
+                    >
+                        <div class="notification-item-icon icon-account" aria-hidden="true">
+                            👤
+                        </div>
+
+                        <div class="notification-item-content">
+                            <div class="notification-item-heading">
+                                <h4>Keep your profile up to date</h4>
+                            </div>
+
+                            <p>
+                                Add your location, preferred languages, and areas
+                                of interest to help your community understand what
+                                support you may need or be able to offer.
+                            </p>
+
+                            <div class="notification-item-meta">
+                                <span class="notification-category-tag tag-account">
+                                    Account
+                                </span>
+                                <time datetime="2026-10-04T12:00:00">
+                                    4 Oct 2026 · 12:00 PM
+                                </time>
+                            </div>
+
+                            <div class="notification-item-actions">
+                                <a href="profile.html" class="notification-action-link">
+                                    Update profile
+                                </a>
+
+                                <button
+                                    type="button"
+                                    class="notification-mark-read"
+                                    data-mark-read
+                                    hidden
+                                >
+                                    Mark as read
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <!-- Empty State -->
+                <div class="notification-empty-state" id="notificationEmptyState" hidden>
+                    <div class="notification-empty-icon" aria-hidden="true">🔎</div>
+
+                    <h3>No notifications found</h3>
+
+                    <p>
+                        There are no notifications matching your current filters.
+                        Try a different search or clear your filters.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="clearNotificationFiltersButton"
+                    >
+                        Clear filters
+                    </button>
+                </div>
+
+
+                <!-- Bottom Information -->
+                <div class="notification-information">
+                    <div class="notification-information-icon" aria-hidden="true">
+                        🛡️
+                    </div>
+
+                    <div>
+                        <h3>Your privacy matters</h3>
+                        <p>
+                            CareCircle notifications should share only the information
+                            needed to keep you informed. Sensitive personal and medical
+                            details should not be exposed in notification previews.
+                        </p>
+                    </div>
+
+                    <a href="privacy.html" class="notification-information-link">
+                        Privacy policy
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Bottom CTA -->
+        <section class="notifications-bottom-cta">
+            <div class="container notifications-bottom-cta-inner">
+                <div>
+                    <span class="section-kicker">STAY INVOLVED</span>
+                    <h2>Every act of care brings us closer.</h2>
+                    <p>
+                        Discover ways to support someone in your community today.
+                    </p>
+                </div>
+
+                <a href="browse-requests.html" class="btn btn-primary">
+                    Find a way to help
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+                <a href="../index.html" class="logo footer-logo">
+                    <span class="logo-icon">C</span>
+                    <span class="logo-text">Care<span>Circle</span></span>
+                </a>
+
+                <p>
+                    Help Today. Be Helped Tomorrow.
+                    Building a caring community, one act of kindness at a time.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="services.html">Our Services</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Community</h3>
+                <a href="browse-requests.html">Browse Requests</a>
+                <a href="help-request.html">Request Help</a>
+                <a href="special-care.html">Special Care</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Your Account</h3>
+                <a href="profile.html">My Profile</a>
+                <a href="wallet.html">SocialCredits Wallet</a>
+                <a href="notifications.html">Notifications</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    All rights reserved.
+                </p>
+
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

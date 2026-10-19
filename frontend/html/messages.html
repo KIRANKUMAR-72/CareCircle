@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Messages | CareCircle</title>
+    <meta
+        name="description"
+        content="Connect with members of your CareCircle community through helpful, respectful conversations."
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/messages.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/messages.js" defer></script>
+</head>
+
+<body class="messages-page">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container nav-container">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">C</span>
+                <span class="logo-text">Care<span>Circle</span></span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navMenu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="notifications.html">Notifications</a>
+                <a href="messages.html" class="active" aria-current="page">Messages</a>
+                <a href="profile.html" class="btn btn-primary nav-cta">
+                    My Profile
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="messages-main">
+
+        <div class="container messages-container">
+
+            <!-- Page Heading -->
+            <section class="messages-page-heading">
+                <div>
+                    <span class="messages-eyebrow">
+                        <span class="messages-eyebrow-dot"></span>
+                        YOUR COMMUNITY CONNECTIONS
+                    </span>
+
+                    <h1>Messages that bring us <span>closer.</span></h1>
+
+                    <p>
+                        Coordinate assistance, discuss requests, and stay connected
+                        with people in your CareCircle community.
+                    </p>
+                </div>
+
+                <a href="dashboard.html" class="messages-back-button">
+                    <span aria-hidden="true">←</span>
+                    Back to Dashboard
+                </a>
+            </section>
+
+
+            <!-- Demo Notice -->
+            <div class="messages-demo-notice" id="messagesDemoNotice">
+                <div class="messages-demo-notice-icon" aria-hidden="true">
+                    ℹ️
+                </div>
+
+                <div class="messages-demo-notice-content">
+                    <strong>Messaging demonstration</strong>
+                    <p>
+                        The conversations below are fictional examples.
+                        Messages are not delivered to real users or saved to a
+                        server. Do not enter real personal, medical, financial,
+                        or other sensitive information.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="dismissMessagesNotice"
+                    class="messages-notice-dismiss"
+                    aria-label="Dismiss demonstration notice"
+                >
+                    &times;
+                </button>
+            </div>
+
+
+            <!-- ==================== MESSAGING APP ==================== -->
+            <section class="messaging-workspace" aria-label="Community messaging">
+
+                <!-- Conversation Sidebar -->
+                <aside class="conversation-sidebar">
+
+                    <div class="conversation-sidebar-header">
+                        <div>
+                            <h2>Conversations</h2>
+                            <p>Stay connected with your community.</p>
+                        </div>
+
+                        <span class="conversation-total-badge" id="conversationTotal">
+                            4
+                        </span>
+                    </div>
+
+
+                    <!-- Search Conversations -->
+                    <label class="conversation-search">
+                        <span class="conversation-search-icon" aria-hidden="true">
+                            ⌕
+                        </span>
+
+                        <span class="visually-hidden">
+                            Search conversations
+                        </span>
+
+                        <input
+                            type="search"
+                            id="conversationSearch"
+                            placeholder="Search people or messages..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="button"
+                            id="clearConversationSearch"
+                            class="clear-conversation-search"
+                            aria-label="Clear conversation search"
+                            hidden
+                        >
+                            &times;
+                        </button>
+                    </label>
+
+
+                    <!-- Conversation Filters -->
+                    <div class="conversation-filter-tabs" role="group" aria-label="Conversation filters">
+                        <button
+                            type="button"
+                            class="conversation-filter active"
+                            data-conversation-filter="all"
+                            aria-pressed="true"
+                        >
+                            All
+                        </button>
+
+                        <button
+                            type="button"
+                            class="conversation-filter"
+                            data-conversation-filter="unread"
+                            aria-pressed="false"
+                        >
+                            Unread
+                        </button>
+                    </div>
+
+
+                    <!-- Conversation List -->
+                    <div class="conversation-list" id="conversationList">
+
+                        <!-- Conversation 1 -->
+                        <button
+                            type="button"
+                            class="conversation-item active"
+                            data-conversation-id="conversation-001"
+                            data-name="Ananya Rao"
+                            data-role="Volunteer"
+                            data-search="ananya rao volunteer grocery shopping assistance"
+                            aria-pressed="true"
+                        >
+                            <span class="conversation-avatar avatar-green">
+                                AR
+                                <span class="presence-indicator online"></span>
+                            </span>
+
+                            <span class="conversation-preview">
+                                <span class="conversation-preview-top">
+                                    <strong>Ananya Rao</strong>
+                                    <time datetime="2026-10-10T10:45:00">10:45 AM</time>
+                                </span>
+
+                                <span class="conversation-role">
+                                    Volunteer
+                                </span>
+
+                                <span class="conversation-preview-bottom">
+                                    <span class="conversation-last-message">
+                                        Hello! Let's coordinate the grocery request.
+                                    </span>
+                                    <span
+                                        class="conversation-unread-count"
+                                        data-unread-count="2"
+                                    >
+                                        2
+                                    </span>
+                                </span>
+                            </span>
+                        </button>
+
+
+                        <!-- Conversation 2 -->
+                        <button
+                            type="button"
+                            class="conversation-item"
+                            data-conversation-id="conversation-002"
+                            data-name="Ravi Kumar"
+                            data-role="Community Member"
+                            data-search="ravi kumar community member smartphone digital guidance"
+                            aria-pressed="false"
+                        >
+                            <span class="conversation-avatar avatar-blue">
+                                RK
+                                <span class="presence-indicator"></span>
+                            </span>
+
+                            <span class="conversation-preview">
+                                <span class="conversation-preview-top">
+                                    <strong>Ravi Kumar</strong>
+                                    <time datetime="2026-10-09T16:20:00">Yesterday</time>
+                                </span>
+
+                                <span class="conversation-role">
+                                    Community Member
+                                </span>
+
+                                <span class="conversation-preview-bottom">
+                                    <span class="conversation-last-message">
+                                        Thank you for the smartphone guidance.
+                                    </span>
+                                </span>
+                            </span>
+                        </button>
+
+
+                        <!-- Conversation 3 -->
+                        <button
+                            type="button"
+                            class="conversation-item"
+                            data-conversation-id="conversation-003"
+                            data-name="Meera Sharma"
+                            data-role="Family Member"
+                            data-search="meera sharma family member hospital assistance"
+                            aria-pressed="false"
+                        >
+                            <span class="conversation-avatar avatar-purple">
+                                MS
+                                <span class="presence-indicator"></span>
+                            </span>
+
+                            <span class="conversation-preview">
+                                <span class="conversation-preview-top">
+                                    <strong>Meera Sharma</strong>
+                                    <time datetime="2026-10-08T11:15:00">8 Oct</time>
+                                </span>
+
+                                <span class="conversation-role">
+                                    Family Member
+                                </span>
+
+                                <span class="conversation-preview-bottom">
+                                    <span class="conversation-last-message">
+                                        We appreciate the community support.
+                                    </span>
+                                </span>
+                            </span>
+                        </button>
+
+
+                        <!-- Conversation 4 -->
+                        <button
+                            type="button"
+                            class="conversation-item"
+                            data-conversation-id="conversation-004"
+                            data-name="Community Support"
+                            data-role="CareCircle Team"
+                            data-search="community support carecircle team account help"
+                            aria-pressed="false"
+                        >
+                            <span class="conversation-avatar avatar-orange">
+                                CC
+                                <span class="presence-indicator"></span>
+                            </span>
+
+                            <span class="conversation-preview">
+                                <span class="conversation-preview-top">
+                                    <strong>Community Support</strong>
+                                    <time datetime="2026-10-07T09:00:00">7 Oct</time>
+                                </span>
+
+                                <span class="conversation-role">
+                                    CareCircle Team
+                                </span>
+
+                                <span class="conversation-preview-bottom">
+                                    <span class="conversation-last-message">
+                                        Welcome to the CareCircle community!
+                                    </span>
+                                </span>
+                            </span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- Conversation Empty State -->
+                    <div class="conversation-empty-state" id="conversationEmptyState" hidden>
+                        <div aria-hidden="true">🔎</div>
+                        <strong>No conversations found</strong>
+                        <p>Try searching for a different name or keyword.</p>
+                        <button type="button" id="resetConversationSearch">
+                            Show all conversations
+                        </button>
+                    </div>
+
+
+                    <!-- Sidebar Footer -->
+                    <div class="conversation-sidebar-footer">
+                        <span class="sidebar-footer-icon" aria-hidden="true">
+                            🛡️
+                        </span>
+
+                        <p>
+                            Keep conversations respectful and avoid sharing
+                            sensitive information.
+                        </p>
+                    </div>
+
+                </aside>
+
+
+                <!-- ==================== CHAT PANEL ==================== -->
+                <section class="chat-panel" aria-label="Selected conversation">
+
+                    <!-- No Conversation Selected -->
+                    <div class="chat-empty-state" id="chatEmptyState" hidden>
+                        <div class="chat-empty-illustration" aria-hidden="true">
+                            <span>💬</span>
+                        </div>
+
+                        <h2>Your community conversations</h2>
+
+                        <p>
+                            Select a conversation to view its messages and
+                            continue the discussion.
+                        </p>
+                    </div>
+
+
+                    <!-- Active Conversation -->
+                    <div class="active-chat" id="activeChat">
+
+                        <!-- Chat Header -->
+                        <header class="chat-header">
+
+                            <div class="chat-person">
+                                <span
+                                    class="conversation-avatar avatar-green chat-header-avatar"
+                                    id="chatHeaderAvatar"
+                                >
+                                    AR
+                                    <span class="presence-indicator online"></span>
+                                </span>
+
+                                <div class="chat-person-info">
+                                    <h2 id="chatHeaderName">Ananya Rao</h2>
+                                    <span id="chatHeaderRole">Volunteer</span>
+                                    <span class="chat-demo-status" id="chatHeaderStatus">
+                                        Demonstration conversation
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="chat-header-actions">
+                                <button
+                                    type="button"
+                                    id="conversationInfoButton"
+                                    class="chat-header-button"
+                                    aria-label="View conversation information"
+                                    title="Conversation information"
+                                >
+                                    <span aria-hidden="true">ⓘ</span>
+                                </button>
+                            </div>
+
+                        </header>
+
+
+                        <!-- Conversation Context -->
+                        <div class="chat-context-banner" id="chatContextBanner">
+                            <span class="chat-context-icon" aria-hidden="true">
+                                🤝
+                            </span>
+
+                            <div>
+                                <strong>Community conversation</strong>
+                                <p id="chatContextText">
+                                    Example conversation about grocery shopping assistance.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <!-- Message History -->
+                        <div
+                            class="chat-messages"
+                            id="chatMessages"
+                            role="log"
+                            aria-label="Conversation messages"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            tabindex="0"
+                        >
+
+                            <div class="chat-date-divider">
+                                <span>10 October 2026</span>
+                            </div>
+
+                            <div class="message-row received-message">
+                                <span class="message-avatar avatar-green" aria-hidden="true">
+                                    AR
+                                </span>
+
+                                <div class="message-bubble-wrapper">
+                                    <span class="message-sender">Ananya Rao</span>
+
+                                    <div class="message-bubble">
+                                        Hello! I saw the grocery shopping assistance
+                                        request. I'd be happy to discuss how I can help.
+                                    </div>
+
+                                    <time datetime="2026-10-10T10:30:00" class="message-time">
+                                        10:30 AM
+                                    </time>
+                                </div>
+                            </div>
+
+                            <div class="message-row sent-message">
+                                <div class="message-bubble-wrapper">
+                                    <div class="message-bubble">
+                                        Hello, thank you for reaching out! We can
+                                        coordinate the details here.
+                                    </div>
+
+                                    <time datetime="2026-10-10T10:35:00" class="message-time">
+                                        10:35 AM
+                                    </time>
+                                </div>
+                            </div>
+
+                            <div class="message-row received-message">
+                                <span class="message-avatar avatar-green" aria-hidden="true">
+                                    AR
+                                </span>
+
+                                <div class="message-bubble-wrapper">
+                                    <span class="message-sender">Ananya Rao</span>
+
+                                    <div class="message-bubble">
+                                        Of course. Please share only the details
+                                        needed to coordinate the assistance.
+                                    </div>
+
+                                    <time datetime="2026-10-10T10:40:00" class="message-time">
+                                        10:40 AM
+                                    </time>
+                                </div>
+                            </div>
+
+                            <div class="message-row sent-message">
+                                <div class="message-bubble-wrapper">
+                                    <div class="message-bubble">
+                                        That sounds good. Let's confirm the arrangements
+                                        through the request page.
+                                    </div>
+
+                                    <time datetime="2026-10-10T10:45:00" class="message-time">
+                                        10:45 AM
+                                    </time>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Demo Send Feedback -->
+                        <div
+                            class="chat-feedback"
+                            id="chatFeedback"
+                            role="status"
+                            aria-live="polite"
+                            hidden
+                        ></div>
+
+
+                        <!-- Message Composer -->
+                        <form class="chat-composer" id="messageForm">
+
+                            <label for="messageInput" class="visually-hidden">
+                                Type your message
+                            </label>
+
+                            <textarea
+                                id="messageInput"
+                                name="message"
+                                rows="1"
+                                maxlength="1000"
+                                placeholder="Write a message..."
+                                aria-describedby="messageCharacterCount"
+                                required
+                            ></textarea>
+
+                            <div class="chat-composer-footer">
+                                <div class="chat-composer-note">
+                                    <span aria-hidden="true">ℹ️</span>
+                                    <span>
+                                        Demo only — messages are not delivered.
+                                    </span>
+                                </div>
+
+                                <div class="chat-composer-actions">
+                                    <span id="messageCharacterCount">0 / 1000</span>
+
+                                    <button
+                                        type="submit"
+                                        id="sendMessageButton"
+                                        class="send-message-button"
+                                    >
+                                        <span>Send</span>
+                                        <span aria-hidden="true">➤</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- Privacy Reminder -->
+            <section class="messages-privacy-reminder">
+                <div class="messages-privacy-icon" aria-hidden="true">
+                    🔒
+                </div>
+
+                <div>
+                    <h2>Communicate with care</h2>
+                    <p>
+                        Use messages to coordinate community assistance respectfully.
+                        Avoid sharing passwords, financial account details, identity
+                        documents, or unnecessary medical information. For real
+                        conversations, authentication, authorization, secure message
+                        storage, and appropriate access controls must be implemented.
+                    </p>
+                </div>
+
+                <a href="privacy.html">Privacy policy <span aria-hidden="true">→</span></a>
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+                <a href="../index.html" class="logo footer-logo">
+                    <span class="logo-icon">C</span>
+                    <span class="logo-text">Care<span>Circle</span></span>
+                </a>
+
+                <p>
+                    Help Today. Be Helped Tomorrow.
+                    Building a caring community, one act of kindness at a time.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="services.html">Our Services</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Community</h3>
+                <a href="browse-requests.html">Browse Requests</a>
+                <a href="help-request.html">Request Help</a>
+                <a href="special-care.html">Special Care</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Your Account</h3>
+                <a href="profile.html">My Profile</a>
+                <a href="wallet.html">SocialCredits Wallet</a>
+                <a href="notifications.html">Notifications</a>
+                <a href="messages.html">Messages</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    All rights reserved.
+                </p>
+
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View help request details and offer support through CareCircle.">
+    <title>Request Details | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/request-details.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/request-details.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="browse-requests.html" class="active">Find Requests</a></li>
+                <li><a href="special-care.html">Special Care</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="nav-auth">
+                    <a href="login.html" class="btn btn-outline">Log In</a>
+                </li>
+                <li class="nav-auth">
+                    <a href="register.html" class="btn btn-primary">Join CareCircle</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="request-details-page">
+
+        <!-- Breadcrumb -->
+        <section class="details-breadcrumb">
+            <div class="container">
+                <a href="browse-requests.html">Browse Requests</a>
+                <span aria-hidden="true">/</span>
+                <span>Request Details</span>
+            </div>
+        </section>
+
+        <!-- Page heading -->
+        <section class="details-hero">
+            <div class="container">
+                <span class="details-eyebrow">COMMUNITY HELP REQUEST</span>
+                <h1>Every small act of kindness matters.</h1>
+                <p>
+                    Learn about this community member's request and see
+                    whether you can offer a helping hand.
+                </p>
+            </div>
+        </section>
+
+        <!-- Request not found message -->
+        <section class="container details-not-found" id="requestNotFound" hidden>
+            <div class="not-found-icon" aria-hidden="true">⌕</div>
+            <h2>Request not found</h2>
+            <p>
+                We couldn't find that request. It may have been removed,
+                or the request link may be incomplete.
+            </p>
+            <a href="browse-requests.html" class="btn btn-primary">
+                Browse All Requests
+            </a>
+        </section>
+
+        <!-- Main request content -->
+        <section class="container details-layout" id="requestDetailsContent">
+
+            <div class="details-main-column">
+
+                <!-- Main request card -->
+                <article class="details-card request-overview-card">
+                    <div class="request-card-top">
+                        <span class="details-category" id="detailCategory">
+                            Groceries
+                        </span>
+
+                        <span class="details-status status-open" id="detailStatus">
+                            Open for help
+                        </span>
+                    </div>
+
+                    <h2 id="detailTitle">Grocery Shopping Assistance</h2>
+
+                    <div class="request-meta">
+                        <span>
+                            <span class="meta-icon" aria-hidden="true">⌖</span>
+                            <span id="detailLocation">Community location</span>
+                        </span>
+
+                        <span>
+                            <span class="meta-icon" aria-hidden="true">◷</span>
+                            Posted <time id="detailPostedDate">Recently</time>
+                        </span>
+                    </div>
+
+                    <div class="details-divider"></div>
+
+                    <h3>About this request</h3>
+                    <p class="request-description" id="detailDescription">
+                        A community member needs assistance with collecting
+                        essential grocery items. Please review the request
+                        and coordinate the details respectfully before helping.
+                    </p>
+
+                    <div class="request-information-grid">
+                        <div class="information-item">
+                            <span class="information-icon" aria-hidden="true">▦</span>
+                            <div>
+                                <span class="information-label">Service category</span>
+                                <strong id="detailCategoryInfo">Groceries</strong>
+                            </div>
+                        </div>
+
+                        <div class="information-item">
+                            <span class="information-icon" aria-hidden="true">◷</span>
+                            <div>
+                                <span class="information-label">Preferred date</span>
+                                <strong id="detailPreferredDate">Flexible</strong>
+                            </div>
+                        </div>
+
+                        <div class="information-item">
+                            <span class="information-icon" aria-hidden="true">◴</span>
+                            <div>
+                                <span class="information-label">Preferred time</span>
+                                <strong id="detailPreferredTime">To be discussed</strong>
+                            </div>
+                        </div>
+
+                        <div class="information-item">
+                            <span class="information-icon" aria-hidden="true">!</span>
+                            <div>
+                                <span class="information-label">Priority</span>
+                                <strong id="detailPriority">Normal</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="request-preferences" id="preferencesSection">
+                        <h3>Additional preferences</h3>
+                        <p id="detailPreferences">
+                            Please coordinate the arrangements before visiting.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Requester information -->
+                <article class="details-card requester-card">
+                    <div class="section-heading">
+                        <div>
+                            <span class="details-eyebrow">THE PERSON BEHIND THE REQUEST</span>
+                            <h2>Requester information</h2>
+                        </div>
+                    </div>
+
+                    <div class="requester-profile">
+                        <div class="requester-avatar" id="requesterAvatar"
+                             aria-hidden="true">CM</div>
+
+                        <div class="requester-info">
+                            <h3 id="requesterName">Community Member</h3>
+                            <p id="requesterRole">CareCircle community member</p>
+
+                            <div class="requester-trust">
+                                <span class="trust-dot" aria-hidden="true"></span>
+                                <span id="requesterVerification">
+                                    Verification status not available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="privacy-note">
+                        <span aria-hidden="true">🔒</span>
+                        Personal contact details are not displayed here.
+                        Coordinate through approved CareCircle channels when
+                        those features are available.
+                    </p>
+                </article>
+
+                <!-- Safety guidelines -->
+                <article class="details-card safety-card">
+                    <div class="safety-heading">
+                        <span class="safety-icon" aria-hidden="true">✓</span>
+                        <div>
+                            <h2>Before you offer help</h2>
+                            <p>Keep every interaction safe, respectful and clear.</p>
+                        </div>
+                    </div>
+
+                    <ul class="safety-list">
+                        <li>
+                            <span aria-hidden="true">✓</span>
+                            Read the request carefully and understand what is needed.
+                        </li>
+                        <li>
+                            <span aria-hidden="true">✓</span>
+                            Confirm the time, location and expectations before meeting.
+                        </li>
+                        <li>
+                            <span aria-hidden="true">✓</span>
+                            Respect the requester's privacy, independence and boundaries.
+                        </li>
+                        <li>
+                            <span aria-hidden="true">✓</span>
+                            Do not share passwords, banking PINs or sensitive account details.
+                        </li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="details-sidebar">
+
+                <section class="details-card offer-card">
+                    <span class="offer-card-label">MAKE A DIFFERENCE</span>
+                    <h2>Can you help?</h2>
+                    <p>
+                        Your time and kindness can make everyday life a little easier
+                        for someone in your community.
+                    </p>
+
+                    <div class="offer-summary">
+                        <div class="offer-summary-row">
+                            <span>Request ID</span>
+                            <strong id="detailRequestId">Demo request</strong>
+                        </div>
+
+                        <div class="offer-summary-row">
+                            <span>Priority</span>
+                            <strong id="sidebarPriority">Normal</strong>
+                        </div>
+
+                        <div class="offer-summary-row">
+                            <span>Availability</span>
+                            <strong id="sidebarAvailability">Open</strong>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary offer-help-button"
+                            id="offerHelpButton">
+                        <span aria-hidden="true">♡</span>
+                        Offer to Help
+                    </button>
+
+                    <p class="offer-disclaimer" id="offerDisclaimer">
+                        You will be asked to sign in before offering help
+                        when account authentication is available.
+                    </p>
+
+                    <div class="offer-message" id="offerMessage"
+                         role="status" aria-live="polite" hidden></div>
+                </section>
+
+                <section class="details-card credits-card">
+                    <div class="credits-icon" aria-hidden="true">✦</div>
+                    <h3>SocialCredits</h3>
+                    <p>
+                        Eligible credits may be awarded after assistance is
+                        completed and verified under CareCircle's rules.
+                    </p>
+                    <a href="how-it-works.html">Understand how it works →</a>
+                </section>
+
+                <a href="browse-requests.html" class="back-to-requests">
+                    <span aria-hidden="true">←</span>
+                    Back to all requests
+                </a>
+
+            </aside>
+        </section>
+
+        <!-- Bottom call to action -->
+        <section class="details-bottom-cta">
+            <div class="container details-bottom-inner">
+                <div>
+                    <span class="details-eyebrow">TOGETHER, WE CARE</span>
+                    <h2>A little help can mean a lot.</h2>
+                    <p>
+                        Find another way to support your community through CareCircle.
+                    </p>
+                </div>
+
+                <a href="browse-requests.html" class="btn btn-light">
+                    Explore More Requests
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>
+                &copy; <span id="currentYear"></span> CareCircle.
+                Help Today. Be Helped Tomorrow.
+            </p>
+            <div class="footer-legal-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

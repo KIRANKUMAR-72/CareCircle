@@ -1,0 +1,700 @@
+
+/* =========================================================
+   CARECIRCLE - 404 PAGE NOT FOUND
+   File: frontend/css/404.css
+   ========================================================= */
+
+/* ---------- Base ---------- */
+
+.error-page {
+    --error-primary: #2f806b;
+    --error-primary-dark: #246653;
+    --error-primary-light: #eaf5f0;
+    --error-heading: #203b33;
+    --error-text: #53635d;
+    --error-muted: #77857f;
+    --error-border: #e1eae5;
+    --error-background: #f7faf8;
+    --error-white: #ffffff;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: var(--error-background);
+    color: var(--error-text);
+    line-height: 1.7;
+}
+
+.error-page *,
+.error-page *::before,
+.error-page *::after {
+    box-sizing: border-box;
+}
+
+.error-page a {
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.error-page a:focus-visible,
+.error-page button:focus-visible {
+    outline: 3px solid rgba(47, 128, 107, 0.4);
+    outline-offset: 4px;
+}
+
+/* ---------- Navigation ---------- */
+
+.error-page .header {
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.error-page .navbar {
+    gap: 24px;
+}
+
+.error-page .logo {
+    flex-shrink: 0;
+}
+
+.error-page .nav-menu {
+    align-items: center;
+}
+
+.error-page .nav-login,
+.error-page .nav-cta {
+    white-space: nowrap;
+}
+
+/* ---------- Main Section ---------- */
+
+.error-section {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    overflow: hidden;
+    min-height: 650px;
+    padding: 65px 0 75px;
+    background:
+        radial-gradient(
+            circle at 8% 20%,
+            rgba(178, 220, 195, 0.2),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 94% 85%,
+            rgba(200, 231, 215, 0.28),
+            transparent 29%
+        ),
+        var(--error-background);
+}
+
+.error-container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: 55px;
+    width: 100%;
+}
+
+/* ---------- Decorative Illustration ---------- */
+
+.error-illustration {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 400px;
+    isolation: isolate;
+}
+
+.error-circle {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid rgba(47, 128, 107, 0.14);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.error-circle-one {
+    width: 370px;
+    height: 370px;
+    background: rgba(221, 241, 229, 0.4);
+}
+
+.error-circle-two {
+    width: 290px;
+    height: 290px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 15px 55px rgba(38, 102, 83, 0.06);
+}
+
+.error-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    color: var(--error-primary);
+    font-size: clamp(6.5rem, 12vw, 10rem);
+    font-weight: 850;
+    letter-spacing: -12px;
+    line-height: 1;
+    text-shadow: 0 10px 30px rgba(47, 128, 107, 0.1);
+    user-select: none;
+}
+
+.error-number > span {
+    display: inline-block;
+}
+
+.error-zero {
+    position: relative;
+    color: #a9d7bd;
+}
+
+.error-heart {
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 59px;
+    height: 59px;
+    transform: translateX(-50%) rotate(-8deg);
+    border: 5px solid var(--error-background);
+    border-radius: 50%;
+    background: var(--error-primary);
+    color: #ffffff;
+    font-size: 2.1rem;
+    font-weight: 700;
+    box-shadow: 0 8px 22px rgba(47, 128, 107, 0.23);
+}
+
+.error-floating-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(47, 128, 107, 0.12);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 12px 35px rgba(34, 77, 58, 0.09);
+}
+
+.error-floating-card span {
+    font-size: 1.8rem;
+}
+
+.error-card-one {
+    top: 80px;
+    left: 12%;
+    width: 66px;
+    height: 66px;
+    transform: rotate(-10deg);
+    animation: errorFloatOne 5s ease-in-out infinite;
+}
+
+.error-card-two {
+    right: 10%;
+    bottom: 75px;
+    width: 70px;
+    height: 70px;
+    transform: rotate(9deg);
+    color: var(--error-primary);
+    animation: errorFloatTwo 6s ease-in-out infinite;
+}
+
+@keyframes errorFloatOne {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(-6deg);
+    }
+}
+
+@keyframes errorFloatTwo {
+    0%,
+    100% {
+        transform: translateY(0) rotate(9deg);
+    }
+
+    50% {
+        transform: translateY(9px) rotate(13deg);
+    }
+}
+
+/* ---------- Error Content ---------- */
+
+.error-content {
+    width: 100%;
+    max-width: 570px;
+    padding: 10px 0;
+}
+
+.error-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    padding: 7px 13px;
+    border: 1px solid #d6e9de;
+    border-radius: 50px;
+    background: var(--error-primary-light);
+    color: var(--error-primary-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.error-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--error-primary);
+}
+
+.error-content h1 {
+    margin: 0 0 20px;
+    color: var(--error-heading);
+    font-size: clamp(2.5rem, 4.2vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.17;
+}
+
+.error-content h1 span {
+    display: block;
+    color: var(--error-primary);
+}
+
+.error-description {
+    max-width: 510px;
+    margin: 0 0 30px;
+    color: var(--error-text);
+    font-size: 1.04rem;
+    line-height: 1.9;
+}
+
+/* ---------- Action Buttons ---------- */
+
+.error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.error-home-button,
+.error-secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 51px;
+    padding: 13px 22px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.error-home-button {
+    border-color: var(--error-primary);
+    background: var(--error-primary);
+    color: #ffffff !important;
+    box-shadow: 0 7px 18px rgba(47, 128, 107, 0.17);
+}
+
+.error-home-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--error-primary-dark);
+    background: var(--error-primary-dark);
+    box-shadow: 0 10px 23px rgba(47, 128, 107, 0.23);
+}
+
+.error-home-button span,
+.error-secondary-button span {
+    font-size: 1.1rem;
+}
+
+.error-secondary-button {
+    border-color: #cbded3;
+    background: #ffffff;
+    color: var(--error-primary-dark) !important;
+}
+
+.error-secondary-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--error-primary);
+    background: var(--error-primary-light);
+}
+
+/* ---------- Helpful Links ---------- */
+
+.error-helpful-links {
+    padding-top: 23px;
+    border-top: 1px solid var(--error-border);
+}
+
+.error-helpful-links > p {
+    margin: 0 0 12px;
+    color: var(--error-muted);
+    font-size: 0.88rem;
+}
+
+.error-link-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 11px;
+    font-size: 0.87rem;
+}
+
+.error-link-list a {
+    color: var(--error-primary-dark);
+    font-weight: 650;
+}
+
+.error-link-list a:hover {
+    color: var(--error-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.error-link-list > span {
+    color: #a5b3ac;
+}
+
+/* ---------- Support Note ---------- */
+
+.error-support-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-top: 28px;
+    padding: 17px 19px;
+    border: 1px solid #e0ece5;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.error-support-icon {
+    display: flex;
+    flex: 0 0 35px;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: var(--error-primary-light);
+    color: var(--error-primary);
+    font-size: 1.35rem;
+}
+
+.error-support-note p {
+    margin: 0;
+    color: var(--error-text);
+    font-size: 0.86rem;
+    line-height: 1.8;
+}
+
+.error-support-note strong {
+    color: var(--error-heading);
+}
+
+.error-support-note a {
+    color: var(--error-primary-dark);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------- Footer ---------- */
+
+.error-footer {
+    flex-shrink: 0;
+    margin-top: 0;
+}
+
+.error-page .footer-content {
+    gap: 22px;
+}
+
+.error-page .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 22px;
+}
+
+.error-page .footer-links a {
+    font-size: 0.88rem;
+}
+
+.error-page .footer-copyright {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1050px) {
+    .error-section {
+        min-height: 600px;
+        padding: 55px 0 65px;
+    }
+
+    .error-container {
+        gap: 30px;
+    }
+
+    .error-illustration {
+        min-height: 340px;
+    }
+
+    .error-circle-one {
+        width: 320px;
+        height: 320px;
+    }
+
+    .error-circle-two {
+        width: 250px;
+        height: 250px;
+    }
+
+    .error-number {
+        font-size: clamp(6rem, 11vw, 8rem);
+        letter-spacing: -9px;
+    }
+
+    .error-content h1 {
+        font-size: clamp(2.35rem, 4vw, 3.2rem);
+    }
+
+    .error-description {
+        font-size: 0.97rem;
+    }
+
+    .error-card-one {
+        left: 4%;
+    }
+
+    .error-card-two {
+        right: 3%;
+    }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 760px) {
+    .error-section {
+        min-height: auto;
+        padding: 40px 0 55px;
+    }
+
+    .error-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .error-illustration {
+        min-height: 260px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .error-circle-one {
+        width: 260px;
+        height: 260px;
+    }
+
+    .error-circle-two {
+        width: 205px;
+        height: 205px;
+    }
+
+    .error-number {
+        font-size: clamp(6rem, 19vw, 8rem);
+        letter-spacing: -8px;
+    }
+
+    .error-heart {
+        top: 8px;
+        width: 49px;
+        height: 49px;
+        border-width: 4px;
+        font-size: 1.7rem;
+    }
+
+    .error-card-one {
+        top: 38px;
+        left: 10%;
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+    }
+
+    .error-card-two {
+        right: 8%;
+        bottom: 30px;
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+    }
+
+    .error-floating-card span {
+        font-size: 1.5rem;
+    }
+
+    .error-content {
+        max-width: 570px;
+        margin: 0 auto;
+        padding-top: 0;
+        text-align: center;
+    }
+
+    .error-label {
+        margin-bottom: 15px;
+    }
+
+    .error-content h1 {
+        font-size: clamp(2.35rem, 7vw, 3.2rem);
+        letter-spacing: -0.8px;
+    }
+
+    .error-description {
+        margin-right: auto;
+        margin-bottom: 25px;
+        margin-left: auto;
+        font-size: 0.96rem;
+    }
+
+    .error-actions {
+        justify-content: center;
+        margin-bottom: 28px;
+    }
+
+    .error-helpful-links {
+        text-align: center;
+    }
+
+    .error-link-list {
+        justify-content: center;
+    }
+
+    .error-support-note {
+        text-align: left;
+    }
+
+    .error-page .footer-links {
+        gap: 12px 16px;
+    }
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width: 420px) {
+    .error-section {
+        padding: 28px 0 40px;
+    }
+
+    .error-illustration {
+        min-height: 220px;
+    }
+
+    .error-circle-one {
+        width: 220px;
+        height: 220px;
+    }
+
+    .error-circle-two {
+        width: 175px;
+        height: 175px;
+    }
+
+    .error-number {
+        font-size: 5.8rem;
+        letter-spacing: -7px;
+    }
+
+    .error-heart {
+        top: 1px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+    }
+
+    .error-card-one {
+        top: 25px;
+        left: 3%;
+        width: 47px;
+        height: 47px;
+    }
+
+    .error-card-two {
+        right: 3%;
+        bottom: 20px;
+        width: 49px;
+        height: 49px;
+    }
+
+    .error-content h1 {
+        font-size: 2.15rem;
+    }
+
+    .error-description {
+        font-size: 0.91rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+    }
+
+    .error-home-button,
+    .error-secondary-button {
+        width: 100%;
+    }
+
+    .error-link-list {
+        gap: 9px;
+        font-size: 0.82rem;
+    }
+
+    .error-support-note {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .error-page .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* ---------- Reduced Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .error-page *,
+    .error-page *::before,
+    .error-page *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+}

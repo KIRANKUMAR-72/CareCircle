@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your CareCircle profile, community information, and verification status.">
+    <title>My Profile | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/profile.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="browse-requests.html">Find Requests</a></li>
+                <li><a href="special-care.html">Special Care</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="nav-auth">
+                    <a href="login.html" class="btn btn-outline">Log In</a>
+                </li>
+                <li class="nav-auth">
+                    <a href="register.html" class="btn btn-primary">Join CareCircle</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile-page">
+
+        <!-- Page Heading -->
+        <section class="profile-hero">
+            <div class="container">
+                <span class="profile-eyebrow">YOUR CARECIRCLE ACCOUNT</span>
+                <h1>My Profile</h1>
+                <p>
+                    Keep your information up to date so your community can
+                    connect with you more easily.
+                </p>
+            </div>
+        </section>
+
+        <section class="container profile-content">
+
+            <!-- Demo Notice -->
+            <div class="profile-demo-notice" id="profileDemoNotice">
+                <span class="profile-notice-icon" aria-hidden="true">ⓘ</span>
+                <div>
+                    <strong>Demo profile</strong>
+                    <p>
+                        The information shown here is sample data. Saving changes
+                        will update this page temporarily, not your database.
+                    </p>
+                </div>
+                <button type="button" id="dismissProfileNotice"
+                        aria-label="Dismiss demo notice">&times;</button>
+            </div>
+
+            <div class="profile-layout">
+
+                <!-- Left Profile Summary -->
+                <aside class="profile-sidebar">
+
+                    <section class="profile-summary-card">
+                        <div class="profile-cover"></div>
+
+                        <div class="profile-avatar-section">
+                            <div class="profile-avatar" id="profileAvatar"
+                                 aria-label="Profile initials">CM</div>
+
+                            <h2 id="summaryFullName">Community Member</h2>
+                            <p id="summaryRole">Volunteer</p>
+
+                            <span class="profile-member-badge">
+                                <span aria-hidden="true">♡</span>
+                                CareCircle Member
+                            </span>
+                        </div>
+
+                        <div class="profile-summary-divider"></div>
+
+                        <div class="profile-summary-details">
+                            <div>
+                                <span class="summary-detail-icon" aria-hidden="true">⌖</span>
+                                <div>
+                                    <span class="summary-detail-label">Location</span>
+                                    <strong id="summaryLocation">Not specified</strong>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="summary-detail-icon" aria-hidden="true">▦</span>
+                                <div>
+                                    <span class="summary-detail-label">Member since</span>
+                                    <strong id="memberSince">October 2026</strong>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="summary-detail-icon" aria-hidden="true">✦</span>
+                                <div>
+                                    <span class="summary-detail-label">SocialCredits</span>
+                                    <strong id="summaryCredits">125 credits</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="wallet.html" class="profile-wallet-link">
+                            View SocialCredits Wallet →
+                        </a>
+                    </section>
+
+                    <!-- Verification Card -->
+                    <section class="profile-verification-card">
+                        <div class="verification-card-heading">
+                            <div class="verification-icon" aria-hidden="true">✓</div>
+                            <div>
+                                <h3>Profile verification</h3>
+                                <p id="verificationStatus">Not verified</p>
+                            </div>
+                        </div>
+
+                        <p class="verification-description">
+                            Verification can help community members understand
+                            which account details have been checked.
+                        </p>
+
+                        <a href="verification.html" class="verification-link">
+                            View verification →
+                        </a>
+                    </section>
+
+                    <!-- Quick Links -->
+                    <nav class="profile-quick-links" aria-label="Profile navigation">
+                        <a href="dashboard.html">
+                            <span aria-hidden="true">⌂</span>
+                            Dashboard
+                        </a>
+                        <a href="my-requests.html">
+                            <span aria-hidden="true">▤</span>
+                            My Requests
+                        </a>
+                        <a href="notifications.html">
+                            <span aria-hidden="true">♧</span>
+                            Notifications
+                        </a>
+                        <a href="settings.html">
+                            <span aria-hidden="true">⚙</span>
+                            Account Settings
+                        </a>
+                    </nav>
+
+                </aside>
+
+                <!-- Right Profile Form -->
+                <div class="profile-main-column">
+
+                    <section class="profile-form-card">
+                        <div class="profile-section-heading">
+                            <div>
+                                <span class="profile-eyebrow">PERSONAL INFORMATION</span>
+                                <h2>Edit your profile</h2>
+                                <p>
+                                    Update your basic details and how you participate
+                                    in the CareCircle community.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="profile-form-message" id="profileFormMessage"
+                             role="status" aria-live="polite" hidden></div>
+
+                        <form id="profileForm" novalidate>
+
+                            <!-- Basic Information -->
+                            <div class="profile-form-section">
+                                <h3>Basic information</h3>
+                                <p class="profile-section-description">
+                                    Use the name you want displayed to your community.
+                                </p>
+
+                                <div class="profile-form-grid">
+                                    <div class="profile-field profile-field-full">
+                                        <label for="profileFullName">Full name <span>*</span></label>
+                                        <input type="text" id="profileFullName"
+                                               name="fullName"
+                                               placeholder="Enter your full name"
+                                               minlength="2" maxlength="80"
+                                               autocomplete="name" required>
+                                        <small class="profile-field-error" id="fullNameError"></small>
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profileEmail">Email address <span>*</span></label>
+                                        <input type="email" id="profileEmail"
+                                               name="email"
+                                               placeholder="you@example.com"
+                                               maxlength="254"
+                                               autocomplete="email" required>
+                                        <small class="profile-field-error" id="profileEmailError"></small>
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profilePhone">Phone number</label>
+                                        <input type="tel" id="profilePhone"
+                                               name="phone"
+                                               placeholder="Enter phone number"
+                                               maxlength="20"
+                                               autocomplete="tel">
+                                        <small class="profile-field-hint">
+                                            Include your country code if applicable.
+                                        </small>
+                                        <small class="profile-field-error" id="profilePhoneError"></small>
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profileCity">City or town</label>
+                                        <input type="text" id="profileCity"
+                                               name="city"
+                                               placeholder="Enter your city"
+                                               maxlength="100"
+                                               autocomplete="address-level2">
+                                        <small class="profile-field-error" id="profileCityError"></small>
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profileArea">Area or locality</label>
+                                        <input type="text" id="profileArea"
+                                               name="area"
+                                               placeholder="Enter your locality"
+                                               maxlength="120"
+                                               autocomplete="address-line1">
+                                        <small class="profile-field-hint">
+                                            Avoid sharing your full home address publicly.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-form-divider"></div>
+
+                            <!-- Community Role -->
+                            <div class="profile-form-section">
+                                <h3>Community role</h3>
+                                <p class="profile-section-description">
+                                    Choose the role that best describes how you use CareCircle.
+                                </p>
+
+                                <div class="profile-role-options">
+
+                                    <label class="profile-role-option">
+                                        <input type="radio" name="profileRole"
+                                               value="volunteer" checked>
+                                        <span class="role-option-content">
+                                            <span class="role-option-icon" aria-hidden="true">♡</span>
+                                            <span>
+                                                <strong>Volunteer</strong>
+                                                <small>Offer time and assistance to others.</small>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                    <label class="profile-role-option">
+                                        <input type="radio" name="profileRole"
+                                               value="elderly">
+                                        <span class="role-option-content">
+                                            <span class="role-option-icon" aria-hidden="true">♧</span>
+                                            <span>
+                                                <strong>Elderly member</strong>
+                                                <small>Request support from the community.</small>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                    <label class="profile-role-option">
+                                        <input type="radio" name="profileRole"
+                                               value="family">
+                                        <span class="role-option-content">
+                                            <span class="role-option-icon" aria-hidden="true">⌂</span>
+                                            <span>
+                                                <strong>Family member</strong>
+                                                <small>Help coordinate support for a loved one.</small>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                    <label class="profile-role-option">
+                                        <input type="radio" name="profileRole"
+                                               value="special-care">
+                                        <span class="role-option-content">
+                                            <span class="role-option-icon" aria-hidden="true">✦</span>
+                                            <span>
+                                                <strong>Special Care</strong>
+                                                <small>Access eligible additional support.</small>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                </div>
+
+                                <small class="profile-field-error" id="profileRoleError"></small>
+
+                                <div class="profile-role-note">
+                                    <span aria-hidden="true">ⓘ</span>
+                                    <p>
+                                        Changing the displayed role does not grant eligibility,
+                                        verification, administrative access, or additional
+                                        SocialCredits. Those changes require approved verification
+                                        and server-side authorization.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="profile-form-divider"></div>
+
+                            <!-- About Me -->
+                            <div class="profile-form-section">
+                                <h3>About me</h3>
+                                <p class="profile-section-description">
+                                    Share a little about yourself and how you prefer to help.
+                                </p>
+
+                                <div class="profile-field profile-field-full">
+                                    <label for="profileBio">Short introduction</label>
+                                    <textarea id="profileBio" name="bio"
+                                              rows="5" maxlength="500"
+                                              placeholder="Tell your community a little about yourself..."></textarea>
+
+                                    <div class="profile-textarea-footer">
+                                        <small class="profile-field-hint">
+                                            Keep personal and sensitive information private.
+                                        </small>
+                                        <small id="bioCharacterCount">0 / 500</small>
+                                    </div>
+                                </div>
+
+                                <div class="profile-field profile-field-full">
+                                    <label for="profileLanguages">Languages spoken</label>
+                                    <input type="text" id="profileLanguages"
+                                           name="languages"
+                                           maxlength="150"
+                                           placeholder="e.g. English, Kannada, Hindi">
+                                    <small class="profile-field-hint">
+                                        Separate languages with commas.
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="profile-form-divider"></div>
+
+                            <!-- Interests -->
+                            <div class="profile-form-section">
+                                <h3>Areas of interest</h3>
+                                <p class="profile-section-description">
+                                    Select the kinds of community activities you are interested in.
+                                </p>
+
+                                <div class="profile-interest-grid">
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="groceries">
+                                        <span>Grocery assistance</span>
+                                    </label>
+
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="medicine">
+                                        <span>Medicine pickup</span>
+                                    </label>
+
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="hospital">
+                                        <span>Hospital assistance</span>
+                                    </label>
+
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="companionship">
+                                        <span>Companionship</span>
+                                    </label>
+
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="digital-guidance">
+                                        <span>Digital guidance</span>
+                                    </label>
+
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="documents">
+                                        <span>Documents and forms</span>
+                                    </label>
+
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="personal-support">
+                                        <span>Everyday personal support</span>
+                                    </label>
+
+                                    <label class="profile-interest-option">
+                                        <input type="checkbox" name="interests" value="special-care">
+                                        <span>Special Care community</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Privacy -->
+                            <div class="profile-privacy-note">
+                                <span class="privacy-note-icon" aria-hidden="true">🔒</span>
+                                <div>
+                                    <strong>Protect your privacy</strong>
+                                    <p>
+                                        This demo does not publish your profile or save it to
+                                        a server. When backend functionality is added, profile
+                                        visibility and access should follow CareCircle's privacy
+                                        settings and permissions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="profile-form-actions">
+                                <button type="reset" class="profile-reset-button"
+                                        id="resetProfileButton">
+                                    Reset Changes
+                                </button>
+
+                                <button type="submit" class="btn btn-primary"
+                                        id="saveProfileButton">
+                                    Save Profile
+                                </button>
+                            </div>
+
+                        </form>
+                    </section>
+
+                    <!-- Account Links -->
+                    <section class="profile-account-card">
+                        <div>
+                            <h3>Account preferences</h3>
+                            <p>
+                                Manage account settings and notification preferences
+                                from their dedicated pages.
+                            </p>
+                        </div>
+
+                        <a href="settings.html" class="profile-account-link">
+                            Account Settings <span aria-hidden="true">→</span>
+                        </a>
+                    </section>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="profile-bottom-cta">
+            <div class="container">
+                <div>
+                    <span class="profile-eyebrow">HELP TODAY. BE HELPED TOMORROW.</span>
+                    <h2>Your community starts with you.</h2>
+                    <p>
+                        Explore requests, offer support, and be part of a more caring community.
+                    </p>
+                </div>
+
+                <a href="browse-requests.html" class="btn btn-light">
+                    Explore Help Requests
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>
+                &copy; <span id="currentYear"></span> CareCircle.
+                Help Today. Be Helped Tomorrow.
+            </p>
+
+            <div class="footer-legal-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

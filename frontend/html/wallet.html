@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your CareCircle SocialCredits balance, transaction history, and community contributions.">
+    <title>SocialCredits Wallet | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/wallet.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="browse-requests.html">Find Requests</a></li>
+                <li><a href="special-care.html">Special Care</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="nav-auth">
+                    <a href="login.html" class="btn btn-outline">Log In</a>
+                </li>
+                <li class="nav-auth">
+                    <a href="register.html" class="btn btn-primary">Join CareCircle</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="wallet-page">
+
+        <!-- Page Hero -->
+        <section class="wallet-hero">
+            <div class="container wallet-hero-inner">
+                <div class="wallet-hero-copy">
+                    <span class="wallet-eyebrow">YOUR COMMUNITY CONTRIBUTION</span>
+                    <h1>Your kindness has value.</h1>
+                    <p>
+                        Track your SocialCredits, celebrate the help you have given,
+                        and see how your community journey grows.
+                    </p>
+
+                    <div class="wallet-hero-actions">
+                        <a href="browse-requests.html" class="btn btn-primary">
+                            Find Ways to Help
+                        </a>
+                        <a href="how-it-works.html" class="wallet-text-link">
+                            How SocialCredits Work →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="wallet-hero-decoration" aria-hidden="true">
+                    <div class="wallet-decoration-circle circle-one"></div>
+                    <div class="wallet-decoration-circle circle-two"></div>
+                    <div class="wallet-decoration-card">
+                        <span class="decoration-star">✦</span>
+                        <span class="decoration-label">COMMUNITY CURRENCY</span>
+                        <strong>Kindness</strong>
+                        <span class="decoration-caption">Shared, not sold.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Notice -->
+        <section class="container wallet-demo-wrapper">
+            <div class="wallet-demo-notice" id="walletDemoNotice">
+                <span class="demo-notice-icon" aria-hidden="true">ⓘ</span>
+                <div>
+                    <strong>Demonstration wallet</strong>
+                    <p>
+                        These balances and transactions are sample data.
+                        No real credits have been earned, transferred or spent.
+                    </p>
+                </div>
+                <button type="button" id="dismissWalletNotice"
+                        class="dismiss-wallet-notice"
+                        aria-label="Dismiss demonstration notice">
+                    &times;
+                </button>
+            </div>
+        </section>
+
+        <!-- Main Wallet Content -->
+        <section class="container wallet-content">
+
+            <!-- Balance Card -->
+            <section class="wallet-balance-card" aria-labelledby="balanceHeading">
+                <div class="wallet-balance-top">
+                    <div>
+                        <span class="balance-overline">AVAILABLE BALANCE</span>
+                        <h2 id="balanceHeading">Your SocialCredits</h2>
+                    </div>
+
+                    <div class="balance-symbol" aria-hidden="true">✦</div>
+                </div>
+
+                <div class="wallet-balance-amount">
+                    <span class="balance-number" id="walletBalance">125</span>
+                    <span class="balance-unit">SocialCredits</span>
+                </div>
+
+                <p class="balance-description">
+                    Credits represent community contributions and eligible support.
+                    They are not cash or a monetary balance.
+                </p>
+
+                <div class="balance-divider"></div>
+
+                <div class="balance-bottom">
+                    <div>
+                        <span class="balance-bottom-label">Member</span>
+                        <strong id="walletMemberName">Community Member</strong>
+                    </div>
+                    <div>
+                        <span class="balance-bottom-label">Wallet ID</span>
+                        <strong id="walletMemberId">DEMO-1001</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary Statistics -->
+            <section class="wallet-stats-grid" aria-label="Credit summary">
+                <article class="wallet-stat-card">
+                    <div class="wallet-stat-icon earned-icon" aria-hidden="true">↗</div>
+                    <div class="wallet-stat-content">
+                        <span>Total earned</span>
+                        <strong id="totalCreditsEarned">180</strong>
+                        <small>Sample credits earned</small>
+                    </div>
+                </article>
+
+                <article class="wallet-stat-card">
+                    <div class="wallet-stat-icon used-icon" aria-hidden="true">↘</div>
+                    <div class="wallet-stat-content">
+                        <span>Total redeemed</span>
+                        <strong id="totalCreditsRedeemed">55</strong>
+                        <small>Sample credits used</small>
+                    </div>
+                </article>
+
+                <article class="wallet-stat-card">
+                    <div class="wallet-stat-icon activity-icon" aria-hidden="true">♡</div>
+                    <div class="wallet-stat-content">
+                        <span>Transactions</span>
+                        <strong id="totalTransactions">5</strong>
+                        <small>Recorded sample activities</small>
+                    </div>
+                </article>
+
+                <article class="wallet-stat-card">
+                    <div class="wallet-stat-icon impact-icon" aria-hidden="true">✓</div>
+                    <div class="wallet-stat-content">
+                        <span>Completed help</span>
+                        <strong id="completedHelpCount">6</strong>
+                        <small>Sample completed activities</small>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Transaction History -->
+            <section class="wallet-history-section" aria-labelledby="historyHeading">
+
+                <div class="wallet-section-heading">
+                    <div>
+                        <span class="wallet-eyebrow">YOUR ACTIVITY</span>
+                        <h2 id="historyHeading">Transaction history</h2>
+                        <p>Review how your SocialCredits balance has changed.</p>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="wallet-filters">
+                    <div class="wallet-search-field">
+                        <label for="walletSearch">Search transactions</label>
+                        <div class="wallet-input-wrap">
+                            <span aria-hidden="true">⌕</span>
+                            <input type="search" id="walletSearch"
+                                   placeholder="Search by activity or ID">
+                        </div>
+                    </div>
+
+                    <div class="wallet-filter-field">
+                        <label for="walletTypeFilter">Transaction type</label>
+                        <select id="walletTypeFilter">
+                            <option value="all">All transactions</option>
+                            <option value="earned">Credits earned</option>
+                            <option value="redeemed">Credits redeemed</option>
+                            <option value="allocation">Initial allocation</option>
+                            <option value="adjustment">Adjustments</option>
+                        </select>
+                    </div>
+
+                    <div class="wallet-filter-field">
+                        <label for="walletSortFilter">Sort by</label>
+                        <select id="walletSortFilter">
+                            <option value="newest">Newest first</option>
+                            <option value="oldest">Oldest first</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="wallet-clear-button"
+                            id="clearWalletFilters">
+                        Clear filters
+                    </button>
+                </div>
+
+                <div class="wallet-results-summary" aria-live="polite">
+                    <p>
+                        Showing <strong id="walletResultCount">5</strong>
+                        <span id="walletResultLabel">transactions</span>
+                    </p>
+                </div>
+
+                <!-- Transaction List -->
+                <div class="wallet-transactions" id="walletTransactions">
+
+                    <article class="wallet-transaction"
+                             data-id="TXN-DEMO-005"
+                             data-type="earned"
+                             data-date="2026-10-10"
+                             data-search="friendly walk companionship completed help">
+
+                        <div class="transaction-icon transaction-earned" aria-hidden="true">↗</div>
+
+                        <div class="transaction-details">
+                            <h3>Friendly Walk and Conversation</h3>
+                            <p>Completed community assistance</p>
+                            <div class="transaction-meta">
+                                <span>TXN-DEMO-005</span>
+                                <time datetime="2026-10-10">10 Oct 2026</time>
+                            </div>
+                        </div>
+
+                        <div class="transaction-amount amount-positive">
+                            <strong>+30</strong>
+                            <span>SocialCredits</span>
+                            <small>Earned</small>
+                        </div>
+                    </article>
+
+                    <article class="wallet-transaction"
+                             data-id="TXN-DEMO-004"
+                             data-type="redeemed"
+                             data-date="2026-10-08"
+                             data-search="eligible support redemption community assistance">
+
+                        <div class="transaction-icon transaction-redeemed" aria-hidden="true">↘</div>
+
+                        <div class="transaction-details">
+                            <h3>Eligible Support Redemption</h3>
+                            <p>Sample redemption for eligible assistance</p>
+                            <div class="transaction-meta">
+                                <span>TXN-DEMO-004</span>
+                                <time datetime="2026-10-08">8 Oct 2026</time>
+                            </div>
+                        </div>
+
+                        <div class="transaction-amount amount-negative">
+                            <strong>-20</strong>
+                            <span>SocialCredits</span>
+                            <small>Redeemed</small>
+                        </div>
+                    </article>
+
+                    <article class="wallet-transaction"
+                             data-id="TXN-DEMO-003"
+                             data-type="earned"
+                             data-date="2026-10-06"
+                             data-search="grocery shopping community help completed assistance">
+
+                        <div class="transaction-icon transaction-earned" aria-hidden="true">↗</div>
+
+                        <div class="transaction-details">
+                            <h3>Grocery Shopping Assistance</h3>
+                            <p>Completed and verified sample assistance</p>
+                            <div class="transaction-meta">
+                                <span>TXN-DEMO-003</span>
+                                <time datetime="2026-10-06">6 Oct 2026</time>
+                            </div>
+                        </div>
+
+                        <div class="transaction-amount amount-positive">
+                            <strong>+40</strong>
+                            <span>SocialCredits</span>
+                            <small>Earned</small>
+                        </div>
+                    </article>
+
+                    <article class="wallet-transaction"
+                             data-id="TXN-DEMO-002"
+                             data-type="redeemed"
+                             data-date="2026-10-04"
+                             data-search="community support eligible assistance redemption">
+
+                        <div class="transaction-icon transaction-redeemed" aria-hidden="true">↘</div>
+
+                        <div class="transaction-details">
+                            <h3>Community Support Redemption</h3>
+                            <p>Sample use of eligible SocialCredits</p>
+                            <div class="transaction-meta">
+                                <span>TXN-DEMO-002</span>
+                                <time datetime="2026-10-04">4 Oct 2026</time>
+                            </div>
+                        </div>
+
+                        <div class="transaction-amount amount-negative">
+                            <strong>-35</strong>
+                            <span>SocialCredits</span>
+                            <small>Redeemed</small>
+                        </div>
+                    </article>
+
+                    <article class="wallet-transaction"
+                             data-id="TXN-DEMO-001"
+                             data-type="earned"
+                             data-date="2026-10-01"
+                             data-search="digital guidance smartphone community help">
+
+                        <div class="transaction-icon transaction-earned" aria-hidden="true">↗</div>
+
+                        <div class="transaction-details">
+                            <h3>Digital Guidance</h3>
+                            <p>Completed community assistance</p>
+                            <div class="transaction-meta">
+                                <span>TXN-DEMO-001</span>
+                                <time datetime="2026-10-01">1 Oct 2026</time>
+                            </div>
+                        </div>
+
+                        <div class="transaction-amount amount-positive">
+                            <strong>+25</strong>
+                            <span>SocialCredits</span>
+                            <small>Earned</small>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Empty State -->
+                <div class="wallet-empty-state" id="walletEmptyState" hidden>
+                    <div class="wallet-empty-icon" aria-hidden="true">⌕</div>
+                    <h3>No transactions found</h3>
+                    <p>
+                        Try another search term or change your transaction filters.
+                    </p>
+                    <button type="button" class="btn btn-primary"
+                            id="walletEmptyClearButton">
+                        Clear filters
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- SocialCredits Rules -->
+            <section class="wallet-rules-section">
+                <div class="wallet-rules-heading">
+                    <div class="rules-icon" aria-hidden="true">✦</div>
+                    <div>
+                        <span class="wallet-eyebrow">IMPORTANT TO KNOW</span>
+                        <h2>Understanding SocialCredits</h2>
+                        <p>
+                            CareCircle credits recognise community participation.
+                            They are designed around reciprocity, not money.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="wallet-rules-grid">
+                    <article class="wallet-rule-card">
+                        <span class="rule-number">01</span>
+                        <h3>Earn through verified help</h3>
+                        <p>
+                            Eligible credits are awarded only after assistance
+                            is completed and verified under CareCircle's rules.
+                        </p>
+                    </article>
+
+                    <article class="wallet-rule-card">
+                        <span class="rule-number">02</span>
+                        <h3>Credits are not cash</h3>
+                        <p>
+                            SocialCredits have no cash value, cannot be exchanged
+                            for money, and are not a financial account balance.
+                        </p>
+                    </article>
+
+                    <article class="wallet-rule-card">
+                        <span class="rule-number">03</span>
+                        <h3>Support eligible community needs</h3>
+                        <p>
+                            Credits may be redeemed for eligible future assistance
+                            according to CareCircle's published policies.
+                        </p>
+                    </article>
+
+                    <article class="wallet-rule-card">
+                        <span class="rule-number">04</span>
+                        <h3>Fairness and accessibility</h3>
+                        <p>
+                            Eligible elderly members and people receiving Special
+                            Care may qualify for an initial allocation after
+                            the required verification.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="wallet-rules-footer">
+                    <span class="rules-footer-icon" aria-hidden="true">ⓘ</span>
+                    <p>
+                        Initial allocations, redemptions, verification and
+                        transaction records must follow CareCircle's approved
+                        policies. This demonstration page does not issue credits.
+                    </p>
+                    <a href="how-it-works.html">Read how it works →</a>
+                </div>
+            </section>
+
+            <!-- Closing CTA -->
+            <section class="wallet-community-cta">
+                <div class="wallet-cta-icon" aria-hidden="true">♡</div>
+                <div class="wallet-cta-copy">
+                    <h2>Ready to make another difference?</h2>
+                    <p>
+                        Your next small act of kindness could mean a great deal
+                        to someone in your community.
+                    </p>
+                </div>
+                <a href="browse-requests.html" class="btn btn-primary">
+                    Explore Help Requests
+                </a>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>
+                &copy; <span id="currentYear"></span> CareCircle.
+                Help Today. Be Helped Tomorrow.
+            </p>
+
+            <div class="footer-legal-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CareCircle Family Dashboard — coordinate community assistance and support for your loved ones.">
+    <title>Family Dashboard | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/family-dashboard.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/family-dashboard.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a href="../index.html" class="logo" aria-label="CareCircle Home">
+                <span class="logo-icon">♡</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Toggle navigation"
+                    aria-controls="navMenu"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="browse-requests.html">Browse Requests</a>
+                <a href="messages.html">Messages</a>
+                <a href="profile.html">My Profile</a>
+                <a href="login.html" class="btn btn-outline">Log In</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="family-dashboard-page">
+
+        <!-- Dashboard Hero -->
+        <section class="family-dashboard-hero">
+            <div class="container family-dashboard-hero-inner">
+                <div class="family-welcome-content">
+                    <span class="family-eyebrow">
+                        <span aria-hidden="true">♡</span>
+                        FAMILY & CAREGIVER SPACE
+                    </span>
+
+                    <h1>Care works better <span>together.</span></h1>
+
+                    <p>
+                        Keep track of assistance requests, stay connected with
+                        your loved ones, and coordinate community support
+                        with greater confidence.
+                    </p>
+
+                    <div class="family-welcome-actions">
+                        <a href="help-request.html" class="btn btn-primary">
+                            Request Assistance <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a href="#familyMembers" class="btn btn-outline">
+                            View Family Members
+                        </a>
+                    </div>
+                </div>
+
+                <div class="family-hero-illustration" aria-hidden="true">
+                    <div class="family-illustration-circle circle-one"></div>
+                    <div class="family-illustration-circle circle-two"></div>
+
+                    <div class="family-illustration-card">
+                        <div class="family-illustration-heart">♡</div>
+                        <span class="illustration-label">Care is a community effort</span>
+
+                        <div class="illustration-people">
+                            <div class="illustration-person person-one">E</div>
+                            <div class="illustration-person person-two">F</div>
+                            <div class="illustration-person person-three">V</div>
+                        </div>
+
+                        <div class="illustration-connection">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <p>Support. Connection. Trust.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Notice -->
+        <section class="container family-demo-notice-wrap">
+            <div class="family-demo-notice" id="familyDemoNotice">
+                <span class="family-notice-icon" aria-hidden="true">ⓘ</span>
+
+                <div class="family-notice-copy">
+                    <strong>Demonstration dashboard</strong>
+                    <p>
+                        Family members, requests, dates, and statistics shown
+                        here are sample data. No real family relationships
+                        or assistance records are connected yet.
+                    </p>
+                </div>
+
+                <button type="button" id="dismissFamilyNotice"
+                        class="family-notice-dismiss"
+                        aria-label="Dismiss demonstration notice">×</button>
+            </div>
+        </section>
+
+        <!-- Main Dashboard -->
+        <section class="family-dashboard-section section-padding">
+            <div class="container">
+
+                <!-- Welcome Bar -->
+                <div class="family-dashboard-heading">
+                    <div>
+                        <span class="family-section-label">YOUR FAMILY OVERVIEW</span>
+                        <h2>Welcome back, <span id="familyUserName">Family Member</span></h2>
+                        <p id="familyDashboardDate">Here is your family support overview.</p>
+                    </div>
+
+                    <a href="profile.html" class="family-profile-shortcut">
+                        <span class="family-profile-avatar" id="familyUserAvatar">FM</span>
+                        <span>
+                            <strong>My Profile</strong>
+                            <small>Account settings</small>
+                        </span>
+                        <span class="shortcut-arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <!-- Quick Statistics -->
+                <div class="family-statistics-grid">
+
+                    <article class="family-stat-card">
+                        <div class="family-stat-top">
+                            <span class="family-stat-icon stat-icon-green" aria-hidden="true">♡</span>
+                            <span class="family-stat-label">LINKED MEMBERS</span>
+                        </div>
+                        <div class="family-stat-value" id="familyLinkedCount">2</div>
+                        <p>Members in your care circle</p>
+                        <a href="#familyMembers" class="family-stat-link">
+                            View members <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="family-stat-card">
+                        <div class="family-stat-top">
+                            <span class="family-stat-icon stat-icon-orange" aria-hidden="true">◷</span>
+                            <span class="family-stat-label">OPEN REQUESTS</span>
+                        </div>
+                        <div class="family-stat-value" id="familyOpenRequestCount">2</div>
+                        <p>Requests awaiting assistance</p>
+                        <a href="#familyRequests" class="family-stat-link">
+                            View requests <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="family-stat-card">
+                        <div class="family-stat-top">
+                            <span class="family-stat-icon stat-icon-blue" aria-hidden="true">✓</span>
+                            <span class="family-stat-label">COMPLETED</span>
+                        </div>
+                        <div class="family-stat-value" id="familyCompletedCount">4</div>
+                        <p>Requests marked completed</p>
+                        <a href="my-requests.html" class="family-stat-link">
+                            View activity <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="family-stat-card">
+                        <div class="family-stat-top">
+                            <span class="family-stat-icon stat-icon-purple" aria-hidden="true">✉</span>
+                            <span class="family-stat-label">UNREAD MESSAGES</span>
+                        </div>
+                        <div class="family-stat-value" id="familyUnreadCount">1</div>
+                        <p>Messages needing your attention</p>
+                        <a href="messages.html" class="family-stat-link">
+                            Open messages <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                </div>
+
+                <!-- Quick Actions -->
+                <section class="family-panel family-quick-actions">
+                    <div class="family-panel-heading">
+                        <div>
+                            <span class="family-section-label">GET STARTED</span>
+                            <h2>Quick actions</h2>
+                        </div>
+                        <p>Manage support without losing track of what matters.</p>
+                    </div>
+
+                    <div class="family-action-grid">
+
+                        <a href="help-request.html" class="family-action-card">
+                            <span class="family-action-icon action-green" aria-hidden="true">＋</span>
+                            <span class="family-action-copy">
+                                <strong>Request Help</strong>
+                                <small>Arrange assistance for a loved one.</small>
+                            </span>
+                            <span class="family-action-arrow" aria-hidden="true">→</span>
+                        </a>
+
+                        <a href="browse-requests.html" class="family-action-card">
+                            <span class="family-action-icon action-orange" aria-hidden="true">⌕</span>
+                            <span class="family-action-copy">
+                                <strong>Browse Requests</strong>
+                                <small>Explore requests from the community.</small>
+                            </span>
+                            <span class="family-action-arrow" aria-hidden="true">→</span>
+                        </a>
+
+                        <a href="messages.html" class="family-action-card">
+                            <span class="family-action-icon action-blue" aria-hidden="true">✉</span>
+                            <span class="family-action-copy">
+                                <strong>Messages</strong>
+                                <small>Stay in touch with community members.</small>
+                            </span>
+                            <span class="family-action-arrow" aria-hidden="true">→</span>
+                        </a>
+
+                        <a href="verification.html" class="family-action-card">
+                            <span class="family-action-icon action-purple" aria-hidden="true">✓</span>
+                            <span class="family-action-copy">
+                                <strong>Verification</strong>
+                                <small>Review your account verification options.</small>
+                            </span>
+                            <span class="family-action-arrow" aria-hidden="true">→</span>
+                        </a>
+
+                    </div>
+                </section>
+
+                <!-- Members and Requests -->
+                <div class="family-content-grid">
+
+                    <!-- Family Members -->
+                    <section class="family-panel" id="familyMembers">
+                        <div class="family-panel-heading">
+                            <div>
+                                <span class="family-section-label">YOUR CARE CIRCLE</span>
+                                <h2>Family members</h2>
+                            </div>
+
+                            <span class="family-count-pill">
+                                <span id="familyMembersHeadingCount">2</span> members
+                            </span>
+                        </div>
+
+                        <p class="family-panel-description">
+                            Keep important support information organized
+                            for the people connected to your family account.
+                        </p>
+
+                        <div class="family-members-list" id="familyMembersList">
+
+                            <article class="family-member-card"
+                                     data-member-id="member-demo-001">
+                                <div class="family-member-avatar member-avatar-peach">AM</div>
+
+                                <div class="family-member-info">
+                                    <div class="family-member-name-row">
+                                        <h3>Anita Mehta</h3>
+                                        <span class="family-member-status status-connected">
+                                            Connected
+                                        </span>
+                                    </div>
+
+                                    <p class="family-member-role">Elderly member</p>
+
+                                    <div class="family-member-details">
+                                        <span aria-hidden="true">⌂</span>
+                                        <span>Bengaluru · Sample location</span>
+                                    </div>
+
+                                    <div class="family-member-details">
+                                        <span aria-hidden="true">♡</span>
+                                        <span>Prefers grocery and medicine assistance</span>
+                                    </div>
+
+                                    <a href="profile.html" class="family-member-link">
+                                        View profile <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <article class="family-member-card"
+                                     data-member-id="member-demo-002">
+                                <div class="family-member-avatar member-avatar-lavender">RK</div>
+
+                                <div class="family-member-info">
+                                    <div class="family-member-name-row">
+                                        <h3>Ravi Kumar</h3>
+                                        <span class="family-member-status status-connected">
+                                            Connected
+                                        </span>
+                                    </div>
+
+                                    <p class="family-member-role">Special Care member</p>
+
+                                    <div class="family-member-details">
+                                        <span aria-hidden="true">⌂</span>
+                                        <span>Bengaluru · Sample location</span>
+                                    </div>
+
+                                    <div class="family-member-details">
+                                        <span aria-hidden="true">♡</span>
+                                        <span>Prefers digital guidance and everyday support</span>
+                                    </div>
+
+                                    <a href="special-care.html" class="family-member-link">
+                                        Special Care information <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </article>
+
+                        </div>
+
+                        <div class="family-empty-state" id="familyMembersEmptyState" hidden>
+                            <span aria-hidden="true">♡</span>
+                            <h3>No linked members yet</h3>
+                            <p>
+                                Linked family members will appear here once
+                                the family connection feature is implemented.
+                            </p>
+                        </div>
+
+                        <div class="family-panel-footer">
+                            <p>
+                                <span aria-hidden="true">ⓘ</span>
+                                These sample members are not real linked accounts.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Family Requests -->
+                    <section class="family-panel" id="familyRequests">
+                        <div class="family-panel-heading">
+                            <div>
+                                <span class="family-section-label">ASSISTANCE TRACKER</span>
+                                <h2>Recent requests</h2>
+                            </div>
+
+                            <a href="my-requests.html" class="family-view-all">
+                                View all <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
+
+                        <p class="family-panel-description">
+                            Check the current status of assistance requests
+                            in this sample dashboard.
+                        </p>
+
+                        <div class="family-request-list" id="familyRequestList">
+
+                            <article class="family-request-card"
+                                     data-request-id="family-demo-001"
+                                     data-status="pending">
+                                <div class="family-request-icon request-icon-orange"
+                                     aria-hidden="true">⌂</div>
+
+                                <div class="family-request-content">
+                                    <div class="family-request-topline">
+                                        <span class="family-request-category">
+                                            GROCERIES
+                                        </span>
+                                        <span class="family-request-status status-pending">
+                                            Pending
+                                        </span>
+                                    </div>
+
+                                    <h3>Weekly grocery assistance</h3>
+                                    <p>For Anita Mehta</p>
+
+                                    <div class="family-request-meta">
+                                        <span aria-hidden="true">◷</span>
+                                        <span>12 October 2026 · Sample date</span>
+                                    </div>
+
+                                    <a href="request-details.html?id=demo-001"
+                                       class="family-request-link">
+                                        View details <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <article class="family-request-card"
+                                     data-request-id="family-demo-002"
+                                     data-status="in-progress">
+                                <div class="family-request-icon request-icon-blue"
+                                     aria-hidden="true">✆</div>
+
+                                <div class="family-request-content">
+                                    <div class="family-request-topline">
+                                        <span class="family-request-category">
+                                            DIGITAL GUIDANCE
+                                        </span>
+                                        <span class="family-request-status status-in-progress">
+                                            In progress
+                                        </span>
+                                    </div>
+
+                                    <h3>Smartphone guidance</h3>
+                                    <p>For Ravi Kumar</p>
+
+                                    <div class="family-request-meta">
+                                        <span aria-hidden="true">◷</span>
+                                        <span>11 October 2026 · Sample date</span>
+                                    </div>
+
+                                    <a href="request-details.html?id=demo-002"
+                                       class="family-request-link">
+                                        View details <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </article>
+
+                        </div>
+
+                        <div class="family-empty-state" id="familyRequestsEmptyState" hidden>
+                            <span aria-hidden="true">✓</span>
+                            <h3>No requests to display</h3>
+                            <p>
+                                Your family's assistance requests will appear here
+                                once they are connected to the backend.
+                            </p>
+                        </div>
+
+                        <a href="help-request.html" class="family-create-request-link">
+                            <span aria-hidden="true">＋</span>
+                            Create a new assistance request
+                        </a>
+                    </section>
+
+                </div>
+
+                <!-- Upcoming Support and SocialCredits -->
+                <div class="family-content-grid family-bottom-grid">
+
+                    <section class="family-panel family-upcoming-panel">
+                        <div class="family-panel-heading">
+                            <div>
+                                <span class="family-section-label">PLAN AHEAD</span>
+                                <h2>Upcoming support</h2>
+                            </div>
+                            <span class="family-calendar-icon" aria-hidden="true">▦</span>
+                        </div>
+
+                        <div class="family-upcoming-list">
+
+                            <article class="family-upcoming-item">
+                                <div class="family-date-block">
+                                    <span>OCT</span>
+                                    <strong>12</strong>
+                                </div>
+
+                                <div class="family-upcoming-info">
+                                    <h3>Grocery assistance</h3>
+                                    <p>Anita Mehta · Sample schedule</p>
+                                    <span class="upcoming-status">Awaiting confirmation</span>
+                                </div>
+                            </article>
+
+                            <article class="family-upcoming-item">
+                                <div class="family-date-block date-block-blue">
+                                    <span>OCT</span>
+                                    <strong>14</strong>
+                                </div>
+
+                                <div class="family-upcoming-info">
+                                    <h3>Digital guidance</h3>
+                                    <p>Ravi Kumar · Sample schedule</p>
+                                    <span class="upcoming-status upcoming-status-blue">
+                                        Planned support
+                                    </span>
+                                </div>
+                            </article>
+
+                        </div>
+
+                        <p class="family-upcoming-disclaimer">
+                            Dates above are examples. No real appointments have
+                            been scheduled.
+                        </p>
+                    </section>
+
+                    <section class="family-socialcredits-panel">
+                        <div class="family-credits-decoration" aria-hidden="true">♡</div>
+
+                        <span class="family-section-label">COMMUNITY RECIPROCITY</span>
+                        <h2>Understanding SocialCredits</h2>
+
+                        <p>
+                            SocialCredits recognize eligible completed
+                            assistance within CareCircle. They are not money
+                            and cannot be exchanged for cash.
+                        </p>
+
+                        <div class="family-credit-highlight">
+                            <span class="credit-highlight-icon" aria-hidden="true">✦</span>
+                            <div>
+                                <strong>Support is about more than credits.</strong>
+                                <p>
+                                    Family caregivers do not need to earn credits
+                                    to support their loved ones.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="wallet.html" class="family-credits-link">
+                            Learn about the wallet <span aria-hidden="true">→</span>
+                        </a>
+                    </section>
+
+                </div>
+
+                <!-- Safety and Privacy -->
+                <section class="family-safety-section">
+                    <div class="family-safety-header">
+                        <span class="family-safety-icon" aria-hidden="true">✓</span>
+                        <div>
+                            <span class="family-section-label">CARE WITH CONFIDENCE</span>
+                            <h2>Safety and privacy reminders</h2>
+                            <p>
+                                A few important practices when arranging community assistance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="family-safety-grid">
+                        <article class="family-safety-item">
+                            <span class="safety-number">01</span>
+                            <div>
+                                <h3>Respect personal choices</h3>
+                                <p>
+                                    Include the person receiving support in decisions
+                                    whenever possible. Respect their consent and dignity.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="family-safety-item">
+                            <span class="safety-number">02</span>
+                            <div>
+                                <h3>Protect private information</h3>
+                                <p>
+                                    Share only necessary details. Never send passwords,
+                                    banking PINs, or unnecessary identity information
+                                    through messages.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="family-safety-item">
+                            <span class="safety-number">03</span>
+                            <div>
+                                <h3>Confirm assistance arrangements</h3>
+                                <p>
+                                    Agree on the task, timing, and communication
+                                    expectations before assistance takes place.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <a href="services.html" class="family-safety-link">
+                        Explore community services <span aria-hidden="true">→</span>
+                    </a>
+                </section>
+
+                <!-- Final CTA -->
+                <section class="family-dashboard-cta">
+                    <div class="family-cta-content">
+                        <span class="family-cta-heart" aria-hidden="true">♡</span>
+                        <div>
+                            <h2>Small acts of care make a big difference.</h2>
+                            <p>
+                                Find the right assistance and strengthen your
+                                loved one's community connections.
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="browse-requests.html" class="btn btn-primary">
+                        Explore Community Help <span aria-hidden="true">→</span>
+                    </a>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-bottom">
+            <p>
+                © <span id="currentYear"></span> CareCircle.
+                Help Today. Be Helped Tomorrow.
+            </p>
+
+            <div class="footer-bottom-links">
+                <a href="about.html">About Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

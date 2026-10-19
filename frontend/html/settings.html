@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Manage your CareCircle account preferences, notifications, privacy, and accessibility settings.">
+
+    <title>Settings | CareCircle</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/settings.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/settings.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= Header ================= -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="../index.html" class="logo" aria-label="CareCircle home">
+                <span class="logo-icon">C</span>
+                <span>CareCircle</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="browse-requests.html">Find Help</a>
+                <a href="about.html">About</a>
+                <a href="dashboard.html" class="btn btn-outline">Dashboard</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ================= Page Hero ================= -->
+        <section class="settings-hero">
+            <div class="container">
+
+                <div class="settings-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="dashboard.html">Dashboard</a>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">Settings</span>
+                </div>
+
+                <div class="settings-hero-content">
+                    <div>
+                        <span class="section-eyebrow">YOUR ACCOUNT, YOUR CHOICES</span>
+
+                        <h1>Settings &amp; preferences</h1>
+
+                        <p>
+                            Make CareCircle work for you. Manage your notifications,
+                            privacy preferences, accessibility, and account options
+                            in one place.
+                        </p>
+                    </div>
+
+                    <div class="settings-hero-icon" aria-hidden="true">
+                        <svg viewBox="0 0 120 120" fill="none">
+                            <path d="M49 12H71L75 25C79 27 83 29 86 32L99 29L110 48L100 58C101 62 101 66 100 70L110 80L99 99L86 96C83 99 79 101 75 103L71 116H49L45 103C41 101 37 99 34 96L21 99L10 80L20 70C19 66 19 62 20 58L10 48L21 29L34 32C37 29 41 27 45 25L49 12Z"
+                                fill="#DCEFE0" stroke="#287A57" stroke-width="3"
+                                stroke-linejoin="round"/>
+                            <circle cx="60" cy="64" r="22" fill="#FFFFFF"
+                                stroke="#287A57" stroke-width="4"/>
+                            <circle cx="60" cy="64" r="9" fill="#287A57"/>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= Demo Notice ================= -->
+        <section class="settings-notice-section">
+            <div class="container">
+
+                <div class="settings-demo-notice" id="settingsDemoNotice">
+                    <span class="settings-notice-icon" aria-hidden="true">ⓘ</span>
+
+                    <div class="settings-notice-content">
+                        <strong>Settings demonstration</strong>
+                        <p>
+                            These controls demonstrate the planned settings interface.
+                            Changes are applied only where supported in this browser
+                            session and are not saved to your CareCircle account.
+                            Account security changes require backend integration.
+                        </p>
+                    </div>
+
+                    <button type="button" id="dismissSettingsNotice"
+                        class="settings-notice-dismiss"
+                        aria-label="Dismiss demonstration notice">
+                        &times;
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= Main Settings ================= -->
+        <section class="settings-main-section">
+            <div class="container">
+
+                <div class="settings-page-heading">
+                    <div>
+                        <span class="section-eyebrow">PERSONALIZE YOUR EXPERIENCE</span>
+                        <h2>Account settings</h2>
+                        <p>Choose the options that suit your needs.</p>
+                    </div>
+
+                    <div class="settings-status-indicator">
+                        <span class="settings-status-dot"></span>
+                        Demo account
+                    </div>
+                </div>
+
+                <div class="settings-layout">
+
+                    <!-- Settings Navigation -->
+                    <aside class="settings-sidebar">
+                        <div class="settings-sidebar-heading">
+                            <span class="settings-sidebar-icon" aria-hidden="true">⚙</span>
+                            <div>
+                                <h3>Preferences</h3>
+                                <p>Manage your experience</p>
+                            </div>
+                        </div>
+
+                        <nav class="settings-navigation" aria-label="Settings sections">
+                            <a href="#accountPreferences" class="settings-nav-link active"
+                                aria-current="location">
+                                <span class="settings-nav-icon" aria-hidden="true">◉</span>
+                                <span>Account preferences</span>
+                            </a>
+
+                            <a href="#notificationSettings" class="settings-nav-link">
+                                <span class="settings-nav-icon" aria-hidden="true">♧</span>
+                                <span>Notifications</span>
+                            </a>
+
+                            <a href="#privacySettings" class="settings-nav-link">
+                                <span class="settings-nav-icon" aria-hidden="true">♢</span>
+                                <span>Privacy</span>
+                            </a>
+
+                            <a href="#accessibilitySettings" class="settings-nav-link">
+                                <span class="settings-nav-icon" aria-hidden="true">◎</span>
+                                <span>Accessibility</span>
+                            </a>
+
+                            <a href="#accountManagement" class="settings-nav-link">
+                                <span class="settings-nav-icon" aria-hidden="true">♙</span>
+                                <span>Account management</span>
+                            </a>
+                        </nav>
+
+                        <div class="settings-sidebar-help">
+                            <div class="settings-help-icon" aria-hidden="true">?</div>
+                            <h4>Need help?</h4>
+                            <p>We're here if you need assistance with your account.</p>
+                            <a href="contact.html">Contact support <span aria-hidden="true">→</span></a>
+                        </div>
+                    </aside>
+
+                    <!-- Settings Content -->
+                    <div class="settings-content">
+
+                        <!-- Account Preferences -->
+                        <section class="settings-panel" id="accountPreferences">
+                            <div class="settings-panel-heading">
+                                <div class="settings-panel-icon" aria-hidden="true">◉</div>
+
+                                <div>
+                                    <h3>Account preferences</h3>
+                                    <p>Personalize your CareCircle experience.</p>
+                                </div>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Language</h4>
+                                    <p>Choose your preferred display language.</p>
+                                </div>
+
+                                <div class="settings-option-control">
+                                    <label class="visually-hidden" for="preferredLanguage">
+                                        Preferred language
+                                    </label>
+
+                                    <select id="preferredLanguage" name="preferredLanguage">
+                                        <option value="en">English</option>
+                                        <option value="hi">Hindi</option>
+                                        <option value="kn">Kannada</option>
+                                        <option value="ta">Tamil</option>
+                                        <option value="te">Telugu</option>
+                                        <option value="mr">Marathi</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Time format</h4>
+                                    <p>Choose how times are displayed.</p>
+                                </div>
+
+                                <div class="settings-option-control">
+                                    <label class="visually-hidden" for="timeFormat">
+                                        Time format
+                                    </label>
+
+                                    <select id="timeFormat" name="timeFormat">
+                                        <option value="12">12-hour format</option>
+                                        <option value="24">24-hour format</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Profile visibility</h4>
+                                    <p>Choose who can view your community profile.</p>
+                                </div>
+
+                                <div class="settings-option-control">
+                                    <label class="visually-hidden" for="profileVisibility">
+                                        Profile visibility
+                                    </label>
+
+                                    <select id="profileVisibility" name="profileVisibility">
+                                        <option value="community">Community members</option>
+                                        <option value="connections">My connections only</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Notification Settings -->
+                        <section class="settings-panel" id="notificationSettings">
+                            <div class="settings-panel-heading">
+                                <div class="settings-panel-icon" aria-hidden="true">♧</div>
+
+                                <div>
+                                    <h3>Notifications</h3>
+                                    <p>Decide which updates you would like to receive.</p>
+                                </div>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Request updates</h4>
+                                    <p>Receive updates when help requests change status.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="requestNotifications"
+                                        name="requestNotifications" checked>
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Enable request updates</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Messages</h4>
+                                    <p>Get notified when someone sends you a message.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="messageNotifications"
+                                        name="messageNotifications" checked>
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Enable message notifications</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>SocialCredits activity</h4>
+                                    <p>Receive updates about completed assistance and credit activity.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="creditNotifications"
+                                        name="creditNotifications" checked>
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Enable SocialCredits notifications</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Community announcements</h4>
+                                    <p>Hear about community news and important updates.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="communityNotifications"
+                                        name="communityNotifications">
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Enable community announcements</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Email notifications</h4>
+                                    <p>Receive supported account updates by email.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="emailNotifications"
+                                        name="emailNotifications" checked>
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Enable email notifications</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Privacy Settings -->
+                        <section class="settings-panel" id="privacySettings">
+                            <div class="settings-panel-heading">
+                                <div class="settings-panel-icon" aria-hidden="true">♢</div>
+
+                                <div>
+                                    <h3>Privacy &amp; information</h3>
+                                    <p>Review how your information is presented.</p>
+                                </div>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Show my community activity</h4>
+                                    <p>Allow your completed community activities to appear on your profile.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="showCommunityActivity"
+                                        name="showCommunityActivity" checked>
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Show community activity</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Show my SocialCredits balance</h4>
+                                    <p>Allow your balance to be visible on your community profile.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="showCreditBalance"
+                                        name="showCreditBalance">
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Show SocialCredits balance</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Show my online status</h4>
+                                    <p>Let connected community members see when you are active.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="showOnlineStatus"
+                                        name="showOnlineStatus">
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Show online status</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-privacy-reminder">
+                                <span aria-hidden="true">ⓘ</span>
+                                <p>
+                                    Never include passwords, identity document numbers,
+                                    private medical information, or sensitive personal
+                                    details in public profile content. These demonstration
+                                    controls do not change actual access permissions.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Accessibility Settings -->
+                        <section class="settings-panel" id="accessibilitySettings">
+                            <div class="settings-panel-heading">
+                                <div class="settings-panel-icon" aria-hidden="true">◎</div>
+
+                                <div>
+                                    <h3>Accessibility</h3>
+                                    <p>Adjust the interface to suit your comfort.</p>
+                                </div>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Larger text</h4>
+                                    <p>Increase text size to make reading more comfortable.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="largerText"
+                                        name="largerText">
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Enable larger text</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>High contrast</h4>
+                                    <p>Increase contrast between text, backgrounds, and controls.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="highContrast"
+                                        name="highContrast">
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Enable high contrast</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-option">
+                                <div class="settings-option-copy">
+                                    <h4>Reduce animations</h4>
+                                    <p>Limit decorative movement and transition effects.</p>
+                                </div>
+
+                                <label class="settings-switch">
+                                    <input type="checkbox" id="reduceAnimations"
+                                        name="reduceAnimations">
+                                    <span class="settings-switch-slider"></span>
+                                    <span class="visually-hidden">Reduce animations</span>
+                                </label>
+                            </div>
+
+                            <div class="settings-accessibility-note">
+                                <span aria-hidden="true">♡</span>
+                                <p>
+                                    CareCircle aims to make community support
+                                    comfortable and accessible for everyone.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Account Management -->
+                        <section class="settings-panel" id="accountManagement">
+                            <div class="settings-panel-heading">
+                                <div class="settings-panel-icon" aria-hidden="true">♙</div>
+
+                                <div>
+                                    <h3>Account management</h3>
+                                    <p>Manage account-related actions and security.</p>
+                                </div>
+                            </div>
+
+                            <div class="settings-account-action">
+                                <div class="settings-action-symbol" aria-hidden="true">♙</div>
+
+                                <div class="settings-action-copy">
+                                    <h4>Update your profile</h4>
+                                    <p>Change your name, contact information, and community interests.</p>
+                                </div>
+
+                                <a href="profile.html" class="settings-action-link">
+                                    Edit profile <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+
+                            <div class="settings-account-action">
+                                <div class="settings-action-symbol" aria-hidden="true">✓</div>
+
+                                <div class="settings-action-copy">
+                                    <h4>Verification status</h4>
+                                    <p>Review your verification information and available steps.</p>
+                                </div>
+
+                                <a href="verification.html" class="settings-action-link">
+                                    View status <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+
+                            <div class="settings-account-action">
+                                <div class="settings-action-symbol" aria-hidden="true">♧</div>
+
+                                <div class="settings-action-copy">
+                                    <h4>Change password</h4>
+                                    <p>Access password management when account security is connected.</p>
+                                </div>
+
+                                <button type="button" class="settings-action-link"
+                                    id="changePasswordButton">
+                                    Manage <span aria-hidden="true">→</span>
+                                </button>
+                            </div>
+
+                            <div class="settings-account-action settings-danger-action">
+                                <div class="settings-action-symbol" aria-hidden="true">!</div>
+
+                                <div class="settings-action-copy">
+                                    <h4>Account deletion</h4>
+                                    <p>
+                                        Account deletion is a sensitive action that
+                                        requires secure server-side processing.
+                                    </p>
+                                </div>
+
+                                <button type="button" class="settings-action-link settings-danger-link"
+                                    id="deleteAccountButton">
+                                    Learn more <span aria-hidden="true">→</span>
+                                </button>
+                            </div>
+
+                            <div class="settings-account-message" id="accountActionMessage"
+                                role="status" aria-live="polite" hidden></div>
+                        </section>
+
+                        <!-- Save Actions -->
+                        <div class="settings-save-bar">
+                            <div class="settings-save-copy">
+                                <span class="settings-save-icon" aria-hidden="true">✓</span>
+                                <span>Review your choices before leaving this page.</span>
+                            </div>
+
+                            <div class="settings-save-actions">
+                                <button type="button" class="btn btn-outline"
+                                    id="resetSettingsButton">
+                                    Reset changes
+                                </button>
+
+                                <button type="button" class="btn btn-primary"
+                                    id="saveSettingsButton">
+                                    Save preferences
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="settings-feedback" id="settingsFeedback"
+                            role="status" aria-live="polite" hidden></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= Support CTA ================= -->
+        <section class="settings-support-section">
+            <div class="container">
+
+                <div class="settings-support-card">
+                    <div class="settings-support-icon" aria-hidden="true">♡</div>
+
+                    <div class="settings-support-copy">
+                        <h2>Need help with your account?</h2>
+                        <p>
+                            If you're unsure about a setting or need assistance,
+                            reach out to the CareCircle support team.
+                        </p>
+                    </div>
+
+                    <a href="contact.html" class="btn btn-primary">
+                        Contact Support <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo footer-logo">
+                        <span class="logo-icon">C</span>
+                        <span>CareCircle</span>
+                    </a>
+
+                    <p>
+                        Help Today. Be Helped Tomorrow.
+                        Building a kinder community, one act of care at a time.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Explore</h3>
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="services.html">Services</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Community</h3>
+                    <a href="browse-requests.html">Find Help</a>
+                    <a href="help-request.html">Request Help</a>
+                    <a href="reviews.html">Reviews</a>
+                    <a href="special-care.html">Special Care</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Account</h3>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="profile.html">My Profile</a>
+                    <a href="verification.html">Verification</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="currentYear"></span> CareCircle.
+                    All rights reserved.
+                </p>
+                <p>Made with care for a stronger community.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
